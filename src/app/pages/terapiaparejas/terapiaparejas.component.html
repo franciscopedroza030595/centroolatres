@@ -1,0 +1,123 @@
+<div class="content">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="historia">
+        <div class="container contact-form">
+            <div class="contact-image">
+                <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+            </div>
+
+            <form [formGroup]="parejaForm" (ngSubmit)="historiapareja()">
+                <h3>Terapia De Parejas</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Motivo De Consulta</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Motivo" style="width: 200%; height: 150px;" formControlName="motivo"></textarea>
+                        </div>
+
+                        <h4>Evolucion E Historia Del Problema</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Evolucion e historia del problema" style="width: 200%; height: 150px;" formControlName="evolucion"></textarea>
+
+                        </div>
+
+                        <h4>Descripcion De Dinamica Familiar</h4>
+
+                        <h6>a. Características de los Familiares</h6>
+
+                        <div formArrayName="caracteristicaf">
+
+
+                            <div *ngFor="let item of caracteristicaf.controls; let i = index" [formGroupName]="i">
+                                <table style="width: 200%; ">
+
+                                    <tr>
+
+                                        <th>Nombre y Apellido</th>
+                                        <th>Parentesco</th>
+                                        <th>Edad</th>
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td><input type="text" name="" class="form-control" placeholder="Nombre y Apellido" formControlName="nombreyapellido" /></td>
+                                        <td><input type="text" name="" class="form-control" placeholder="Parentesco" formControlName="parentesco" /></td>
+                                        <td><input type="text" name="" class="form-control" placeholder="Edad" formControlName="edad" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ocupacion</th>
+                                        <th>Escolaridad</th>
+                                        <th>Vive con PCTE</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="" class="form-control" placeholder="Ocupacion" formControlName="ocupacion" /></td>
+                                        <td><input type="text" name="" class="form-control" placeholder="Escolaridad" formControlName="escolaridad" /></td>
+                                        <td><input type="text" name="" class="form-control" placeholder="Vive con PCTE" formControlName="viveconpte" /></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="form-group">
+                                <input type="button" name="add" class="btnContact2" (click)="addF()" value="+" />
+                                <input type="button" name="add" class="btnContact3" (click)="deleteF()" value="-" />
+                            </div>
+
+
+                        </div>
+
+                        <h6>b. Recopilación de la Historia de la Pareja</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Historia Familiar" style="width: 200%; height: 150px;" formControlName="historiap"></textarea>
+                        </div>
+                        <h6>c. Relaciones Actuales</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Relaciones Actuales" style="width: 200%; height: 150px;" formControlName="relacionesa"></textarea>
+                        </div>
+
+                        <h4>Proceso Terapeutico</h4>
+
+                        <h6>a. Opinión Diagnostica</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Recuperación de Historia Personal" style="width: 200%; height: 150px;" formControlName="opinion"></textarea>
+                        </div>
+
+                        <h6>b. Objetivos Terapéuticos</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Opinión Diagnostica" style="width: 200%; height: 150px;" formControlName="objetivos"></textarea>
+                        </div>
+
+
+
+                        <h6>c. Próxima Sesión</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Próxima Sesión" style="width: 200%; height: 150px;" formControlName="proximas"></textarea>
+                        </div>
+
+                        <h4>Observaciones</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Observaciones" style="width: 200%; height: 150px;" formControlName="observaciones"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </form>
+
+
+
+
+        </div>
+
+
+    </div>

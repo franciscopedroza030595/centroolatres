@@ -1,0 +1,86 @@
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    width: 200px;
+    word-wrap: break-word;
+    background-color: white;
+    color: black;
+    z-index: 2;
+    cursor: pointer;
+    .logo {
+        position: fixed;
+        top: 50%;
+        width: 180px;
+    }
+    .info {
+        position: fixed;
+        bottom: 25px;
+        width: 200px;
+        height: 80px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #344474;
+    }
+    .verticalLine {
+        border-right: 3px solid #129FCD;
+        height: 100%;
+        margin-left: 200px;
+    }
+    .menu {
+        position: fixed;
+        top: 25px;
+        width: 50px;
+        height: 50px;
+        left: 75px;
+    }
+    hr {
+        background-color: #27395C;
+        border-color: #27395C;
+    }
+    .popupmenu {
+        position: absolute;
+        top: 0px;
+        left: 130px;
+        height: 600px;
+        width: 260px;
+        background-color: #129FCD;
+        color: white;
+        opacity: 0.8;
+        z-index: 3;
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            opacity: 1;
+            &:hover {
+                font-size: 20px;
+                color: white;
+            }
+        }
+        .option {
+            margin-top: 120px;
+            margin-left: 30px;
+            width: 200px;
+            .options {
+                margin-top: 100px;
+            }
+        }
+        /*  .imgtop {
+            margin-left: 10px;
+            width: 200px;
+            .imga {
+                left: 10px;
+                width: 150px;
+                height: 100px;
+            }
+        } */
+    }
+}

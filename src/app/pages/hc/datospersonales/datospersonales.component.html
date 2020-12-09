@@ -1,0 +1,65 @@
+<div class="content">
+
+
+    <app-sidebar></app-sidebar>
+
+    <div class="datosp">
+        <div class="container contact-form">
+            <div class="contact-image">
+                <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+            </div>
+            <form [formGroup]="datospForm" (ngSubmit)="datosPersonales()">
+                <h3>Datos Personales</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Nombre  y Apellidos" formControlName="nombreyapellido" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Luga de nacimiento" formControlName="lugarnacimiento" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Fecha de nacimiento" formControlName="fechanacimiento" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Ocupacion" formControlName="ocupacion" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Direccion" formControlName="direccion" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Telefono" formControlName="telefono" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Cedula" formControlName="cedula" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Escolaridad" formControlName="escolaridad" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="Estrato" formControlName="estrato" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" placeholder="EPS" formControlName="eps" />
+                        </div>
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+
+</div>

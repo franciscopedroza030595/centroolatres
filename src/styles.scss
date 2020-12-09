@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+// Estilizar las alerta de sweetalert
+.swal2-popup {
+    .swal2-styled {
+        background-color: #17499D !important;
+    }
+}

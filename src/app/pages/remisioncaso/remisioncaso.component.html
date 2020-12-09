@@ -1,0 +1,73 @@
+<div class="content">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="historia">
+        <div class="container contact-form">
+            <div class="contact-image">
+                <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+            </div>
+            <form [formGroup]="remiForm" (ngSubmit)="remision()">
+                <h3>Remisión Del Caso</h3>
+                <h5>Número De La Sesion:</h5>
+                <h5>Sesiones Anteriores:</h5>
+                <h5>Remision:</h5>
+                <h5>Interconsulta:</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Descripción Del Encuentro Psicoterapeutico</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Motivo" style="width: 200%; height: 150px;" formControlName="descripcion"></textarea>
+                        </div>
+
+                        <h4>Evaluación Del Estado Menta </h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Evolucion e historia del problema" style="width: 200%; height: 150px;" formControlName="evaluacion"></textarea>
+
+                        </div>
+
+                        <h4>Impresión</h4>
+
+                        <h6>Diagnostica</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Historia Familiar" style="width: 200%; height: 150px;" formControlName="Diagnostica"></textarea>
+                        </div>
+                        <h6>COD</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Relaciones Actuales" style="width: 200%; height: 150px;" formControlName="cod"></textarea>
+                        </div>
+
+                        <h4>Seguimiento Del Caso</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Recuperación de Historia Personal" style="width: 200%; height: 150px;" formControlName="seguimiento"></textarea>
+                        </div>
+
+                        <h4>Medico O Entidad Receptora</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Opinión Diagnostica" style="width: 200%; height: 150px;" formControlName="medicoentidad"></textarea>
+                        </div>
+
+                        <h4>Observaciones</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Objetivos Terapéuticos" style="width: 200%; height: 150px;" formControlName="observaciones"></textarea>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>

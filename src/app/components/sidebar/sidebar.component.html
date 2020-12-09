@@ -1,0 +1,48 @@
+<div class="sidebar text-center">
+    <div class="d-flex flex-column justify-content-between align-items-center h-100">
+
+        <div class="verticalLine"> </div>
+
+        <!-- --------------- menu --------------- -->
+
+
+
+        <div class="menu clickme p-2" (click)="showMenu()">
+
+            <hr>
+            <hr>
+
+            <div class="popupmenu" *ngIf="showmenu">
+                <div class="d-flex flex-column text-right option">
+
+                    <!--   <div class="imgtop"><img class="imga" src="../../../assets/images/LOGO.jpg" alt="logo"></div> -->
+
+                    <div class="options"><a class="mb-4 clickme " routerLink="/registroP">Registro Paciente(s)</a></div>
+
+                    <div class="options"><a class="mb-4 clickme " routerLink="/datospersonales">Consultar Paciente(s)</a></div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- ------------------------------------- -->
+
+        <img src="../../../assets/images/logo_n.jpg" class="logo">
+
+        <div class="info">
+            <p> Dirección Carrera 38 No 6 - 50 <br>Barrio el templete <br>PBX.(2)347 5462 Movil 314 518 1303 <br>centro.olatres@gmail.com
+            </p>
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
