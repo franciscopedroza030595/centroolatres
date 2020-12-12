@@ -9,6 +9,8 @@ import { TerapiaparejasComponent } from './pages/terapiaparejas/terapiaparejas.c
 import { RegistropacientesComponent } from './pages/registropacientes/registropacientes.component';
 import { DatosparejaComponent } from './pages/datospareja/datospareja.component';
 import { RemisioncasoComponent } from './pages/remisioncaso/remisioncaso.component';
+import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
+
 
 
 
@@ -25,6 +27,7 @@ const routes: Routes = [
   {path: 'registroP', component: RegistropacientesComponent},
   {path: 'datospareja', component: DatosparejaComponent},
   {path: 'remision', component: RemisioncasoComponent},
+  {path: 'busquedap', component: BusquedapaComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

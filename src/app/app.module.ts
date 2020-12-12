@@ -16,6 +16,7 @@ import { RegistropacientesComponent } from './pages/registropacientes/registropa
 import { DatosparejaComponent } from './pages/datospareja/datospareja.component';
 import { DerivacioncasoComponent } from './pages/derivacioncaso/derivacioncaso.component';
 import { RemisioncasoComponent } from './pages/remisioncaso/remisioncaso.component';
+import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RemisioncasoComponent } from './pages/remisioncaso/remisioncaso.compone
     RegistropacientesComponent,
     DatosparejaComponent,
     DerivacioncasoComponent,
-    RemisioncasoComponent
+    RemisioncasoComponent,
+    BusquedapaComponent
   ],
   imports: [
     BrowserModule,
