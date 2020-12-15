@@ -50,4 +50,36 @@ export class UsuarioService {
     }
 
     /* ------------------------------------------------- */
+
+    obtenerInfoUsuario() {
+
+      const email = localStorage.getItem('email');
+  
+      return this.http.get(`${ base_url }/todo/coleccion/usuario/${email}`, {
+        headers: {
+          'x-token': localStorage.getItem('token') || ''
+        }
+  
+      });
+  
+  
+    }
+
+    /* ----------------crear paciente------------------ */
+
+    paciente(formData: any) {
+
+      return this.http.post(`${ base_url }/pacientes`, formData , {
+        headers: {
+          'x-token': localStorage.getItem('token') || ''
+        }
+  
+      });
+
+    }
+
+
+
+
+    /* ---------------crear pareja---------------------- */
 }

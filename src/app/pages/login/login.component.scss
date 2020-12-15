@@ -79,7 +79,7 @@ body {
 .login-space .group .input,
 .login-space .group .button {
     width: 100%;
-    color: #fff;
+    color: #1B2963;
     display: block
 }
 
@@ -119,7 +119,7 @@ body {
     content: '';
     width: 10px;
     height: 2px;
-    background: #fff;
+    background: #1B2963;
     position: absolute;
     transition: all .2s ease-in-out 0s
 }
@@ -135,10 +135,6 @@ body {
     top: 6px;
     right: 0;
     transform: scale(0) rotate(0)
-}
-
-.login-space .group .check:checked+label {
-    color: #fff
 }
 
 .login-space .group .check:checked+label .icon {
@@ -201,3 +197,5 @@ a {
 ::placeholder {
     color: #b3b3b3
 }
+
+.logo {}

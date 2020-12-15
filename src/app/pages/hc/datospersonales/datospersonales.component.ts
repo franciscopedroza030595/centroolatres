@@ -4,6 +4,10 @@ import {  FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
+import { UsuarioService } from '../../../services/usuario.service';
+
+
+
 
 @Component({
   selector: 'app-datospersonales',
@@ -12,7 +16,10 @@ import Swal from 'sweetalert2';
 })
 export class DatospersonalesComponent implements OnInit {
 
-  
+  datePickerConfig = {
+    drops: 'up',
+    format: 'YYYY-MM-DD'
+  }
 
   public formSubmitted = false;
 
@@ -20,7 +27,7 @@ export class DatospersonalesComponent implements OnInit {
   public datospForm = this.fb.group({
     nombreyapellido: ['', Validators.required ],
     lugarnacimiento: ['', Validators.required ],
-    fechanacimiento: ['', Validators.required ],
+    fechanacimiento: ['', Validators.required],
     ocupacion: ['', Validators.required ],
     direccion: ['', Validators.required ],
     telefono: ['', Validators.required ],
@@ -36,13 +43,11 @@ export class DatospersonalesComponent implements OnInit {
   tipohi!: string;
 
   constructor(  private fb: FormBuilder, private actiRoute: ActivatedRoute,
-                private router: Router ) { }
+                private router: Router, private usuarioService: UsuarioService ) { }
 
   ngOnInit(): void {
 
-   /* recibo la variable tipoh para poder reenviar */
-   this.tipohi = this.actiRoute.snapshot.paramMap.get('tipohi');
-   console.log(this.tipohi);
+  
   }
 
   datosPersonales() {
@@ -52,20 +57,27 @@ export class DatospersonalesComponent implements OnInit {
       return;
     }
     // Realizar el posteo mediante el servicio
-   
     console.log(this.datospForm.value);
- // enrutar a otra interfaz donde se haga el llenado de otras HC
 
-    if (this.tipohi === 'historiaA') {
+    this.usuarioService.paciente(this.datospForm.value).subscribe((resp: any) => {
+      
+    });
 
-    this.router.navigate(['/historiaA']);
+   
+ 
+ Swal.fire('' , 'Paciente registrado exitosamente', 'success').then((result) => {
+  if (result.value) {
+    this.router.navigate(['/registroP']);
+  }
+});
+
     
-   } else if (this.tipohi === 'remision') {
-    this.router.navigate(['/remision']);
-   }
     
     
 
   }
+
+
+  
 
 }

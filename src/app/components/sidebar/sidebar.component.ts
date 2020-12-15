@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../services/usuario.service';
+
+
 
 @Component({
   selector: 'app-sidebar',
@@ -11,14 +14,32 @@ export class SidebarComponent implements OnInit {
 
   showmenu = false;
 
-  constructor() { }
+  
+
+  constructor( private usuarioService: UsuarioService ) { }
 
   ngOnInit(): void {
+
+    
+
+
+
   }
 
   showMenu() {
     
-    this.showmenu = true;
+    this.usuarioService.validarToken().subscribe((res: any) => {
+   
+      if (res === false ) {
+        
+        this.showmenu = false;
+        
+      } else {
+       
+        this.showmenu = true;
+        
+      }
+    });
 
     
     

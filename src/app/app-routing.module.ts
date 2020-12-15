@@ -10,6 +10,8 @@ import { RegistropacientesComponent } from './pages/registropacientes/registropa
 import { DatosparejaComponent } from './pages/datospareja/datospareja.component';
 import { RemisioncasoComponent } from './pages/remisioncaso/remisioncaso.component';
 import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
+import { ConsultapacientesComponent } from './pages/consultapacientes/consultapacientes.component';
+
 
 
 
@@ -21,13 +23,14 @@ import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
 const routes: Routes = [
 
   {path: 'home', component: HomeComponent},
-  {path: 'datospersonales/:tipohi', component: DatospersonalesComponent},
+  {path: 'datospersonales', component: DatospersonalesComponent},
   {path: 'historiaA', component: HistoriaadultosComponent},
   {path: 'terapiaP', component: TerapiaparejasComponent},
   {path: 'registroP', component: RegistropacientesComponent},
   {path: 'datospareja', component: DatosparejaComponent},
   {path: 'remision', component: RemisioncasoComponent},
-  {path: 'busquedap', component: BusquedapaComponent},
+  {path: 'busquedaP', component: BusquedapaComponent},
+  {path: 'consultaP', component: ConsultapacientesComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

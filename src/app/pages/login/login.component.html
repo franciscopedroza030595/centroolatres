@@ -1,14 +1,56 @@
-<div class="row">
+<div class="row" *ngIf="!inicio">
     <div class="col-md-6 mx-auto p-0">
         <div class="card">
             <div class="login-box">
                 <div class="login-snip"> <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Centro Ola Tres</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
                     <div class="login-space">
                         <div class="login">
-                            <div class="group"> <label for="user" class="label">Usuario</label> <input id="user" type="text" class="input" placeholder="Usuario"> </div>
-                            <div class="group"> <label for="pass" class="label">Contraseña</label> <input id="pass" type="password" class="input" data-type="password" placeholder="contraseña"> </div>
-                            <div class="group"> <input id="check" type="checkbox" class="check"> <label for="check"><span class="icon"></span></label> </div>
-                            <div class="group"> <input type="submit" class="button" value="Ingresar"> </div>
+                            <form [formGroup]="loginForm" (ngSubmit)="login()" id="loginform">
+                                <div class="group"> <label for="user" class="label">Usuario</label> <input id="user" type="text" class="input" placeholder="Usuario" formControlName="email"> </div>
+                                <div class="group"> <label for="pass" class="label">Contraseña</label> <input id="pass" type="password" class="input" data-type="password" placeholder="contraseña" formControlName="password"> </div>
+                                <div class="group"> <input id="check" type="checkbox" class="check"> <label for="check"><span class="icon"></span></label> </div>
+                                <div class="group"> <input type="submit" class="button" value="Ingresar"> </div>
+                                <div class="hr"></div>
+                            </form>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="inicio">
+
+    <div class="logo">
+        <h2>Bienvenido A Su Portal</h2>
+        <img src="../../../assets/images/LOGO.jpg" class="logo">
+
+        <h3>Psicologo Francisco Pedroza</h3>
+    </div>
+
+
+
+
+</div> -->
+
+<div class="row" *ngIf="inicio">
+    <div class="col-md-6 mx-auto p-0">
+        <div class="card">
+            <div class="login-box">
+                <div class="login-snip"> <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Bienvenido A Su Portal</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+                    <div class="login-space">
+                        <div class="login">
+
+                            <div class="group"> <label for="user" class="label">{{nameObj.role}}</label>
+                            </div>
+                            <div class="group"> <label for="pass" class="label">{{nameObj.nombreU}} {{nameObj.apellidoU}}</label>
+                            </div>
+
+
                             <div class="hr"></div>
 
                         </div>

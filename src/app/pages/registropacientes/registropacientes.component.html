@@ -2,9 +2,15 @@
 
     <app-sidebar></app-sidebar>
 
+
+
+
     <div class="registroc">
 
-        <div class="row row-cols-1 row-cols-md-2">
+        <div class="usuario">
+            <h3>{{nameObj.role}} {{nameObj.nombreU}} {{nameObj.apellidoU}}</h3>
+        </div>
+        <div class="row  row-cols-md-2">
             <div class="col mb-5">
                 <!-- Card -->
                 <div class="card">
@@ -21,16 +27,16 @@
                     <div class="card-body">
 
                         <!--Title-->
-                        <h4 class="card-title">Formato Historia Adultos</h4>
+                        <h4 class="card-title">Paciente</h4>
 
-                        <button type="button" class="btn " (click)="historiaA()">Registro</button>
+                        <button type="button" class="btn " (click)="pacientes()">Registro</button>
 
                     </div>
 
                 </div>
                 <!-- Card -->
             </div>
-            <div class="col mb-5 ">
+            <div class="col mb-5">
                 <!-- Card -->
                 <div class="card ">
 
@@ -46,7 +52,7 @@
                     <div class="card-body ">
 
                         <!--Title-->
-                        <h4 class="card-title ">Formato Terapia De Parejas</h4>
+                        <h4 class="card-title ">Pareja</h4>
 
                         <button type="button " class="btn " (click)="parejas() ">Registro</button>
 
@@ -55,56 +61,8 @@
                 </div>
                 <!-- Card -->
             </div>
-            <div class="col mb-5 ">
-                <!-- Card -->
-                <div class="card ">
 
-                    <!--Card image-->
-                    <div class="view overlay ">
-                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
-                        <a href="#! ">
-                            <div class="mask rgba-white-slight "></div>
-                        </a>
-                    </div>
 
-                    <!--Card content-->
-                    <div class="card-body ">
-
-                        <!--Title-->
-                        <h4 class="card-title ">Formato Derivación De Caso</h4>
-
-                        <button type="button " class="btn " (click)="derivacion()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
-            <div class="col mb-5 ">
-                <!-- Card -->
-                <div class="card ">
-
-                    <!--Card image-->
-                    <div class="view overlay ">
-                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
-                        <a href="#! ">
-                            <div class="mask rgba-white-slight "></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body ">
-
-                        <!--Title-->
-                        <h4 class="card-title ">Formato Remisión De Caso</h4>
-
-                        <button type="button " class="btn " (click)="remision()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
         </div>
 
 

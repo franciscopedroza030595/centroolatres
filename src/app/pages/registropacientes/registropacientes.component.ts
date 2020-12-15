@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
+import { UsuarioService } from '../../services/usuario.service';
 
 
 @Component({
@@ -9,17 +12,51 @@ import { Router } from '@angular/router';
 })
 export class RegistropacientesComponent implements OnInit {
 
-tipohi = '';
 
-
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
+  public nameObj = {
+    nombreU: '',
+    apellidoU: '',
+    role: ''
   }
 
-  historiaA() {
-    this.tipohi = 'historiaA';
-    this.router.navigate(['/datospersonales', this.tipohi]);
+  
+  constructor(private router: Router, private usuarioService: UsuarioService) { }
+
+  ngOnInit(): void {
+
+    this.usuarioService.validarToken().subscribe((res: any) => {
+   
+      if (res === false ) {
+        /* pedir que haga loguin o creee cuenta para obtener token de local storage */
+        
+        Swal.fire('', 'Por favor inicie sesion', 'error' );
+        
+        this.router.navigate(['/home']);
+        
+      } else {
+
+        this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
+          console.log(resp);
+          this.nameObj.nombreU = resp.resultados[0].nombre;
+          this.nameObj.apellidoU = resp.resultados[0].apellido;
+          this.nameObj.role = resp.resultados[0].role;
+          
+          localStorage.setItem('nameObj', JSON.stringify(this.nameObj));
+        });
+
+
+
+        
+      }
+    });
+
+
+  }
+
+
+  pacientes() {
+    
+    this.router.navigate(['/datospersonales']);
 
   }
 
@@ -30,18 +67,5 @@ tipohi = '';
 
   }
 
-  derivacion() {
-    this.tipohi = 'derivacion';
-
-    this.router.navigate(['/datospersonales', this.tipohi]);
-
-  }
-
-  remision() {
-
-    this.tipohi = 'remision';
-    this.router.navigate(['/datospersonales', this.tipohi]);
-
-  }
-
+  
 }

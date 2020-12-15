@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {DpDatePickerModule} from 'ng2-date-picker';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -17,6 +19,7 @@ import { DatosparejaComponent } from './pages/datospareja/datospareja.component'
 import { DerivacioncasoComponent } from './pages/derivacioncaso/derivacioncaso.component';
 import { RemisioncasoComponent } from './pages/remisioncaso/remisioncaso.component';
 import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
+import { ConsultapacientesComponent } from './pages/consultapacientes/consultapacientes.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +34,17 @@ import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
     DatosparejaComponent,
     DerivacioncasoComponent,
     RemisioncasoComponent,
-    BusquedapaComponent
+    BusquedapaComponent,
+    ConsultapacientesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DpDatePickerModule  
+
   ],
   providers: [],
   bootstrap: [AppComponent]
