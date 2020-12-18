@@ -23,3 +23,52 @@ button {
     height: 380px !important;
     .card-body {}
 }
+
+.consulta {
+    width: 100%;
+    margin: auto;
+    top: 50%;
+    width: 600px;
+    height: 400px;
+    position: relative;
+    background: url(../../../assets/images/LOGO.jpg) no-repeat center;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+}
+
+.snip {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 90px 70px 50px 70px;
+    background: #e6ecee;
+    opacity: 0.9;
+    color: #1B2963;
+    .tab {
+        font-size: 22px;
+        margin-right: 15px;
+        padding-bottom: 5px;
+        margin: 0 15px 10px 0;
+        display: inline-block;
+        border-bottom: 2px solid transparent
+    }
+    .group {
+        margin-bottom: 15px
+    }
+    .label {
+        width: 100%;
+        color: #1B2963;
+        display: block
+    }
+    .input,
+    .button {
+        border: none;
+        padding: 15px 20px;
+        border-radius: 25px;
+        background: rgba(27, 41, 99, 0.1)
+    }
+    .button {
+        background: #129FCD;
+        color: #1B2963;
+        display: block
+    }
+}

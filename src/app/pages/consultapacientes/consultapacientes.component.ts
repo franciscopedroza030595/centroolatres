@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { ConsultasService } from '../../services/consultas.service';
+
+import Swal from 'sweetalert2';
+
+
+
 
 @Component({
   selector: 'app-consultapacientes',
@@ -9,16 +15,68 @@ import { Router } from '@angular/router';
 })
 export class ConsultapacientesComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  cedula = '';
+  id= '';
+
+  tipoh = '';
+
+  consulta = false;
+
+  constructor(private router: Router, private consultaService: ConsultasService) { }
 
   ngOnInit(): void {
   }
 
 
+  buscarC() {
 
+    
+
+    this.consultaService.obtenerPaciente(this.cedula).subscribe((resp: any) => {
+      
+      console.log(resp);
+
+      if(resp.resultados !== null) {
+
+        this.id = resp.resultados.uid;
+
+        console.log(this.id);
+      
+
+        Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+          if (result.value) {
+            
+            if(this.tipoh === 'historiaA') {
+
+              this.router.navigate(['/historiaA', this.id]);
+            } else {
+              console.log('no');
+            }
+          
+          }
+        });
+      }
+      else {
+        Swal.fire('' , 'Paciente No Existente, por favor registre el paciente primero', 'error').then((result) => {
+          if (result.value) {
+    
+            
+          
+          }
+        });
+      }
+    });
+    
+    
+    
+
+  }
   historiaA(){
 
-    this.router.navigate(['/historiaA']);
+
+    this.consulta = true
+    this.tipoh = 'historiaA';
+   
 
   }
 

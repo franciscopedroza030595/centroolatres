@@ -4,7 +4,7 @@
 
     <div class="registroc">
 
-        <div class="row row-cols-1 row-cols-md-2">
+        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
             <div class="col mb-5">
                 <!-- Card -->
                 <div class="card">
@@ -111,6 +111,31 @@
 
     </div>
 
+    <!-- para el recuadro que aparecera consultando cedula -->
+    <div class="consulta" *ngIf="consulta">
+
+        <div class="snip">
+
+            <label for="tab-1" class="tab">Consulta Por Cedula</label>
+
+            <div class="login">
+
+                <div class="group"> <label for="user" class="label">Digite Cedula</label> <input id="user" type="text" class="input" placeholder="Cedula" [(ngModel)]="cedula"> </div>
+
+
+                <div class="group"> <input type="submit" class="button" value="Enviar" (click)="buscarC()"> </div>
+                <div class="hr"></div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
 
 
 

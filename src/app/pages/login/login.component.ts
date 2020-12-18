@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   inicio = false;
 
-  
+
   nameObj = {
     nombreU: '',
     apellidoU: '',
@@ -93,7 +93,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('nameObj', JSON.stringify(this.nameObj));
         });
        
-        Swal.fire('', 'Inicio de sesion exitosa', 'success');
+        Swal.fire('', 'Inicio de sesion exitosa', 'success'); 
 
         this.inicio = true;
         

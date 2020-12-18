@@ -2,7 +2,15 @@ import { Component, OnInit } from '@angular/core';
 
 import {  FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@angular/forms';
 
+
+
+import { ActivatedRoute } from '@angular/router';
+
 import Swal from 'sweetalert2';
+
+import { ConsultasService } from '../../services/consultas.service';
+
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-historiaadultos',
@@ -13,12 +21,15 @@ export class HistoriaadultosComponent implements OnInit {
 
 
 
-  
+  id: any;
+  infoPaciente: any;
+  fecha: any;
+
   public formSubmitted = false;
   haForm:FormGroup;
 
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute) { 
 
     this.haForm = this.fb.group({
       motivo: ['', Validators.required ],
@@ -46,7 +57,21 @@ export class HistoriaadultosComponent implements OnInit {
   ngOnInit() {
 
    
+    this.id = this.actiRoute.snapshot.paramMap.get('id');
+    console.log(this.id);
 
+    
+
+    this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
+      
+      
+      this.infoPaciente = resp.resultados;
+      console.log(this.infoPaciente);
+
+    });
+    
+    this.fecha = formatDate(new Date(), 'YYYY-MM-dd', 'en');
+    
 
     /* creo el form para la historia clinica con las caracteristicas de los familiares */
     /* aqui va el cuadros de las caracteristicas de los familiares */
