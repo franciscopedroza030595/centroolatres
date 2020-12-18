@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-consultapacientes',
   templateUrl: './consultapacientes.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultapacientesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -15,6 +17,8 @@ export class ConsultapacientesComponent implements OnInit {
 
 
   historiaA(){
+
+    this.router.navigate(['/historiaA']);
 
   }
 

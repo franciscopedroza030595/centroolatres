@@ -11,13 +11,34 @@ import Swal from 'sweetalert2';
 })
 export class TerapiaparejasComponent implements OnInit {
 
-  tipohi: string;
+  
 
   public formSubmitted = false;
 
   parejaForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    this.parejaForm = this.fb.group({
+      motivo: ['', Validators.required ],
+      evolucion: ['', Validators.required ],
+      caracteristicaf: this.fb.array([this.fb.group({
+        nombreyapellido: ['', Validators.required ],
+        parentesco: ['', Validators.required ],
+        edad: ['', Validators.required ],
+        ocupacion: ['', Validators.required ],
+        escolaridad: ['', Validators.required ],
+        viveconpte: ['', Validators.required ]
+      })]),
+      historiap: ['', Validators.required ],
+      relacionesa: ['', Validators.required ],
+      opinion: ['', Validators.required ],
+      objetivos: ['', Validators.required ],
+      proximas: ['', Validators.required ],
+      observaciones: ['', Validators.required ]
+
+    });
+
+   }
 
   ngOnInit(): void {
 
@@ -79,7 +100,7 @@ export class TerapiaparejasComponent implements OnInit {
     }));
   }
 
-  deleteF(index) {
+  deleteF(index:any) {
     this.caracteristicaf.removeAt(index);
   }
 

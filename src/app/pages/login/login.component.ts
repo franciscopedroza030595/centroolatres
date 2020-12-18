@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   inicio = false;
 
-  public nameObj = {
+  
+  nameObj = {
     nombreU: '',
     apellidoU: '',
     role: ''
@@ -32,12 +33,17 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) {
+
+    
+
     if (localStorage.getItem('nameObj')) {
-      this.nameObj = JSON.parse(localStorage.getItem('nameObj'));
+      this.nameObj = JSON.parse(localStorage.getItem('nameObj')); 
     }
    }
 
   ngOnInit(): void {
+
+   
 
     this.usuarioService.validarToken().subscribe((res: any) => {
    

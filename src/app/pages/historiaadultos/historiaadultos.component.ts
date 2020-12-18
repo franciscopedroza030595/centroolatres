@@ -20,7 +20,27 @@ export class HistoriaadultosComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { 
 
-    
+    this.haForm = this.fb.group({
+      motivo: ['', Validators.required ],
+      evolucion: ['', Validators.required ],
+      caracteristicaf: this.fb.array([this.fb.group({
+        nombreyapellido: ['', Validators.required ],
+        parentesco: ['', Validators.required ],
+        edad: ['', Validators.required ],
+        ocupacion: ['', Validators.required ],
+        escolaridad: ['', Validators.required ],
+        viveconpte: ['', Validators.required ]
+      })]),
+      historiaf: ['', Validators.required ],
+      relacionesa: ['', Validators.required ],
+      recuperacion: ['', Validators.required ],
+      opinion: ['', Validators.required ],
+      objetivos: ['', Validators.required ],
+      proximas: ['', Validators.required ],
+      observaciones: ['', Validators.required ]
+      
+    });
+
   }
 
   ngOnInit() {
@@ -78,7 +98,7 @@ export class HistoriaadultosComponent implements OnInit {
     }));
   }
 
-  deleteF(index) {
+  deleteF(index: any) {
     this.caracteristicaf.removeAt(index);
   }
 
