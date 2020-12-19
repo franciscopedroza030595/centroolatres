@@ -4,7 +4,7 @@ import {  FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@an
 
 
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -29,7 +29,7 @@ export class HistoriaadultosComponent implements OnInit {
   haForm:FormGroup;
 
 
-  constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute) { 
+  constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute, private router: Router) { 
 
     this.haForm = this.fb.group({
       motivo: ['', Validators.required ],
@@ -48,7 +48,9 @@ export class HistoriaadultosComponent implements OnInit {
       opinion: ['', Validators.required ],
       objetivos: ['', Validators.required ],
       proximas: ['', Validators.required ],
-      observaciones: ['', Validators.required ]
+      observaciones: ['', Validators.required ],
+      paciente: [''],
+      fecha:[]
       
     });
 
@@ -61,7 +63,7 @@ export class HistoriaadultosComponent implements OnInit {
     console.log(this.id);
 
     
-
+  /* traer la informacion del paciente con el id obtenido por la cedula en la consulta anterior */
     this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
       
       
@@ -69,7 +71,7 @@ export class HistoriaadultosComponent implements OnInit {
       console.log(this.infoPaciente);
 
     });
-    
+    /* creo la fecha actual con la cual el registro es guardado */
     this.fecha = formatDate(new Date(), 'YYYY-MM-dd', 'en');
     
 
@@ -92,7 +94,9 @@ export class HistoriaadultosComponent implements OnInit {
       opinion: ['', Validators.required ],
       objetivos: ['', Validators.required ],
       proximas: ['', Validators.required ],
-      observaciones: ['', Validators.required ]
+      observaciones: ['', Validators.required ],
+      paciente: [''],
+      fecha:[]
       
         
       
@@ -131,11 +135,33 @@ export class HistoriaadultosComponent implements OnInit {
 
   this.formSubmitted = true;
 
+ 
+
   if ( this.haForm.invalid ) {
     Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
     return;
   }
+
+  this.haForm.value.paciente = this.id;
+  this.haForm.value.fecha = this.fecha;
+
   console.log(this.haForm.value);
+
+  /* llamo al servicio de registro de formularios */
+
+  this.consultaService.historiaA(this.haForm.value).subscribe((resp: any) => {
+
+    console.log(resp);
+      
+  });
+
+  Swal.fire('' , 'Paciente registrado exitosamente', 'success').then((result) => {
+    if (result.value) {
+  
+     
+      this.router.navigate(['/consultaP']);
+    }
+  });
 
  }
 }

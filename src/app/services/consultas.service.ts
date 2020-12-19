@@ -46,4 +46,22 @@ pacienteporID(id:any) {
 
 }
 /* ------------------------------------------------- */
+
+/* ----------------crear hisotriaA------------------ */
+
+historiaA(formData: any) {
+
+  return this.http.post(`${ base_url }/historiaA`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+}
+
+
+
+/* ------------------------------------- */
+
 }
