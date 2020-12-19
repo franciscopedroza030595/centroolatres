@@ -4,6 +4,9 @@ import {  FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
+import { UsuarioService } from '../../services/usuario.service';
+
+
 
 @Component({
   selector: 'app-datospareja',
@@ -11,6 +14,17 @@ import Swal from 'sweetalert2';
   styleUrls: ['./datospareja.component.scss']
 })
 export class DatosparejaComponent implements OnInit {
+
+
+  datePickerConfig = {
+    drops: 'up',
+    format: 'YYYY-MM-DD',
+    multipleYearsNavigateBy: 10,
+    showMultipleYearsNavigation: true,
+  }
+
+  edadP1 = 0 ;
+  edadP2 = 0 ;
 
   
   public formSubmitted = false;
@@ -27,6 +41,7 @@ export class DatosparejaComponent implements OnInit {
     escolaridad: ['', Validators.required ],
     estrato: ['', Validators.required ],
     eps: ['', Validators.required ],
+    edad:[],
     nombreyapellido2: ['', Validators.required ],
     lugarnacimiento2: ['', Validators.required ],
     fechanacimiento2: ['', Validators.required ],
@@ -37,6 +52,7 @@ export class DatosparejaComponent implements OnInit {
     escolaridad2: ['', Validators.required ],
     estrato2: ['', Validators.required ],
     eps2: ['', Validators.required ],
+    edad2:[]
     
    
     
@@ -45,9 +61,11 @@ export class DatosparejaComponent implements OnInit {
   
 
   constructor( private fb: FormBuilder, private actiRoute: ActivatedRoute,
-               private router: Router) { }
+               private router: Router, private usuarioService: UsuarioService ) { }
 
   ngOnInit(): void {
+
+
 
     
   }
@@ -58,12 +76,55 @@ export class DatosparejaComponent implements OnInit {
       Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
       return;
     }
-    // Realizar el posteo mediante el servicio
+
+
+     /* calcular la edad con la fechanan */
+     this.edades(this.datospForm.value.fechanacimiento, this.datospForm.value.fechanacimiento2);
+    
+
+    this.datospForm.value.edad = this.edadP1;
+    this.datospForm.value.edad2 = this.edadP2;
+
     
     console.log(this.datospForm.value);
-    // enrutar a otra interfaz donde se haga el llenado de otras HC
+    
+
+    this.usuarioService.pareja(this.datospForm.value).subscribe((resp: any) => {
+      
+    });
+
+   
+ 
+ Swal.fire('' , 'Pareja registrada exitosamente', 'success').then((result) => {
+  if (result.value) {
+
+   /*  en realidad aqui debe enviar a foto y firma */
+    this.router.navigate(['/registroP']);
+  }
+});
    
     
+
+  }
+
+  edades(edad1: any, edad2: any){
+
+
+      const convertAge = new Date(edad1);
+      const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+      const showAge = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
+      
+      this.edadP1 = showAge;
+
+      const convertAge2 = new Date(edad2);
+      const timeDiff2 = Math.abs(Date.now() - convertAge2.getTime());
+      const showAge2 = Math.floor((timeDiff2 / (1000 * 3600 * 24))/365);
+      
+      this.edadP2 = showAge2;
+      
+      
+   
+
 
   }
 

@@ -29,7 +29,22 @@ export class ConsultasService {
 
 
   }
+
 /* ------------------------------------------------- */
+obtenerPareja(cedula:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/pareja/${cedula}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
+
 /* ------------------------------------------------- */
 
 pacienteporID(id:any) {
@@ -37,6 +52,22 @@ pacienteporID(id:any) {
     
 
   return this.http.get(`${ base_url }/todo/coleccion/pacienteid/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
+/* ------------------------------------------------- */
+/* ------------------------------------------------- */
+
+parejaporID(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/parejaid/${id}`, {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }
@@ -59,9 +90,18 @@ historiaA(formData: any) {
   });
 
 }
+/* ----------------crear TerapiaP------------------ */
 
+terapiaP(formData: any) {
 
+  return this.http.post(`${ base_url }/terapiaP`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
 
+  });
+
+}
 /* ------------------------------------- */
 
 }

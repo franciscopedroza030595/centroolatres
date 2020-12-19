@@ -82,4 +82,16 @@ export class UsuarioService {
 
 
     /* ---------------crear pareja---------------------- */
+
+    pareja(formData: any) {
+
+      return this.http.post(`${ base_url }/parejas`, formData , {
+        headers: {
+          'x-token': localStorage.getItem('token') || ''
+        }
+  
+      });
+
+    }
+    /* --------------------------------------------------------- */
 }

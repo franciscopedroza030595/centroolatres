@@ -45,7 +45,7 @@ export class DatospersonalesComponent implements OnInit {
     
   });
 
-  tipohi!: string;
+  
 
   constructor(  private fb: FormBuilder, private actiRoute: ActivatedRoute,
                 private router: Router, private usuarioService: UsuarioService ) { }
@@ -83,7 +83,7 @@ export class DatospersonalesComponent implements OnInit {
  Swal.fire('' , 'Paciente registrado exitosamente', 'success').then((result) => {
   if (result.value) {
 
-   
+   /*  en realidad aqui debe enviar a foto y firma */
     this.router.navigate(['/registroP']);
   }
 });

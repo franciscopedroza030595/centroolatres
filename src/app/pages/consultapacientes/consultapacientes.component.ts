@@ -49,6 +49,10 @@ export class ConsultapacientesComponent implements OnInit {
             if(this.tipoh === 'historiaA') {
 
               this.router.navigate(['/historiaA', this.id]);
+
+            } else if(this.tipoh === 'terapiaP'){
+              this.router.navigate(['/terapiaP', this.id]);
+              
             } else {
               console.log('no');
             }
@@ -81,6 +85,9 @@ export class ConsultapacientesComponent implements OnInit {
   }
 
   parejas(){
+
+    this.consulta = true
+    this.tipoh = 'terapiaP';
 
   }
 

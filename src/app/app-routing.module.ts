@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'datospersonales', component: DatospersonalesComponent},
   {path: 'historiaA/:id', component: HistoriaadultosComponent},
-  {path: 'terapiaP', component: TerapiaparejasComponent},
+  {path: 'terapiaP/:id', component: TerapiaparejasComponent},
   {path: 'registroP', component: RegistropacientesComponent},
   {path: 'datospareja', component: DatosparejaComponent},
   {path: 'remision', component: RemisioncasoComponent},

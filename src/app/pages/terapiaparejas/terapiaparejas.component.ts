@@ -4,6 +4,12 @@ import {  FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@an
 
 import Swal from 'sweetalert2';
 
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { ConsultasService } from '../../services/consultas.service';
+
+import {formatDate} from '@angular/common';
+
 @Component({
   selector: 'app-terapiaparejas',
   templateUrl: './terapiaparejas.component.html',
@@ -11,13 +17,16 @@ import Swal from 'sweetalert2';
 })
 export class TerapiaparejasComponent implements OnInit {
 
-  
+  id: any;
+  infoPareja: any;
+  fecha: any;
 
   public formSubmitted = false;
 
   parejaForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private consultaService: ConsultasService, private actiRoute: ActivatedRoute, private router: Router) {
+
     this.parejaForm = this.fb.group({
       motivo: ['', Validators.required ],
       evolucion: ['', Validators.required ],
@@ -34,7 +43,9 @@ export class TerapiaparejasComponent implements OnInit {
       opinion: ['', Validators.required ],
       objetivos: ['', Validators.required ],
       proximas: ['', Validators.required ],
-      observaciones: ['', Validators.required ]
+      observaciones: ['', Validators.required ],
+      pareja: [''],
+      fecha:[]
 
     });
 
@@ -43,6 +54,22 @@ export class TerapiaparejasComponent implements OnInit {
   ngOnInit(): void {
 
 
+    this.id = this.actiRoute.snapshot.paramMap.get('id');
+    console.log(this.id);
+    
+    /* traer la informacion de pareja con el id obtenido por la cedula en la consulta anterior */
+    this.consultaService.parejaporID(this.id).subscribe((resp: any) => {
+      
+      
+      this.infoPareja = resp.resultados;
+      console.log(this.infoPareja);
+
+    });
+
+    /* creo la fecha actual con la cual el registro es guardado */
+    this.fecha = formatDate(new Date(), 'YYYY-MM-dd', 'en');
+
+
     this.parejaForm = this.fb.group({
       motivo: ['', Validators.required ],
       evolucion: ['', Validators.required ],
@@ -59,7 +86,9 @@ export class TerapiaparejasComponent implements OnInit {
       opinion: ['', Validators.required ],
       objetivos: ['', Validators.required ],
       proximas: ['', Validators.required ],
-      observaciones: ['', Validators.required ]
+      observaciones: ['', Validators.required ],
+      pareja: [''],
+      fecha:[]
 
     });
   }
@@ -77,7 +106,29 @@ export class TerapiaparejasComponent implements OnInit {
       Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
       return;
     }
+
+    this.parejaForm.value.pareja = this.id;
+    this.parejaForm.value.fecha = this.fecha;
+
     console.log(this.parejaForm.value);
+
+
+
+    /* llamo al servicio de registro de formularios */
+
+  this.consultaService.terapiaP(this.parejaForm.value).subscribe((resp: any) => {
+
+    console.log(resp);
+      
+  });
+
+  Swal.fire('' , 'Pareja registrada exitosamente', 'success').then((result) => {
+    if (result.value) {
+  
+     
+      this.router.navigate(['/consultaP']);
+    }
+  });
   
    }
 
