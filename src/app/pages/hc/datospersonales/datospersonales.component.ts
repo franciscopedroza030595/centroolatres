@@ -30,7 +30,7 @@ export class DatospersonalesComponent implements OnInit {
 
   signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
     'minWidth': 2,
-    'canvasWidth': 500,
+    'canvasWidth': 550,
     'canvasHeight': 200,
     
     

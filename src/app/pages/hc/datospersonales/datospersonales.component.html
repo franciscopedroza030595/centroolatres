@@ -10,22 +10,31 @@
             </div>
             <!-- for camera -->
 
-            <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
+            <div class="row">
+                <div class="col-md-6">
+                    <webcam class="webcam" [height]="275" [width]="400" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
+                </div>
 
-            <br/>
-            <button class="actionBtn" (click)="triggerSnapshot();">Take A Snapshot</button>
+                <div class="col-md-6" *ngIf="webcamImage">
 
-            <br/>
 
-            <div class="snapshot" *ngIf="webcamImage">
+                    <img [height]="275" [width]="400" [src]="webcamImage.imageAsDataUrl" />
+                </div>
 
-                <img [src]="webcamImage.imageAsDataUrl" />
+
             </div>
+
+            <div class="tomar">
+                <button class="btnContacti" (click)="triggerSnapshot();">Tomar</button>
+            </div>
+
             <!-- ----------- -->
             <form [formGroup]="datospForm" (ngSubmit)="datosPersonales()">
                 <h3>Datos Personales</h3>
                 <div class="row">
                     <div class="col-md-6">
+
+
                         <div class="form-group">
                             <input type="text" name="" class="form-control" placeholder="Nombre  y Apellidos" formControlName="nombreyapellido" />
                         </div>
@@ -44,14 +53,12 @@
                             <input type="text" name="" class="form-control" placeholder="Direccion" formControlName="direccion" />
                         </div>
 
-                        <div class="form-group">
-                            <!-- boto enviar -->
-                            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
-                        </div>
+
                     </div>
 
 
                     <div class="col-md-6">
+
 
                         <div class="form-group">
                             <input type="text" name="" class="form-control" placeholder="Telefono" formControlName="telefono" />
@@ -73,10 +80,16 @@
                     </div>
                 </div>
 
-
                 <!-- signature    -->
-                <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
-                <button type="button" class="btnContact" (click)="clearSignature()">Limpiar</button>
+                <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+                <div class="tomar">
+                    <button type="button" class="btnContacti" (click)="clearSignature()">Limpiar</button>
+                </div>
+
+                <div class="enviar">
+                    <!-- boton enviar -->
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+                </div>
             </form>
 
 
