@@ -6,6 +6,9 @@
         <div class="container contact-form">
             <div class="contact-image">
                 <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+                <h5>{{infoPareja.nombreyapellido}} & {{infoPareja.nombreyapellido2}}</h5>
+                <h5>Cedulas: {{infoPareja.cedula}} & {{infoPareja.cedula2}}</h5>
+                <h5>Fecha: {{fecha}}</h5>
             </div>
 
             <form [formGroup]="parejaForm" (ngSubmit)="historiapareja()">

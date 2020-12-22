@@ -90,6 +90,22 @@ historiaA(formData: any) {
   });
 
 }
+
+
+/* -----------obtener historiaA por id------------------ */
+historiaID(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/historiaA/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
 /* ----------------crear TerapiaP------------------ */
 
 terapiaP(formData: any) {

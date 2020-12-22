@@ -155,7 +155,7 @@ export class HistoriaadultosComponent implements OnInit {
       
   });
 
-  Swal.fire('' , 'Paciente registrado exitosamente', 'success').then((result) => {
+  Swal.fire('' , 'Historia De Paciente registrado exitosamente', 'success').then((result) => {
     if (result.value) {
   
      

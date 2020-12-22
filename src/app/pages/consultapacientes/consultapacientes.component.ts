@@ -30,51 +30,104 @@ export class ConsultapacientesComponent implements OnInit {
 
   buscarC() {
 
-    
 
-    this.consultaService.obtenerPaciente(this.cedula).subscribe((resp: any) => {
+    if(this.tipoh === 'historiaA') {
+
+      this.consultaService.obtenerPaciente(this.cedula).subscribe((resp: any) => {
       
-      console.log(resp);
+        console.log(resp);
+  
+        if(resp.resultados !== null) {
+  
+          this.id = resp.resultados.uid;
+  
+          console.log(this.id);
 
-      if(resp.resultados !== null) {
+          this.consultaService.historiaID(this.id).subscribe((res: any) => {
 
-        this.id = resp.resultados.uid;
 
-        console.log(this.id);
+            if(res.resultados !==null) {
+
+              Swal.fire('' , 'El Paciente ya tiene Historia Registrada', 'error').then((result) => {
+                if (result.value) {
+                  
+                  this.consulta = false;
       
+                }
+              });
 
-        Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
-          if (result.value) {
-            
-            if(this.tipoh === 'historiaA') {
 
-              this.router.navigate(['/historiaA', this.id]);
-
-            } else if(this.tipoh === 'terapiaP'){
-              this.router.navigate(['/terapiaP', this.id]);
-              
             } else {
-              console.log('no');
+              Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                if (result.value) {
+                  
+                  this.router.navigate(['/historiaA', this.id]);
+      
+                }
+              });
             }
-          
-          }
-        });
-      }
-      else {
-        Swal.fire('' , 'Paciente No Existente, por favor registre el paciente primero', 'error').then((result) => {
-          if (result.value) {
-    
-            
-          
-          }
-        });
-      }
-    });
-    
-    
-    
 
+          });
+        
+  
+          
+        }
+        else {
+          Swal.fire('' , 'Paciente No Existente, por favor registre el paciente primero', 'error').then((result) => {
+            if (result.value) {
+      
+              
+            
+            }
+          });
+        }
+      });
+
+
+    } 
+    
+    if(this.tipoh === 'terapiaP') {
+
+      this.consultaService.obtenerPareja(this.cedula).subscribe((resp: any) => {
+      
+        console.log(resp);
+  
+        if(resp.resultados !== null) {
+  
+          this.id = resp.resultados.uid;
+  
+          console.log(this.id);
+        
+  
+          Swal.fire('' , 'Pareja Existente', 'success').then((result) => {
+            if (result.value) {
+              
+              
+              this.router.navigate(['/terapiaP', this.id]);
+  
+            }
+          });
+        }
+        else {
+          Swal.fire('' , 'Pareja No Existente, por favor registre la pareja primero', 'error').then((result) => {
+            if (result.value) {
+      
+              
+            
+            }
+          });
+        }
+      });
+      
+    } 
+
+    
+    
+  
   }
+
+
+
   historiaA(){
 
 

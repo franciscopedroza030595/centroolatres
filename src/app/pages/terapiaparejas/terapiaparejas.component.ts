@@ -122,7 +122,7 @@ export class TerapiaparejasComponent implements OnInit {
       
   });
 
-  Swal.fire('' , 'Pareja registrada exitosamente', 'success').then((result) => {
+  Swal.fire('' , 'Terapia De Pareja registrada exitosamente', 'success').then((result) => {
     if (result.value) {
   
      

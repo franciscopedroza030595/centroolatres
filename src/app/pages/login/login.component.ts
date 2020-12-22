@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     
 
     if (localStorage.getItem('nameObj')) {
-      this.nameObj = JSON.parse(localStorage.getItem('nameObj')); 
+      this.nameObj = JSON.parse(localStorage.getItem('nameObj') || '{}'); 
     }
    }
 
@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
     this.usuarioService.login( this.loginForm.value )
       .subscribe( resp => {
 
-        if ( this.loginForm.get('remember').value ){ 
+        if ( this.loginForm.get('remember').value){ 
           localStorage.setItem('email', this.loginForm.get('email').value );
         } else {
           localStorage.removeItem('email');
