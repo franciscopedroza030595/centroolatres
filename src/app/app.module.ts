@@ -6,6 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {DpDatePickerModule} from 'ng2-date-picker';
 
+import { SignaturePadModule } from 'angular2-signaturepad';
+
+import {WebcamModule} from 'ngx-webcam';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -43,7 +48,9 @@ import { ConsultapacientesComponent } from './pages/consultapacientes/consultapa
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    DpDatePickerModule  
+    DpDatePickerModule,
+    SignaturePadModule,
+    WebcamModule  
 
   ],
   providers: [],

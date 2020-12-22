@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import {Subject, Observable} from 'rxjs';
 
 import {  FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,6 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../../../services/usuario.service';
 
+/* for signature */
+import { SignaturePad } from 'angular2-signaturepad';
+
+/* for camera */
+import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 
 
 
@@ -15,6 +22,43 @@ import { UsuarioService } from '../../../services/usuario.service';
   styleUrls: ['./datospersonales.component.scss']
 })
 export class DatospersonalesComponent implements OnInit {
+
+  /* for signature  */
+  /* for signature  */
+
+  @ViewChild(SignaturePad) signaturePad: SignaturePad;
+
+  signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+    'minWidth': 2,
+    'canvasWidth': 500,
+    'canvasHeight': 200,
+    
+    
+  };
+/* variable para firma */
+  signature: string = '';
+ 
+
+  /* --------------------------------- */
+
+  /* ------------------- for camera ----------------- */
+
+    // toggle webcam on/off
+    public showWebcam = true;
+   
+    public errors: WebcamInitError[] = [];
+  
+    // latest snapshot
+    public webcamImage: WebcamImage = null;
+  
+    // webcam snapshot trigger
+    private trigger: Subject<void> = new Subject<void>();
+  
+    /* variable para foto */
+
+    webcam: string = '';
+
+  /* ----------------------------------------------------------- */
 
   datePickerConfig = {
     drops: 'up',
@@ -40,20 +84,93 @@ export class DatospersonalesComponent implements OnInit {
     estrato: ['', Validators.required ],
     eps: ['', Validators.required ],
     edad: [],
-    
-   
-    
+    firma:[''],
+    foto:[''],
+     
   });
 
   
 
   constructor(  private fb: FormBuilder, private actiRoute: ActivatedRoute,
-                private router: Router, private usuarioService: UsuarioService ) { }
+                private router: Router, private usuarioService: UsuarioService  ) { }
 
   ngOnInit(): void {
 
   
   }
+
+  /*---------------- methods for camera ---------------------*/
+
+  public triggerSnapshot(): void {
+    this.trigger.next();
+  }
+
+
+  public handleInitError(error: WebcamInitError): void {
+    this.errors.push(error);
+  }
+
+ 
+
+  public handleImage(webcamImage: WebcamImage): void {
+    console.info('received webcam image', webcamImage);
+    this.webcamImage = webcamImage;
+    
+
+    this.webcam = this.webcamImage.imageAsDataUrl;
+    console.log( this.webcam);
+
+    
+
+
+
+  }
+
+ 
+
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+ 
+
+  /* ---------------------------------------------------------- */
+
+
+  /*----------- methods for signature ---------------------*/
+  ngAfterViewInit() {
+    // this.signaturePad is now available
+    this.signaturePad.set('backgroundColor', 'rgb(255, 255, 255)');  // Cambiar el color del fondo
+    this.signaturePad.set('penColor', 'rgb(0, 0, 0)'); // Cambiar el color de la pluma
+    this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
+    
+  }
+
+  clearSignature() {
+    this.signaturePad.clear();
+  }
+
+  drawComplete() {
+
+   
+
+    this.signature = this.signaturePad.toDataURL();
+    
+    console.log(this.signature);
+
+    this.datospForm.value.firma = this.signature;
+  } 
+
+ 
+
+  
+  drawStart() {
+    // will be notified of szimek/signature_pad's onBegin event
+    console.log('begin drawing');
+  }
+
+
+  /* ------------------------------------------------------------------- */
 
   datosPersonales() {
     this.formSubmitted = true;
@@ -68,6 +185,9 @@ export class DatospersonalesComponent implements OnInit {
     console.log(this.edadP);
     
     this.datospForm.value.edad = this.edadP;
+    
+    /* asigno la foto */
+    this.datospForm.value.foto = this.webcam;
 
     // Realizar el posteo mediante el servicio
     
@@ -83,7 +203,7 @@ export class DatospersonalesComponent implements OnInit {
  Swal.fire('' , 'Paciente registrado exitosamente', 'success').then((result) => {
   if (result.value) {
 
-   /*  en realidad aqui debe enviar a foto y firma */
+   
     this.router.navigate(['/registroP']);
   }
 });
