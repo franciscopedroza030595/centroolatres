@@ -8,6 +8,50 @@
             <div class="contact-image">
                 <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
             </div>
+
+            <!-- for camera 1-->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <webcam class="webcam" [height]="275" [width]="400" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
+                </div>
+
+                <div class="col-md-6" *ngIf="webcamImage">
+
+
+                    <img [height]="275" [width]="400" [src]="webcamImage.imageAsDataUrl" />
+                </div>
+
+
+            </div>
+
+            <div class="tomar">
+                <button class="btnContacti" (click)="triggerSnapshot();">Tomar</button>
+            </div>
+
+            <!-- ----------- --------------------------------------------------->
+            <!-- for camera 2-->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <webcam class="webcam" [height]="275" [width]="400" [trigger]="triggerObservable2" (imageCapture)="handleImage2($event)" *ngIf="showWebcam" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
+                </div>
+
+                <div class="col-md-6" *ngIf="webcamImage2">
+
+
+                    <img [height]="275" [width]="400" [src]="webcamImage2.imageAsDataUrl" />
+                </div>
+
+
+            </div>
+
+            <div class="tomar">
+                <button class="btnContacti" (click)="triggerSnapshot2();">Tomar</button>
+            </div>
+
+            <!-- ----------- --------------------------------------------------->
+
             <form [formGroup]="datospForm" (ngSubmit)="datosPersonales()">
                 <h3>Datos Personales Pareja</h3>
                 <h4>Persona 1</h4>
@@ -83,9 +127,9 @@
                             <input type="text" name="" class="form-control" placeholder="Direccion" formControlName="direccion2" />
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
-                        </div>
+                        </div> -->
                     </div>
 
 
@@ -109,6 +153,23 @@
 
 
                     </div>
+                </div>
+
+                <!-- signature    -->
+                <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+                <div class="tomar">
+                    <button type="button" class="btnContacti" (click)="clearSignature()">Limpiar</button>
+                </div>
+
+                <!-- signature  2  -->
+                <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete2()"></signature-pad>
+                <div class="tomar">
+                    <button type="button" class="btnContacti" (click)="clearSignature2()">Limpiar</button>
+                </div>
+
+                <div class="enviar">
+                    <!-- boton enviar -->
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
                 </div>
 
             </form>

@@ -1,10 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import {Subject, Observable} from 'rxjs';
 
 import {  FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../../services/usuario.service';
+
+
+/* for signature */
+import { SignaturePad } from 'angular2-signaturepad';
+
+/* for camera */
+import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 
 
 
@@ -14,6 +23,61 @@ import { UsuarioService } from '../../services/usuario.service';
   styleUrls: ['./datospareja.component.scss']
 })
 export class DatosparejaComponent implements OnInit {
+
+
+    /* for signature  */
+
+    @ViewChild(SignaturePad) signaturePad: SignaturePad;
+
+    @ViewChild(SignaturePad) signaturePad2: SignaturePad;
+
+
+    signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+      'minWidth': 1,
+      'canvasWidth': 550,
+      'canvasHeight': 200,
+      
+      
+    };
+
+    
+  /* variable para firma1 */
+    signature: string = '';
+
+    /* variable para firma2 */
+    signature2: string = '';
+   
+  
+    /* --------------------------------- */
+
+    /* ------------------- for camera ----------------- */
+
+    // toggle webcam on/off
+    public showWebcam = true;
+   
+    public errors: WebcamInitError[] = [];
+  
+    // latest snapshot
+    public webcamImage: WebcamImage = null;
+
+     // latest snapshot 2
+     public webcamImage2: WebcamImage = null;
+  
+    // webcam snapshot trigger
+    private trigger: Subject<void> = new Subject<void>();
+
+     // webcam snapshot trigger 2
+     private trigger2: Subject<void> = new Subject<void>();
+  
+    /* variable para foto1 */
+
+    webcam: string = '';
+
+    /* variable para foto2 */
+
+    webcam2: string = '';
+
+  /* ----------------------------------------------------------- */
 
 
   datePickerConfig = {
@@ -42,6 +106,8 @@ export class DatosparejaComponent implements OnInit {
     estrato: ['', Validators.required ],
     eps: ['', Validators.required ],
     edad:[],
+    firma:[''],
+    foto:[''],
     nombreyapellido2: ['', Validators.required ],
     lugarnacimiento2: ['', Validators.required ],
     fechanacimiento2: ['', Validators.required ],
@@ -52,7 +118,9 @@ export class DatosparejaComponent implements OnInit {
     escolaridad2: ['', Validators.required ],
     estrato2: ['', Validators.required ],
     eps2: ['', Validators.required ],
-    edad2:[]
+    edad2:[],
+    firma2:[''],
+    foto2:['']
     
    
     
@@ -69,6 +137,120 @@ export class DatosparejaComponent implements OnInit {
 
     
   }
+
+    /*---------------- methods for camera ---------------------*/
+
+    public triggerSnapshot(): void {
+      this.trigger.next();
+    }
+
+    public triggerSnapshot2(): void {
+      this.trigger2.next();
+    }
+  
+  /* for errors */
+    public handleInitError(error: WebcamInitError): void {
+      this.errors.push(error);
+    }
+  
+   
+  /* handle of 2 cameras */
+    public handleImage(webcamImage: WebcamImage): void {
+      console.info('received webcam image', webcamImage);
+      this.webcamImage = webcamImage;
+      
+  
+      this.webcam = this.webcamImage.imageAsDataUrl;
+      console.log( this.webcam);
+    
+    }
+
+    public handleImage2(webcamImage2: WebcamImage): void {
+      console.info('received webcam image', webcamImage2);
+      this.webcamImage2 = webcamImage2;
+      
+  
+      this.webcam2 = this.webcamImage2.imageAsDataUrl;
+      console.log( this.webcam2);
+    
+    }
+  
+   
+  /* triggers observables for 2 fotos */
+    public get triggerObservable(): Observable<void> {
+      return this.trigger.asObservable();
+    }
+
+    public get triggerObservable2(): Observable<void> {
+      return this.trigger2.asObservable();
+    }
+  
+   
+  
+    /* ---------------------------------------------------------- */
+
+    /*----------- methods for signature ---------------------*/
+  ngAfterViewInit() {
+    // this.signaturePad is now available
+    this.signaturePad.set('backgroundColor', 'rgb(255, 255, 255)');  // Cambiar el color del fondo
+    this.signaturePad.set('penColor', 'rgb(0, 0, 0)'); // Cambiar el color de la pluma
+    this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
+
+    this.signaturePad2.set('backgroundColor', 'rgb(255, 255, 255)');  // Cambiar el color del fondo
+    this.signaturePad2.set('penColor', 'rgb(0, 0, 0)'); // Cambiar el color de la pluma
+    this.signaturePad2.clear(); // invoke functions from szimek/signature_pad API
+    
+  }
+
+  clearSignature() {
+    this.signaturePad.clear();
+    
+  }
+
+  clearSignature2() {
+    this.signaturePad2.clear();
+    
+  }
+
+
+  drawComplete() {
+
+   
+    this.signature = this.signaturePad.toDataURL();
+
+    
+    console.log(this.signature);
+   
+
+    this.datospForm.value.firma = this.signature;
+   
+  } 
+
+  drawComplete2() {
+
+   
+    this.signature2 = this.signaturePad2.toDataURL();
+    
+  
+    console.log(this.signature2);
+
+   
+    this.datospForm.value.firma2 = this.signature2;
+  } 
+
+ 
+
+  
+  drawStart() {
+    // will be notified of szimek/signature_pad's onBegin event
+    console.log('begin drawing');
+  }
+
+
+
+
+  /* ------------------------------------------------------------------- */
+
 
   datosPersonales() {
     this.formSubmitted = true;
