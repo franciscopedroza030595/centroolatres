@@ -20,6 +20,8 @@ export class ConsultapacientesComponent implements OnInit {
 
   tipoh = '';
 
+  paciente = false;
+
   consulta = false;
 
   constructor(private router: Router, private consultaService: ConsultasService) { }
@@ -31,7 +33,7 @@ export class ConsultapacientesComponent implements OnInit {
   buscarC() {
 
 
-    if(this.tipoh === 'historiaA') {
+    if(this.paciente = true) {
 
       this.consultaService.obtenerPaciente(this.cedula).subscribe((resp: any) => {
       
@@ -43,33 +45,72 @@ export class ConsultapacientesComponent implements OnInit {
   
           console.log(this.id);
 
-          this.consultaService.historiaID(this.id).subscribe((res: any) => {
+
+          if(this.tipoh === 'historiaA') {
+
+            this.consultaService.historiaID(this.id).subscribe((res: any) => {
 
 
-            if(res.resultados !==null) {
-
-              Swal.fire('' , 'El Paciente ya tiene Historia Registrada', 'error').then((result) => {
-                if (result.value) {
-                  
-                  this.consulta = false;
-      
-                }
-              });
-
-
-            } else {
-              Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
-                if (result.value) {
-                  
-                  this.router.navigate(['/historiaA', this.id]);
-      
-                }
-              });
-            }
-
-          });
-        
+              if(res.resultados !==null) {
   
+                Swal.fire('' , 'El Paciente ya tiene Historia Registrada', 'error').then((result) => {
+                  if (result.value) {
+                    
+                    this.consulta = false;
+        
+                  }
+                });
+  
+  
+              } else {
+                Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                  if (result.value) {
+                    
+                    
+                    this.router.navigate(['/historiaA', this.id]);
+                    
+  
+                    
+  
+  
+        
+                  }
+                });
+              }
+  
+            });
+
+          }
+           
+          if(this.tipoh === 'seguimiento') {
+
+          /*   this.consultaService.seguimientoID(this.id).subscribe((res: any) => { */
+
+
+           
+                Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                  if (result.value) {
+                    
+                    
+                    this.router.navigate(['/seguimientoC', this.id]);
+                    
+  
+                    
+  
+  
+        
+                  }
+                });
+             
+  
+           /*  }); */
+
+          } 
+
+        
+
+
+        
           
         }
         else {
@@ -131,7 +172,8 @@ export class ConsultapacientesComponent implements OnInit {
   historiaA(){
 
 
-    this.consulta = true
+    this.consulta = true;
+    this.paciente = true;
     this.tipoh = 'historiaA';
    
 
@@ -153,6 +195,18 @@ export class ConsultapacientesComponent implements OnInit {
   }
 
   seguimiento(){
+
+    this.consulta = true
+    this.paciente = true;
+    this.tipoh = 'seguimiento';
+    
+  }
+
+  seguimientoP(){
+
+    this.consulta = true
+   
+    this.tipoh = 'seguimientoP';
     
   }
 

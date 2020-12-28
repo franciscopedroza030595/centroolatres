@@ -33,7 +33,7 @@ const routes: Routes = [
   {path: 'remision', component: RemisioncasoComponent},
   {path: 'busquedaP', component: BusquedapaComponent},
   {path: 'consultaP', component: ConsultapacientesComponent},
-  {path: 'seguimientoC', component: SeguimientocasoComponent},
+  {path: 'seguimientoC/:id', component: SeguimientocasoComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

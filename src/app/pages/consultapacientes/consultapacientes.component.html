@@ -58,8 +58,8 @@
         </div>
 
 
-        <div class="d-flex align-items-center" *ngIf="!consulta">
 
+        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
             <!-- div para seguimiento -->
             <div class="col mb-5 ">
 
@@ -90,9 +90,38 @@
             </div>
 
 
+            <!-- div para seguimiento pareja -->
+            <div class="col mb-5 ">
+
+                <!-- Card -->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay ">
+                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
+                        <a href="#! ">
+                            <div class="mask rgba-white-slight "></div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body ">
+
+                        <!--Title-->
+                        <h4 class="card-title ">Seguimiento Pareja</h4>
+
+                        <button type="button " class="btn " (click)="seguimientoP()">Registro</button>
+
+                    </div>
+
+                </div>
+                <!-- Card -->
+
+            </div>
 
 
         </div>
+
 
         <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
 

@@ -106,6 +106,20 @@ historiaID(id:any) {
 
 
 }
+/* -----------obtener seguimiento por id------------------ */
+seguimientoID(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/seguimiento/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
 /* ----------------crear TerapiaP------------------ */
 
 terapiaP(formData: any) {
