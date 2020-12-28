@@ -152,4 +152,8 @@ export class ConsultapacientesComponent implements OnInit {
     
   }
 
+  seguimiento(){
+    
+  }
+
 }

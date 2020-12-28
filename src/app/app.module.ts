@@ -25,6 +25,7 @@ import { DerivacioncasoComponent } from './pages/derivacioncaso/derivacioncaso.c
 import { RemisioncasoComponent } from './pages/remisioncaso/remisioncaso.component';
 import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
 import { ConsultapacientesComponent } from './pages/consultapacientes/consultapacientes.component';
+import { SeguimientocasoComponent } from './pages/seguimientocaso/seguimientocaso.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ConsultapacientesComponent } from './pages/consultapacientes/consultapa
     DerivacioncasoComponent,
     RemisioncasoComponent,
     BusquedapaComponent,
-    ConsultapacientesComponent
+    ConsultapacientesComponent,
+    SeguimientocasoComponent
   ],
   imports: [
     BrowserModule,

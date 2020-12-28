@@ -1,0 +1,71 @@
+<div class="content">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="historia">
+        <div class="container contact-form">
+            <div class="contact-image">
+                <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+            </div>
+            <form [formGroup]="seguiForm" (ngSubmit)="seguimiento()">
+
+                <h3>Seguimiento Del Caso</h3>
+
+                <h5>Fecha: {{fecha}}</h5>
+                <h5>Número De La Sesion: 2</h5>
+                <h5>Sesiones Anteriores: 1</h5>
+                <h5>Ultima sesion: SI <input type="radio" name="ultima" value="si" formControlName="ultima"> NO <input type="radio" name="ultima" value="no" formControlName="ultima"></h5>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Descripción De La Situación Actual</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Descripcion" style="width: 200%; height: 150px;" formControlName="descripcion"></textarea>
+                        </div>
+
+                        <h4>Situaciones Que Han Mejorado </h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Situaciones Que Han Mejorado" style="width: 200%; height: 150px;" formControlName="situaciones"></textarea>
+
+                        </div>
+
+                        <h4>Objetivos Terapeuticos</h4>
+
+                        <h6>Progreso</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Progreso" style="width: 200%; height: 150px;" formControlName="progreso"></textarea>
+                        </div>
+
+                        <h4>Acuerdos Terapeuticos</h4>
+                        <h6>Acuerdos</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Acuerdos" style="width: 200%; height: 150px;" formControlName="acuerdos"></textarea>
+                        </div>
+
+
+
+                        <h4>Observaciones</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Observaciones" style="width: 200%; height: 150px;" formControlName="observaciones"></textarea>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>

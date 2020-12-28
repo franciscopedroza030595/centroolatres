@@ -11,6 +11,8 @@ import { DatosparejaComponent } from './pages/datospareja/datospareja.component'
 import { RemisioncasoComponent } from './pages/remisioncaso/remisioncaso.component';
 import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
 import { ConsultapacientesComponent } from './pages/consultapacientes/consultapacientes.component';
+import { SeguimientocasoComponent } from './pages/seguimientocaso/seguimientocaso.component';
+
 
 
 
@@ -31,6 +33,7 @@ const routes: Routes = [
   {path: 'remision', component: RemisioncasoComponent},
   {path: 'busquedaP', component: BusquedapaComponent},
   {path: 'consultaP', component: ConsultapacientesComponent},
+  {path: 'seguimientoC', component: SeguimientocasoComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

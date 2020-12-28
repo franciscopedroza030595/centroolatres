@@ -58,10 +58,10 @@ export class DatosparejaComponent implements OnInit {
     public errors: WebcamInitError[] = [];
   
     // latest snapshot
-    public webcamImage: WebcamImage = null;
+    public webcamImage: WebcamImage; 
 
      // latest snapshot 2
-     public webcamImage2: WebcamImage = null;
+     public webcamImage2: WebcamImage;
   
     // webcam snapshot trigger
     private trigger: Subject<void> = new Subject<void>();
@@ -129,7 +129,10 @@ export class DatosparejaComponent implements OnInit {
   
 
   constructor( private fb: FormBuilder, private actiRoute: ActivatedRoute,
-               private router: Router, private usuarioService: UsuarioService ) { }
+               private router: Router, private usuarioService: UsuarioService ) {
+
+
+                }
 
   ngOnInit(): void {
 
@@ -207,7 +210,7 @@ export class DatosparejaComponent implements OnInit {
     
   }
 
-  clearSignature2() {
+  clearSignatureTwo() {
     this.signaturePad2.clear();
     
   }
@@ -220,9 +223,14 @@ export class DatosparejaComponent implements OnInit {
 
     
     console.log(this.signature);
+
+    this.signature2 = this.signaturePad2.toDataURL();
+    
+  
+    console.log(this.signature2);
    
 
-    this.datospForm.value.firma = this.signature;
+    /* this.datospForm.value.firma = this.signature; */
    
   } 
 
@@ -235,7 +243,7 @@ export class DatosparejaComponent implements OnInit {
     console.log(this.signature2);
 
    
-    this.datospForm.value.firma2 = this.signature2;
+    /* this.datospForm.value.firma2 = this.signature2; */
   } 
 
  
@@ -271,7 +279,7 @@ export class DatosparejaComponent implements OnInit {
     console.log(this.datospForm.value);
     
 
-    this.usuarioService.pareja(this.datospForm.value).subscribe((resp: any) => {
+/*     this.usuarioService.pareja(this.datospForm.value).subscribe((resp: any) => {
       
     });
 
@@ -280,10 +288,10 @@ export class DatosparejaComponent implements OnInit {
  Swal.fire('' , 'Pareja registrada exitosamente', 'success').then((result) => {
   if (result.value) {
 
-   /*  en realidad aqui debe enviar a foto y firma */
+ 
     this.router.navigate(['/registroP']);
   }
-});
+}); */
    
     
 
