@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" id="htmlData">
 
     <app-sidebar></app-sidebar>
 
@@ -73,6 +73,8 @@
     <!-- para ver los seguimientos con un ngfor a infoSeguimientos -->
     <div class="segui" *ngIf="segui">
 
+        <button class="btnContactVolver" (click)="volver()">Volver</button>
+
         <div class="card text-center" *ngFor="let info of infoSeguimientos; index as i">
             <div class="card-header">
                 Seguimiento {{i + 1}}
@@ -80,7 +82,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{info.paciente.nombreyapellido}}</h5>
                 <p class="card-text">Hecho Por: {{info.usuario.role}} {{info.usuario.nombre}} {{info.usuario.apellido}}</p>
-                <a href="" class="btnContactSubmit">Ver Documento</a>
+                <a (click)="visualizarSeguim(info.uid)" class="btnContactSubmit">Ver Documento</a>
             </div>
             <div class="card-footer text-muted">
                 {{info.fecha | date: 'YYYY-MM-dd'}}
@@ -89,6 +91,8 @@
 
     </div>
 
-
-
+    <!--  <div>
+        <button class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">download pdf</button>
+    </div>
+ -->
 </div>
