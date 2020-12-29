@@ -27,6 +27,8 @@ export class SeguimientocasoComponent implements OnInit {
   secciones = false;
 
   infoSeguimientos: any;
+
+  segui = false;
   
 
   public seguiForm = this.fb.group({
@@ -83,7 +85,7 @@ export class SeguimientocasoComponent implements OnInit {
 
   verSecciones(){
 
-    console.log('s');
+    this.segui = true;
   }
 
 }
