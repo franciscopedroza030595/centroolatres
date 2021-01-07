@@ -10,10 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ConsultasService } from '../../services/consultas.service';
 
-import jsPDF from 'jspdf';
+/* import jsPDF from 'jspdf';
 
 import html2canvas from 'html2canvas';
-
+ */
 
 @Component({
   selector: 'app-seguimientocaso',
@@ -97,6 +97,22 @@ export class SeguimientocasoComponent implements OnInit {
 
 
     console.log(this.seguiForm.value);
+
+    this.consultaService.seguimientoPa(this.seguiForm.value).subscribe((resp: any) => {
+
+      console.log(resp);
+        
+    });
+
+    Swal.fire('' , 'Seguimiento De Paciente registrado exitosamente', 'success').then((result) => {
+      if (result.value) {
+    
+       
+        this.router.navigate(['/consultaP']);
+      }
+    });
+
+    
     
 
   }
@@ -114,7 +130,7 @@ export class SeguimientocasoComponent implements OnInit {
 
   visualizarSeguim(id:any) {
 
-    console.log(id);
+    /* console.log(id); */
 
     const url = this.router.serializeUrl(
       this.router.createUrlTree([`/visualziarS/${id}`])
@@ -168,7 +184,18 @@ export class SeguimientocasoComponent implements OnInit {
    }).then((docResult) => {
      docResult.save(`${this.nombreP}.pdf`);
    });
-   } */
+   }
+   
+   ESTO VA EN SCRIPTS
+
+   
+                            "node_modules/html2canvas/dist/html2canvas.min.js",
+                            "node_modules/jspdf/dist/jspdf.min.js"
+   
+   */
+
+
+   
 
 
   /* ---------------------- */

@@ -1,1 +1,78 @@
-<p>visualizarsegui works!</p>
+<div class="content" id="htmlData">
+
+
+
+    <div class="historia">
+
+        <div class="contact-image">
+            <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+        </div>
+
+
+
+
+
+
+        <div class="foto">
+            <img src="{{infoSeguimiento.paciente.foto}}" />
+
+            <h4>Historia clinica No: {{infoSeguimiento.paciente.cedula}}</h4>
+            <h5>Fecha: {{infoSeguimiento.fecha | date: 'YYYY-MM-dd'}}</h5>
+        </div>
+
+
+        <div class="datosP">
+
+            <h5>Nombres Y Apellidos: {{infoSeguimiento.paciente.nombreyapellido}}</h5>
+
+            <h5>Edad: {{infoSeguimiento.paciente.edad}}</h5>
+
+
+            <h5>Número De La Sesion: {{infoSeguimiento.sesiones}}</h5>
+
+            <h5>Ultima Sesion: {{infoSeguimiento.ultima}}</h5>
+
+
+        </div>
+
+        <div class="datosP">
+
+            <h5>Descripcion de la situacion actual: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.descripcion}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+            <h5>Situaciones que han mejorado: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.situaciones}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+
+            <h5>Progreso: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.progreso}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+            <h5>Acuerdos terapeuticos: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.acuerdos}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+            <h5>Observaciones: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.observaciones}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+
+        </div>
+
+
+
+
+        <div class="firma">
+            <img src="{{infoSeguimiento.paciente.firma}}" />
+
+
+        </div>
+
+
+
+
+    </div>
+
+</div>

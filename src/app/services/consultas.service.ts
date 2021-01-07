@@ -106,7 +106,7 @@ historiaID(id:any) {
 
 
 }
-/* -----------obtener seguimiento por id------------------ */
+/* -----------obtener seguimiento por id del paciente------------------ */
 seguimientoID(id:any) {
 
     
@@ -120,6 +120,33 @@ seguimientoID(id:any) {
 
 
 }
+/* -----------obtener seguimiento por id del seguimiento ------------------ */
+seguimiento(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/seguimientoid/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
+/* ----------------crear seguimientoPaciente------------------ */
+
+seguimientoPa(formData: any) {
+
+  return this.http.post(`${ base_url }/seguimiento`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+}
+/* ------------------------------------- */
 /* ----------------crear TerapiaP------------------ */
 
 terapiaP(formData: any) {
