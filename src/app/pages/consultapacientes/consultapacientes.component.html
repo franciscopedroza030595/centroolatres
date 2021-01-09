@@ -4,6 +4,13 @@
 
     <div class="registroc">
 
+
+        <!-- Psicologica paciente -->
+
+        <div>
+            <h3 *ngIf="!consulta">Psicologia Paciente</h3>
+        </div>
+
         <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
 
 
@@ -24,7 +31,7 @@
                     <div class="card-body">
 
                         <!--Title-->
-                        <h4 class="card-title">Formato Historia Adultos</h4>
+                        <h4 class="card-title"> Historia Psicologica Paciente</h4>
 
                         <button type="button" class="btn " (click)="historiaA()">Registro</button>
 
@@ -33,6 +40,113 @@
                 </div>
                 <!-- Card -->
             </div>
+
+            <!-- menor de edad -->
+
+            <div class="col mb-5">
+
+                <!-- Card -->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="../../../assets/images/LOGO.jpg" alt="Card image cap">
+                        <a href="#">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title"> Historia Psicologica Niño</h4>
+
+                        <button type="button" class="btn " (click)="historiaN()">Registro</button>
+
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+
+
+        <!-- Psiquiatrica paciente -->
+
+        <div>
+            <h3 *ngIf="!consulta">Psiquiatria Paciente</h3>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
+
+
+            <div class="col mb-5">
+
+                <!-- Card -->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="../../../assets/images/LOGO.jpg" alt="Card image cap">
+                        <a href="#">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">Historia Psiquiatrica Paciente</h4>
+
+                        <button type="button" class="btn " (click)="historiaPA()">Registro</button>
+
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+
+            <!-- menor de edad -->
+
+            <div class="col mb-5">
+
+                <!-- Card -->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="../../../assets/images/LOGO.jpg" alt="Card image cap">
+                        <a href="#">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!--Title-->
+                        <h4 class="card-title">Historia Psiquiatrica Niño</h4>
+
+                        <button type="button" class="btn " (click)="historiaPN()">Registro</button>
+
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+
+        <!-- PAREJA -->
+
+        <div>
+            <h3 *ngIf="!consulta">Parejas</h3>
+        </div>
+
+
+        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
+
             <div class="col mb-5 ">
                 <!-- Card -->
                 <div class="card ">
@@ -49,7 +163,7 @@
                     <div class="card-body ">
 
                         <!--Title-->
-                        <h4 class="card-title ">Formato Terapia De Parejas</h4>
+                        <h4 class="card-title ">Terapia De Parejas</h4>
 
                         <button type="button " class="btn " (click)="parejas() ">Registro</button>
 
@@ -58,9 +172,56 @@
                 </div>
                 <!-- Card -->
             </div>
+
+
         </div>
 
 
+        <!-- GRUPOS -->
+
+        <div>
+            <h3 *ngIf="!consulta">Grupos</h3>
+        </div>
+
+
+        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
+
+            <div class="col mb-5 ">
+                <!-- Card -->
+                <div class="card ">
+
+                    <!--Card image-->
+                    <div class="view overlay ">
+                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
+                        <a href="#! ">
+                            <div class="mask rgba-white-slight "></div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body ">
+
+                        <!--Title-->
+                        <h4 class="card-title ">Terapia De Grupo</h4>
+
+                        <button type="button " class="btn " (click)="grupos() ">Registro</button>
+
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+
+
+        </div>
+
+
+
+        <!-- SEGUIMIENTOS -->
+
+        <div>
+            <h3 *ngIf="!consulta">Seguimientos</h3>
+        </div>
 
         <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
             <!-- div para seguimiento -->
@@ -81,7 +242,7 @@
                     <div class="card-body ">
 
                         <!--Title-->
-                        <h4 class="card-title ">Seguimiento De Caso</h4>
+                        <h4 class="card-title ">Seguimiento De Paciente</h4>
 
                         <button type="button " class="btn " (click)="seguimiento()">Registro</button>
 
@@ -111,7 +272,7 @@
                     <div class="card-body ">
 
                         <!--Title-->
-                        <h4 class="card-title ">Seguimiento Pareja</h4>
+                        <h4 class="card-title ">Seguimiento De Pareja</h4>
 
                         <button type="button " class="btn " (click)="seguimientoP()">Registro</button>
 
@@ -123,6 +284,12 @@
             </div>
 
 
+        </div>
+
+        <!-- REMISIONES -->
+
+        <div>
+            <h3 *ngIf="!consulta">Remisiones</h3>
         </div>
 
 
@@ -144,9 +311,9 @@
                     <div class="card-body ">
 
                         <!--Title-->
-                        <h4 class="card-title ">Formato Derivación De Caso</h4>
+                        <h4 class="card-title "> Remisión De Paciente</h4>
 
-                        <button type="button " class="btn " (click)="derivacion()">Registro</button>
+                        <button type="button " class="btn " (click)="remision()">Registro</button>
 
                     </div>
 
@@ -172,9 +339,9 @@
                     <div class="card-body ">
 
                         <!--Title-->
-                        <h4 class="card-title ">Formato Remisión De Caso</h4>
+                        <h4 class="card-title "> Remisión De Pareja</h4>
 
-                        <button type="button " class="btn " (click)="remision()">Registro</button>
+                        <button type="button " class="btn " (click)="remisionP()">Registro</button>
 
                     </div>
 

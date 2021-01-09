@@ -17,7 +17,7 @@
             <img src="{{infoSeguimiento.paciente.foto}}" />
 
             <h4>Historia clinica No: {{infoSeguimiento.paciente.cedula}}</h4>
-            <h5>Fecha: {{infoSeguimiento.fecha | date: 'YYYY-MM-dd'}}</h5>
+            <h5>Fecha: {{infoSeguimiento.fecha | date: 'YYYY-MM-dd, , h:mm:ss a'}}</h5>
         </div>
 
 
@@ -63,7 +63,7 @@
 
 
 
-
+        <!-- aqui va la firma del medico con su tarjetap, registro y nombre -->
         <div class="firma">
             <img src="{{infoSeguimiento.paciente.firma}}" />
 

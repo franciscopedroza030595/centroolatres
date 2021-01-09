@@ -83,9 +83,12 @@ export class DatospersonalesComponent implements OnInit {
     escolaridad: ['', Validators.required ],
     estrato: ['', Validators.required ],
     eps: ['', Validators.required ],
+    nombreacudiente:[''],
+    parentesco:[''],
     edad: [],
     firma:[''],
     foto:[''],
+    
      
   });
 

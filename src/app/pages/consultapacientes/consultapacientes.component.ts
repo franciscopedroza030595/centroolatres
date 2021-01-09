@@ -81,6 +81,48 @@ export class ConsultapacientesComponent implements OnInit {
             });
 
           }
+
+          /* historia de menores de edad */
+
+          if(this.tipoh === 'historiaN') {
+
+            this.consultaService.historiaNID(this.id).subscribe((res: any) => {
+
+
+              if(res.resultados !==null) {
+  
+                Swal.fire('' , 'El Paciente ya tiene Historia Registrada', 'error').then((result) => {
+                  if (result.value) {
+                    
+                    this.consulta = false;
+        
+                  }
+                });
+  
+  
+              } else {
+                Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                  if (result.value) {
+                    
+                    
+                    this.router.navigate(['/historiaN', this.id]);
+                    
+  
+                    
+  
+  
+        
+                  }
+                });
+              }
+  
+            });
+
+          }
+
+
+
+          /* seguimiento de paciente */
            
           if(this.tipoh === 'seguimiento') {
 
@@ -107,10 +149,7 @@ export class ConsultapacientesComponent implements OnInit {
 
           } 
 
-        
-
-
-        
+    
           
         }
         else {
@@ -179,6 +218,36 @@ export class ConsultapacientesComponent implements OnInit {
 
   }
 
+  historiaN(){
+
+
+    this.consulta = true;
+    this.paciente = true;
+    this.tipoh = 'historiaN';
+   
+
+  }
+
+  historiaPA(){
+
+
+    this.consulta = true;
+    this.paciente = true;
+    this.tipoh = 'historiaPA';
+   
+
+  }
+
+  historiaPN(){
+
+
+    this.consulta = true;
+    this.paciente = true;
+    this.tipoh = 'historiaPN';
+   
+
+  }
+
   parejas(){
 
     this.consulta = true
@@ -186,11 +255,25 @@ export class ConsultapacientesComponent implements OnInit {
 
   }
 
-  derivacion(){
+  grupos(){
+    this.consulta = true
+    this.tipoh = 'grupo';
+
+  }
+
+  remisionP(){
+
+    this.consulta = true
+   
+    this.tipoh = 'remisionP';
 
   }
 
   remision(){
+
+    this.consulta = true
+    this.paciente = true;
+    this.tipoh = 'remision';
     
   }
 

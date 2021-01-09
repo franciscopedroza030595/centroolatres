@@ -69,7 +69,7 @@ export class SeguimientocasoComponent implements OnInit {
     });
 
         /* creo la fecha actual con la cual el registro es guardado */
-        this.fecha = formatDate(new Date(), 'YYYY-MM-dd', 'en');
+        this.fecha = formatDate(new Date(), 'YYYY-MM-dd, h:mm:ss a', 'en');
 
 
 

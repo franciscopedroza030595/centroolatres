@@ -92,12 +92,40 @@ historiaA(formData: any) {
 }
 
 
+/* ----------------crear hisotriaN------------------ */
+
+historiaN(formData: any) {
+
+  return this.http.post(`${ base_url }/historiaN`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+}
+
+
 /* -----------obtener historiaA por id------------------ */
 historiaID(id:any) {
 
     
 
   return this.http.get(`${ base_url }/todo/coleccion/historiaA/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
+/* -----------obtener historiaN por id------------------ */
+historiaNID(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/historiaN/${id}`, {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }

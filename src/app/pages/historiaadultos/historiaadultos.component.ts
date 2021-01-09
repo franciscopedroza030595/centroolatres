@@ -72,7 +72,7 @@ export class HistoriaadultosComponent implements OnInit {
 
     });
     /* creo la fecha actual con la cual el registro es guardado */
-    this.fecha = formatDate(new Date(), 'YYYY-MM-dd', 'en');
+    this.fecha = formatDate(new Date(), 'YYYY-MM-dd, h:mm:ss a', 'en');
     
 
     /* creo el form para la historia clinica con las caracteristicas de los familiares */

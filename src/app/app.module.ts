@@ -21,12 +21,12 @@ import { HistoriaadultosComponent } from './pages/historiaadultos/historiaadulto
 import { TerapiaparejasComponent } from './pages/terapiaparejas/terapiaparejas.component';
 import { RegistropacientesComponent } from './pages/registropacientes/registropacientes.component';
 import { DatosparejaComponent } from './pages/datospareja/datospareja.component';
-import { DerivacioncasoComponent } from './pages/derivacioncaso/derivacioncaso.component';
 import { RemisioncasoComponent } from './pages/remisioncaso/remisioncaso.component';
 import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
 import { ConsultapacientesComponent } from './pages/consultapacientes/consultapacientes.component';
 import { SeguimientocasoComponent } from './pages/seguimientocaso/seguimientocaso.component';
 import { VisualizarseguiComponent } from './pages/visualizarsegui/visualizarsegui.component';
+import { HistorianinosComponent } from './pages/historianinos/historianinos.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +39,12 @@ import { VisualizarseguiComponent } from './pages/visualizarsegui/visualizarsegu
     TerapiaparejasComponent,
     RegistropacientesComponent,
     DatosparejaComponent,
-    DerivacioncasoComponent,
     RemisioncasoComponent,
     BusquedapaComponent,
     ConsultapacientesComponent,
     SeguimientocasoComponent,
-    VisualizarseguiComponent
+    VisualizarseguiComponent,
+    HistorianinosComponent
   ],
   imports: [
     BrowserModule,

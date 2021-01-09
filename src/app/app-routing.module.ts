@@ -13,6 +13,7 @@ import { BusquedapaComponent } from './pages/busquedapa/busquedapa.component';
 import { ConsultapacientesComponent } from './pages/consultapacientes/consultapacientes.component';
 import { SeguimientocasoComponent } from './pages/seguimientocaso/seguimientocaso.component';
 import { VisualizarseguiComponent } from './pages/visualizarsegui/visualizarsegui.component';
+import { HistorianinosComponent } from './pages/historianinos/historianinos.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'datospersonales', component: DatospersonalesComponent},
   {path: 'historiaA/:id', component: HistoriaadultosComponent},
+  {path: 'historiaN/:id', component: HistorianinosComponent},
   {path: 'terapiaP/:id', component: TerapiaparejasComponent},
   {path: 'registroP', component: RegistropacientesComponent},
   {path: 'datospareja', component: DatosparejaComponent},
