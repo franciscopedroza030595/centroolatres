@@ -4,12 +4,25 @@ import {  FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@an
 
 import Swal from 'sweetalert2';
 
+import {formatDate} from '@angular/common';
+
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { ConsultasService } from '../../services/consultas.service';
+
+
+
 @Component({
   selector: 'app-remisioncaso',
   templateUrl: './remisioncaso.component.html',
   styleUrls: ['./remisioncaso.component.scss']
 })
 export class RemisioncasoComponent implements OnInit {
+
+  fecha: any;
+  id: any;
+  remisionesA = 0;
+  remisionN = 0;
 
 
   public formSubmitted = false;
@@ -29,9 +42,12 @@ export class RemisioncasoComponent implements OnInit {
   });
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.id = this.actiRoute.snapshot.paramMap.get('id');
+    console.log(this.id);
 
 
   }

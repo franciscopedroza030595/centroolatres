@@ -134,6 +134,21 @@ historiaNID(id:any) {
 
 
 }
+
+/* -----------obtener terapiaP por id------------------ */
+terapiaPID(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/terapiaP/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
 /* -----------obtener seguimiento por id del paciente------------------ */
 seguimientoID(id:any) {
 

@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'terapiaP/:id', component: TerapiaparejasComponent},
   {path: 'registroP', component: RegistropacientesComponent},
   {path: 'datospareja', component: DatosparejaComponent},
-  {path: 'remision', component: RemisioncasoComponent},
+  {path: 'remision/:id', component: RemisioncasoComponent},
   {path: 'busquedaP', component: BusquedapaComponent},
   {path: 'consultaP', component: ConsultapacientesComponent},
   {path: 'seguimientoC/:id', component: SeguimientocasoComponent},

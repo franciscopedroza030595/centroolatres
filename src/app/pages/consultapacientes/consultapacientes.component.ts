@@ -33,7 +33,9 @@ export class ConsultapacientesComponent implements OnInit {
   buscarC() {
 
 
-    if(this.paciente = true) {
+    if(this.paciente === true) {
+
+      
 
       this.consultaService.obtenerPaciente(this.cedula).subscribe((resp: any) => {
       
@@ -45,112 +47,105 @@ export class ConsultapacientesComponent implements OnInit {
   
           console.log(this.id);
 
+          switch (this.tipoh) {
 
-          if(this.tipoh === 'historiaA') {
+            case 'historiaA':
 
-            this.consultaService.historiaID(this.id).subscribe((res: any) => {
+              this.consultaService.historiaID(this.id).subscribe((res: any) => {
 
 
-              if(res.resultados !==null) {
-  
-                Swal.fire('' , 'El Paciente ya tiene Historia Registrada', 'error').then((result) => {
-                  if (result.value) {
-                    
-                    this.consulta = false;
-        
+                if(res.resultados !==null) {
+    
+                  Swal.fire('' , 'El Paciente ya tiene Historia Registrada', 'error').then((result) => {
+                    if (result.value) {
+                      
+                      this.consulta = false;
+          
+                    }
+                  });
+    
+    
+                } else {
+                  Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                    if (result.value) {
+                      
+                      
+                      this.router.navigate(['/historiaA', this.id]);
+                      
+    
+                      
+    
+    
+          
+                    }
+                  });
+                }
+    
+              });
+
+
+
+              break;
+
+
+              case 'historiaN':
+
+                this.consultaService.historiaNID(this.id).subscribe((res: any) => {
+
+
+                  if(res.resultados !==null) {
+      
+                    Swal.fire('' , 'El Paciente ya tiene Historia Registrada', 'error').then((result) => {
+                      if (result.value) {
+                        
+                        this.consulta = false;
+            
+                      }
+                    });
+      
+      
+                  } else {
+                    Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                      if (result.value) {
+                        
+                        
+                        this.router.navigate(['/historiaN', this.id]);
+                        
+      
+                        
+      
+      
+            
+                      }
+                    });
                   }
+      
                 });
-  
-  
-              } else {
-                Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
-                  if (result.value) {
-                    
-                    
-                    this.router.navigate(['/historiaA', this.id]);
-                    
-  
-                    
-  
-  
-        
-                  }
-                });
-              }
-  
-            });
 
-          }
+                break;
 
-          /* historia de menores de edad */
+              case 'seguimiento':
 
-          if(this.tipoh === 'historiaN') {
-
-            this.consultaService.historiaNID(this.id).subscribe((res: any) => {
-
-
-              if(res.resultados !==null) {
-  
-                Swal.fire('' , 'El Paciente ya tiene Historia Registrada', 'error').then((result) => {
-                  if (result.value) {
-                    
-                    this.consulta = false;
-        
-                  }
-                });
-  
-  
-              } else {
-                Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
-                  if (result.value) {
-                    
-                    
-                    this.router.navigate(['/historiaN', this.id]);
-                    
-  
-                    
-  
-  
-        
-                  }
-                });
-              }
-  
-            });
-
-          }
-
-
-
-          /* seguimiento de paciente */
-           
-          if(this.tipoh === 'seguimiento') {
-
-          /*   this.consultaService.seguimientoID(this.id).subscribe((res: any) => { */
-
-
-           
                 Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
                   if (result.value) {
                     
                     
                     this.router.navigate(['/seguimientoC', this.id]);
-                    
-  
-                    
-  
-  
-        
+                 
                   }
                 });
+
+                break;
              
-  
-           /*  }); */
 
-          } 
+              default:
+                console.log("No such data exists!");
+                break;
 
-    
-          
+
+          }
+
+     
         }
         else {
           Swal.fire('' , 'Paciente No Existente, por favor registre el paciente primero', 'error').then((result) => {
@@ -164,9 +159,8 @@ export class ConsultapacientesComponent implements OnInit {
       });
 
 
-    } 
-    
-    if(this.tipoh === 'terapiaP') {
+    } else {
+
 
       this.consultaService.obtenerPareja(this.cedula).subscribe((resp: any) => {
       
@@ -177,16 +171,46 @@ export class ConsultapacientesComponent implements OnInit {
           this.id = resp.resultados.uid;
   
           console.log(this.id);
-        
-  
-          Swal.fire('' , 'Pareja Existente', 'success').then((result) => {
-            if (result.value) {
-              
-              
-              this.router.navigate(['/terapiaP', this.id]);
-  
-            }
-          });
+
+
+          switch(this.tipoh) {
+
+            case 'terapiaP':
+
+              this.consultaService.terapiaPID(this.id).subscribe((res: any) => {
+
+
+                if(res.resultados !==null) {
+    
+                  Swal.fire('' , 'La pareja ya tiene Historia Registrada', 'error').then((result) => {
+                    if (result.value) {
+                      
+                      this.consulta = false;
+          
+                    }
+                  });
+    
+    
+                } else {
+                  Swal.fire('' , 'Pareja Existente', 'success').then((result) => {
+                    if (result.value) {
+                      
+                      
+                      this.router.navigate(['/terapiaP', this.id]);
+                    
+                    }
+                  });
+                }
+    
+              });
+
+              break;
+
+
+
+
+          }
+
         }
         else {
           Swal.fire('' , 'Pareja No Existente, por favor registre la pareja primero', 'error').then((result) => {
@@ -198,8 +222,13 @@ export class ConsultapacientesComponent implements OnInit {
           });
         }
       });
+
       
-    } 
+
+      
+    }
+
+   
 
     
     
@@ -251,6 +280,7 @@ export class ConsultapacientesComponent implements OnInit {
   parejas(){
 
     this.consulta = true
+    this.paciente = false;
     this.tipoh = 'terapiaP';
 
   }
@@ -264,7 +294,7 @@ export class ConsultapacientesComponent implements OnInit {
   remisionP(){
 
     this.consulta = true
-   
+    this.paciente = false;
     this.tipoh = 'remisionP';
 
   }
@@ -288,7 +318,7 @@ export class ConsultapacientesComponent implements OnInit {
   seguimientoP(){
 
     this.consulta = true
-   
+    this.paciente = false;
     this.tipoh = 'seguimientoP';
     
   }
