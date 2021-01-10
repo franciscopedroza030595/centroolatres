@@ -60,7 +60,7 @@ export class RemisioncasoComponent implements OnInit {
       return;
     }
     // Realizar el posteo mediante el servicio
-    // enrutar a otra interfaz donde se haga el llenado de otras HC
+    
     console.log(this.remiForm.value);
     
 

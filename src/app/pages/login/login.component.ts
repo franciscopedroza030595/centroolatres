@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit {
     role: ''
   }
 
-  
+
+  public formSubmitted = false;
+
+
 
   public loginForm = this.fb.group({
     email: [ localStorage.getItem('email') || '' , [ Validators.required, Validators.email ] ],
@@ -34,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) {
 
-    
+
 
     if (localStorage.getItem('nameObj')) {
       this.nameObj = JSON.parse(localStorage.getItem('nameObj') || '{}'); 
@@ -75,12 +78,21 @@ export class LoginComponent implements OnInit {
 
   // ==========================================================================================
   login() {
+
+    this.formSubmitted = true;
+
+    
+
+    if ( this.loginForm.invalid ) {
+      Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
+      return;
+    }
     console.log(this.loginForm.value);
     this.usuarioService.login( this.loginForm.value )
       .subscribe( resp => {
 
-        if ( this.loginForm.get('remember').value ){ 
-          localStorage.setItem('email', this.loginForm.get('email').value ); 
+        if ( this.loginForm.value.remember){ 
+          localStorage.setItem('email', this.loginForm.value.email ); 
         } else {
           localStorage.removeItem('email');
         }

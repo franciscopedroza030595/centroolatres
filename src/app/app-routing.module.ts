@@ -14,6 +14,8 @@ import { ConsultapacientesComponent } from './pages/consultapacientes/consultapa
 import { SeguimientocasoComponent } from './pages/seguimientocaso/seguimientocaso.component';
 import { VisualizarseguiComponent } from './pages/visualizarsegui/visualizarsegui.component';
 import { HistorianinosComponent } from './pages/historianinos/historianinos.component';
+import { GruposComponent } from './pages/grupos/grupos.component';
+
 
 
 
@@ -39,6 +41,7 @@ const routes: Routes = [
   {path: 'consultaP', component: ConsultapacientesComponent},
   {path: 'seguimientoC/:id', component: SeguimientocasoComponent},
   {path: 'visualziarS/:id', component: VisualizarseguiComponent},
+  {path: 'grupos', component: GruposComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

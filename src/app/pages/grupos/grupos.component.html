@@ -1,0 +1,109 @@
+<div class="content">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="grupo">
+        <div class="container contact-form">
+
+            <div class="contact-image">
+                <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+                <h5>Fecha: {{fecha}}</h5>
+
+            </div>
+
+
+            <form [formGroup]="grupoForm" (ngSubmit)="crearGrupo()">
+                <h3>Terapia De Grupo</h3>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <h4>Nombre De La Actividad</h4>
+
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Nombre de la activdad" style="width: 200%; height: 150px;" formControlName="nombre"></textarea>
+                        </div>
+
+                        <h4>Área</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Área" style="width: 200%; height: 150px;" formControlName="area"></textarea>
+
+                        </div>
+
+                        <h4>Tema</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tema" style="width: 200%; height: 150px;" formControlName="tema"></textarea>
+
+                        </div>
+
+                        <h4>Obejetivos</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Obejetivos" style="width: 200%; height: 150px;" formControlName="objetivos"></textarea>
+
+                        </div>
+
+                        <h4>Metodologia(Descripción)</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Metodologia(Descripción)" style="width: 200%; height: 150px;" formControlName="metodologia"></textarea>
+
+                        </div>
+
+                        <h4>Asistentes</h4>
+
+                        <div formArrayName="asistentes">
+
+                            <div *ngFor="let item of asistentes.controls; let i = index" [formGroupName]="i">
+                                <table style="width: 200%; ">
+
+                                    <tr>
+
+                                        <th>Participante</th>
+                                        <th>Nombre</th>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td><input type="text" name="" class="form-control" placeholder="Cedula" formControlName="paciente" /></td>
+                                        <td><input type="text" name="" class="form-control" placeholder="{{nameP[i]}}" readonly /></td>
+
+                                    </tr>
+
+
+                                </table>
+
+
+                            </div>
+                            <div class="form-group">
+                                <input type="button" name="search" class="btnContact" (click)="search()" value="Buscar" />
+
+                            </div>
+                            <div class="form-group">
+                                <input type="button" name="add" class="btnContact2" (click)="addP()" value="+" />
+                                <input type="button" name="delete" class="btnContact3" (click)="deleteP()" value="-" />
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>

@@ -284,10 +284,10 @@ export class ConsultapacientesComponent implements OnInit {
     this.tipoh = 'terapiaP';
 
   }
-
+/* en grupos no necesito enviar documento de paciente , de una lleno formulario */
   grupos(){
-    this.consulta = true
-    this.tipoh = 'grupo';
+    
+    this.router.navigate(['/grupos']);
 
   }
 

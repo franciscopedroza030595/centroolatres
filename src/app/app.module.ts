@@ -27,6 +27,7 @@ import { ConsultapacientesComponent } from './pages/consultapacientes/consultapa
 import { SeguimientocasoComponent } from './pages/seguimientocaso/seguimientocaso.component';
 import { VisualizarseguiComponent } from './pages/visualizarsegui/visualizarsegui.component';
 import { HistorianinosComponent } from './pages/historianinos/historianinos.component';
+import { GruposComponent } from './pages/grupos/grupos.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { HistorianinosComponent } from './pages/historianinos/historianinos.comp
     ConsultapacientesComponent,
     SeguimientocasoComponent,
     VisualizarseguiComponent,
-    HistorianinosComponent
+    HistorianinosComponent,
+    GruposComponent
   ],
   imports: [
     BrowserModule,

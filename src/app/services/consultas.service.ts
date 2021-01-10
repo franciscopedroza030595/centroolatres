@@ -189,12 +189,38 @@ seguimientoPa(formData: any) {
   });
 
 }
+
+/* ----------------crear remisionPaciente------------------ */
+
+remisionPa(formData: any) {
+
+  return this.http.post(`${ base_url }/remision`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+}
 /* ------------------------------------- */
 /* ----------------crear TerapiaP------------------ */
 
 terapiaP(formData: any) {
 
   return this.http.post(`${ base_url }/terapiaP`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+}
+
+/* ----------------crear grupo------------------ */
+
+grupo(formData: any) {
+
+  return this.http.post(`${ base_url }/grupo`, formData , {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }
