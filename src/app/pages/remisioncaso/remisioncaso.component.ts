@@ -24,6 +24,17 @@ export class RemisioncasoComponent implements OnInit {
   remisionesA = 0;
   remisionN = 0;
 
+  /* para ver secciones anteriores */
+  seccionesA = 0;
+
+  secciones = false;
+
+  infoRemision: any;
+
+  infoSeguimientos: any;
+
+  segui = false;
+
 
   public formSubmitted = false;
   
@@ -36,6 +47,9 @@ export class RemisioncasoComponent implements OnInit {
     seguimiento: ['', Validators.required ],
     medicoentidad: ['', Validators.required ],
     observaciones: ['', Validators.required ],
+    ultima:['', Validators.required],
+    paciente: [''],
+    fecha:[]
    
    
     
@@ -50,6 +64,29 @@ export class RemisioncasoComponent implements OnInit {
     console.log(this.id);
 
 
+    this.consultaService.seguimientoID(this.id).subscribe((res: any) => {
+
+      this.infoSeguimientos = res.resultados;
+      console.log(this.infoSeguimientos);
+      this.seccionesA = this.infoSeguimientos.length;
+      
+    
+    });
+
+    this.consultaService.remisionID(this.id).subscribe((res: any) => {
+
+      this.infoRemision = res.resultados;
+      console.log(this.infoRemision);
+      this.remisionesA = this.infoRemision.length;
+      this.remisionN = this.remisionesA + 1;
+      
+    
+    });
+
+     /* creo la fecha actual con la cual el registro es guardado */
+     this.fecha = formatDate(new Date(), 'YYYY-MM-dd, h:mm:ss a', 'en');
+
+
   }
 
 
@@ -59,11 +96,34 @@ export class RemisioncasoComponent implements OnInit {
       Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
       return;
     }
+
+
+    this.remiForm.value.paciente = this.id;
+    this.remiForm.value.fecha = this.fecha;
     // Realizar el posteo mediante el servicio
     
     console.log(this.remiForm.value);
+
+    this.consultaService.remisionPa(this.remiForm.value).subscribe((resp: any) => {
+
+      console.log(resp);
+        
+    });
+
+    Swal.fire('' , 'Remision De Paciente registrado exitosamente', 'success').then((result) => {
+      if (result.value) {
+    
+       
+        this.router.navigate(['/consultaP']);
+      }
+    });
     
 
+  }
+
+  verSecciones(){
+
+    this.segui = true;
   }
 
 

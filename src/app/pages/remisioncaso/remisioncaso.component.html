@@ -8,10 +8,16 @@
                 <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
             </div>
             <form [formGroup]="remiForm" (ngSubmit)="remision()">
+
+
                 <h3>Remisión Del Caso</h3>
-                <h5>Número De La Sesion:</h5>
-                <h5>Sesiones Anteriores:</h5>
-                <h5>Remision:</h5>
+
+                <h5>Fecha: {{fecha}}</h5>
+                <h5>Número De La Remision: {{remisionN}}</h5>
+                <h5 class="seccionesA" (click)="verSecciones()">Remisiones Anteriores: {{remisionesA}} </h5>
+                <h5 class="seccionesA" (click)="verSecciones()">Sesiones De Seguimiento: {{seccionesA}} </h5>
+                <h5>Ultima sesion: SI <input type="radio" name="ultima" value="si" formControlName="ultima"> NO <input type="radio" name="ultima" value="no" formControlName="ultima"></h5>
+                <!-- <h5>Remision:</h5> -->
                 <h5>Interconsulta:</h5>
                 <div class="row">
                     <div class="col-md-6">

@@ -163,12 +163,41 @@ seguimientoID(id:any) {
 
 
 }
+
+/* -----------obtener remision por id del paciente------------------ */
+remisionID(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/remision/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
 /* -----------obtener seguimiento por id del seguimiento ------------------ */
 seguimiento(id:any) {
 
     
 
   return this.http.get(`${ base_url }/todo/coleccion/seguimientoid/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
+/* -----------obtener remision por id del seguimiento ------------------ */
+remision(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/remisionid/${id}`, {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }

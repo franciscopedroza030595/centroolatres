@@ -35,7 +35,7 @@ export class SeguimientocasoComponent implements OnInit {
 
   segui = false;
 
-  nombreP = 'pacho';
+  nombreP = 'pacho'; // para pdf ver despues!!!
   
 
   public seguiForm = this.fb.group({

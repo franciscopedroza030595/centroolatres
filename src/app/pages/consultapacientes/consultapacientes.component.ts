@@ -136,6 +136,19 @@ export class ConsultapacientesComponent implements OnInit {
                 });
 
                 break;
+
+              case 'remision':
+
+                Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                  if (result.value) {
+                    
+                    
+                    this.router.navigate(['/remision', this.id]);
+                  
+                  }
+                });
+
+                break;
              
 
               default:
@@ -206,7 +219,18 @@ export class ConsultapacientesComponent implements OnInit {
 
               break;
 
+            case 'seguimientoP':
 
+              Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                if (result.value) {
+                  
+                  
+                  this.router.navigate(['/seguimientoC', this.id]);
+                
+                }
+              });
+
+              break;
 
 
           }
