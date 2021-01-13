@@ -92,6 +92,17 @@
     cursor: pointer;
 }
 
+.btnContactVolver {
+    width: 20%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
 h6 {
     padding-top: 15px;
 }
@@ -99,4 +110,14 @@ h6 {
 .seccionesA {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.segui {
+    margin-top: 5%;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    .card {
+        margin-bottom: 20px;
+    }
 }

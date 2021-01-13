@@ -16,6 +16,11 @@ export class VisualizarseguiComponent implements OnInit {
   
 
   infoSeguimiento: any;
+ 
+
+  remision = false;
+
+  
 
   constructor(private consultaService: ConsultasService, private actiRoute: ActivatedRoute) { }
 
@@ -23,6 +28,11 @@ export class VisualizarseguiComponent implements OnInit {
 
     const id = this.actiRoute.snapshot.paramMap.get('id');
     console.log(id);
+
+    const tipo = this.actiRoute.snapshot.paramMap.get('tipo');
+    console.log(tipo);
+
+    if(tipo ===  'segui') {
 
     this.consultaService.seguimiento(id).subscribe((res: any) => {
 
@@ -32,6 +42,22 @@ export class VisualizarseguiComponent implements OnInit {
     
     });
 
+    /* cuando es remision */
+  } else {
+
+    this.remision = true
+    console.log(this.remision);
+
+    this.consultaService.remision(id).subscribe((res: any) => {
+
+      this.infoSeguimiento = res.resultados;
+      console.log(this.infoSeguimiento);
+      
+    
+    });
+
+
+  }
 
 
   }

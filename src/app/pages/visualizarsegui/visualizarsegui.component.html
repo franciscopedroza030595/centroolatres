@@ -2,7 +2,7 @@
 
 
 
-    <div class="historia">
+    <div class="historia" *ngIf='!remision'>
 
         <div class="contact-image">
             <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
@@ -76,5 +76,93 @@
 
 
     </div>
+
+
+    <div class="historia" *ngIf='remision'>
+
+        <div class="contact-image">
+            <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+        </div>
+
+
+
+
+
+
+        <div class="foto">
+            <img src="{{infoSeguimiento.paciente.foto}}" />
+
+            <h4>Historia clinica No: {{infoSeguimiento.paciente.cedula}}</h4>
+            <h5>Fecha: {{infoSeguimiento.fecha | date: 'YYYY-MM-dd, , h:mm:ss a'}}</h5>
+        </div>
+
+
+        <div class="datosP">
+
+            <h5>Nombres Y Apellidos: {{infoSeguimiento.paciente.nombreyapellido}}</h5>
+
+            <h5>Edad: {{infoSeguimiento.paciente.edad}}</h5>
+
+
+            <h5>Número De La Remision: {{infoSeguimiento.remisiones}}</h5>
+
+            <h5>Ultima Sesion: {{infoSeguimiento.ultima}}</h5>
+
+
+        </div>
+
+        <div class="datosP">
+
+            <h5>Descripción Del Encuentro Psicoterapeutico: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.descripcion}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+            <h5>Evaluación Del Estado Mental: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.evaluacion}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+
+            <h5>Impresión: </h5>
+            <h6>Diagnostica: </h6>
+
+            <textarea class="form-control" value="{{infoSeguimiento.diagnostica}}" style="width: 80%; height: 150px;" readonly></textarea>
+            <h6>COD: </h6>
+
+            <textarea class="form-control" value="{{infoSeguimiento.cod}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+            <h5>Seguimiento Del Caso: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.seguimiento}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+            <h5>Medico O Entidad Receptora: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.medicoentidad}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+            <h5>Observaciones: </h5>
+
+            <textarea class="form-control" value="{{infoSeguimiento.observaciones}}" style="width: 80%; height: 150px;" readonly></textarea>
+
+
+        </div>
+
+
+
+        <!-- aqui va la firma del medico con su tarjetap, registro y nombre -->
+        <div class="firma">
+            <img src="{{infoSeguimiento.usuario.firma}}" />
+            <h6> {{infoSeguimiento.usuario.nombre}} {{infoSeguimiento.usuario.apellido}} </h6>
+            <h6>{{infoSeguimiento.usuario.role}}</h6>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
 
 </div>

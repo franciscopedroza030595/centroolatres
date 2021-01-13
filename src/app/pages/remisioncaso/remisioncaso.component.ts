@@ -35,6 +35,8 @@ export class RemisioncasoComponent implements OnInit {
 
   segui = false;
 
+  remi = false; 
+
 
   public formSubmitted = false;
   
@@ -42,7 +44,7 @@ export class RemisioncasoComponent implements OnInit {
   public remiForm = this.fb.group({
     descripcion: ['', Validators.required ],
     evaluacion: ['', Validators.required ],
-    Diagnostica: ['', Validators.required ],
+    diagnostica: ['', Validators.required ],
     cod: ['', Validators.required ],
     seguimiento: ['', Validators.required ],
     medicoentidad: ['', Validators.required ],
@@ -124,6 +126,31 @@ export class RemisioncasoComponent implements OnInit {
   verSecciones(){
 
     this.segui = true;
+    
+  }
+
+  verRemisiones(){
+
+  
+    this.remi = true;
+
+  }
+
+  volver(){
+
+    this.segui = false;
+    this.remi = false;
+  }
+
+  visualizarSeguim(id:any, tipo:String) {
+
+    
+
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree([`/visualziarS/${id}/${tipo}`])
+    );
+
+    this.router.navigate([]).then(result => {  window.open(url, '_blank') });
   }
 
 

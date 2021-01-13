@@ -130,10 +130,10 @@ export class SeguimientocasoComponent implements OnInit {
 
   visualizarSeguim(id:any) {
 
-    /* console.log(id); */
+    const tipo = 'segui'
 
     const url = this.router.serializeUrl(
-      this.router.createUrlTree([`/visualziarS/${id}`])
+      this.router.createUrlTree([`/visualziarS/${id}/${tipo}`])
     );
 
     this.router.navigate([]).then(result => {  window.open(url, '_blank') });
