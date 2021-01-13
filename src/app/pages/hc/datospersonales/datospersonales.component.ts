@@ -49,7 +49,7 @@ export class DatospersonalesComponent implements OnInit {
     public errors: WebcamInitError[] = [];
   
     // latest snapshot
-    public webcamImage: WebcamImage = null;
+    public webcamImage: WebcamImage = null;  
   
     // webcam snapshot trigger
     private trigger: Subject<void> = new Subject<void>();
@@ -95,7 +95,11 @@ export class DatospersonalesComponent implements OnInit {
   
 
   constructor(  private fb: FormBuilder, private actiRoute: ActivatedRoute,
-                private router: Router, private usuarioService: UsuarioService  ) { }
+                private router: Router, private usuarioService: UsuarioService  ) { 
+
+
+
+                }
 
   ngOnInit(): void {
 

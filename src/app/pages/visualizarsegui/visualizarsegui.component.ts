@@ -33,14 +33,16 @@ export class VisualizarseguiComponent implements OnInit {
     console.log(tipo);
 
     if(tipo ===  'segui') {
-
-    this.consultaService.seguimiento(id).subscribe((res: any) => {
-
-      this.infoSeguimiento = res.resultados;
-      console.log(this.infoSeguimiento);
-      
     
-    });
+      
+
+      this.consultaService.seguimiento(id).subscribe((res: any) => {
+  
+        this.infoSeguimiento = res.resultados;
+        console.log(this.infoSeguimiento);
+        
+      
+      });
 
     /* cuando es remision */
   } else {

@@ -14,7 +14,7 @@ import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-grupos',
-  templateUrl: './grupos.component.html',
+  templateUrl: 'grupos.component.html', 
   styleUrls: ['./grupos.component.scss']
 })
 export class GruposComponent implements OnInit {
@@ -128,8 +128,7 @@ export class GruposComponent implements OnInit {
       }else {
         Swal.fire('' , 'Paciente No Existente, por favor registre el paciente primero', 'error').then((result) => {
           if (result.value) {
-    
-            
+      
           
           }
         });
