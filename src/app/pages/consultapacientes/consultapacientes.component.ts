@@ -5,6 +5,7 @@ import { ConsultasService } from '../../services/consultas.service';
 
 import Swal from 'sweetalert2';
 
+import { UsuarioService } from '../../services/usuario.service';
 
 
 
@@ -15,6 +16,12 @@ import Swal from 'sweetalert2';
 })
 export class ConsultapacientesComponent implements OnInit {
 
+  public nameObj = {
+    nombreU: '',
+    apellidoU: '',
+    role: ''
+  }
+
   cedula = '';
   id= '';
 
@@ -24,9 +31,35 @@ export class ConsultapacientesComponent implements OnInit {
 
   consulta = false;
 
-  constructor(private router: Router, private consultaService: ConsultasService) { }
+  constructor(private router: Router, private consultaService: ConsultasService, private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+
+    this.usuarioService.validarToken().subscribe((res: any) => {
+   
+      if (res === false ) {
+        /* pedir que haga loguin o creee cuenta para obtener token de local storage */
+        
+        Swal.fire('', 'Por favor inicie sesion', 'error' );
+        
+        this.router.navigate(['/home']);
+        
+      } else {
+
+        this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
+          console.log(resp);
+          this.nameObj.nombreU = resp.resultados[0].nombre;
+          this.nameObj.apellidoU = resp.resultados[0].apellido;
+          this.nameObj.role = resp.resultados[0].role;
+          
+          localStorage.setItem('nameObj', JSON.stringify(this.nameObj));
+        });
+
+
+
+        
+      }
+    });
   }
 
 
@@ -124,32 +157,32 @@ export class ConsultapacientesComponent implements OnInit {
 
                 break;
 
-              case 'seguimiento':
+                case 'seguimiento':
+    
+                  Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                    if (result.value) {
+                      
+                      
+                      this.router.navigate(['/seguimientoC', this.id]);
+                    
+                    }
+                  });
+    
+                  break;
 
-                Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
-                  if (result.value) {
-                    
-                    
-                    this.router.navigate(['/seguimientoC', this.id]);
+                  case 'remision':
+    
+                    Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                      if (result.value) {
+                        
+                        
+                        this.router.navigate(['/remision', this.id]);
+                      
+                      }
+                    });
+    
+                    break;
                  
-                  }
-                });
-
-                break;
-
-              case 'remision':
-
-                Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
-                  if (result.value) {
-                    
-                    
-                    this.router.navigate(['/remision', this.id]);
-                  
-                  }
-                });
-
-                break;
-             
 
               default:
                 console.log("No such data exists!");
@@ -297,6 +330,16 @@ export class ConsultapacientesComponent implements OnInit {
     this.consulta = true;
     this.paciente = true;
     this.tipoh = 'historiaPN';
+   
+
+  }
+
+  terapiaO(){
+
+
+    this.consulta = true;
+    this.paciente = true;
+    this.tipoh = 'terapiaO';
    
 
   }

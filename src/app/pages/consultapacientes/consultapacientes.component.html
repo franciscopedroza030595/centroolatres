@@ -4,384 +4,189 @@
 
     <div class="registroc">
 
-
-        <!-- Psicologica paciente -->
-
-        <div>
-            <h3 *ngIf="!consulta">Psicologia Paciente</h3>
+        <div class="usuario">
+            <h3>{{nameObj.role}} {{nameObj.nombreU}} {{nameObj.apellidoU}}</h3>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
+        <!-- widgets para menuu -->
 
 
-            <div class="col mb-5">
+        <div class="container bootdey" *ngIf="!consulta">
+            <div class="row bootstrap snippets bootdey">
+                <div class="col-md-4">
+                    <div class="box box-widget widget-user-2">
+                        <div class="widget-user-header bg-blue">
+                            <div class="widget-user-image">
 
-                <!-- Card -->
-                <div class="card">
+                            </div>
 
-                    <!--Card image-->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="../../../assets/images/LOGO.jpg" alt="Card image cap">
-                        <a href="#">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
+                            <h5 class="widget-user-desc">Pacientes</h5>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                <li (click)="historiaA()">
+
+                                    <h6>Historia Psicologica Adulto</h6>
+
+                                </li>
+
+                                <li (click)="historiaPA()">
+                                    <h6>Historia Psiquiatrica Adulto </h6>
+                                </li>
+                                <li (click)="seguimiento()">
+                                    <h6>Seguimientos Medicos Adulto</h6>
+                                </li>
+
+                                <li (click)="remision()">
+                                    <h6>Remisiones Medicas Adulto</h6>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
 
-                    <!--Card content-->
-                    <div class="card-body">
+                <div class="col-md-4">
+                    <div class="box box-widget widget-user-2">
+                        <div class="widget-user-header bg-red">
+                            <div class="widget-user-image">
 
-                        <!--Title-->
-                        <h4 class="card-title"> Historia Psicologica Paciente</h4>
+                            </div>
 
-                        <button type="button" class="btn " (click)="historiaA()">Registro</button>
+                            <h5 class="widget-user-desc">Parejas</h5>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                <li (click)="parejas()">
+                                    <h6>Terapia De parejas
 
+                                    </h6>
+                                </li>
+                                <li (click)="seguimientoP()">
+                                    <h6>Seguimientos Medicos Pareja </h6>
+                                </li>
+                                <li (click)="remisionP()">
+                                    <h6>Remisiones Medicas Pareja </h6>
+                                </li>
+
+
+                            </ul>
+                        </div>
                     </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box box-widget widget-user-2">
+                        <div class="widget-user-header bg-blue">
+                            <div class="widget-user-image">
+
+                            </div>
+
+                            <h5 class="widget-user-desc">Grupos</h5>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                <li (click)="grupos()">
+                                    <h6>Terapia De Grupos </h6>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box box-widget widget-user-2">
+                        <div class="widget-user-header bg-blue">
+                            <div class="widget-user-image">
+
+                            </div>
+
+                            <h5 class="widget-user-desc">Menor De Edad</h5>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                <li (click)="historiaN()">
+
+                                    <h6>Historia Psicologica Menor</h6>
+
+                                </li>
+
+                                <li (click)="historiaPN()">
+                                    <h6>Historia Psiquiatrica Menor </h6>
+                                </li>
+                                <li (click)="seguimiento()">
+                                    <h6>Seguimientos Medicos Menor</h6>
+                                </li>
+
+                                <li (click)="remision()">
+                                    <h6>Remisiones Medicas Menor</h6>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box box-widget widget-user-2">
+                        <div class="widget-user-header bg-red">
+                            <div class="widget-user-image">
+
+                            </div>
+
+                            <h5 class="widget-user-desc">Otros</h5>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                <li (click)="terapiaO()">
+                                    <h6>Formato Terapia Ocupacional
+
+                                    </h6>
+                                </li>
+                                <li>
+                                    <h6>Formato Trabajo Social </h6>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <!-- para el recuadro que aparecera consultando cedula -->
+        <div class="consulta" *ngIf="consulta">
+
+            <div class="snip">
+
+                <label for="tab-1" class="tab">Consulta Por Cedula</label>
+
+                <div class="login">
+
+                    <div class="group"> <label for="user" class="label">Digite Cedula</label> <input id="user" type="text" class="input" placeholder="Cedula" [(ngModel)]="cedula"> </div>
+
+
+                    <div class="group"> <input type="submit" class="button" value="Enviar" (click)="buscarC()"> </div>
+                    <div class="hr"></div>
 
                 </div>
-                <!-- Card -->
-            </div>
-
-            <!-- menor de edad -->
-
-            <div class="col mb-5">
-
-                <!-- Card -->
-                <div class="card">
-
-                    <!--Card image-->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="../../../assets/images/LOGO.jpg" alt="Card image cap">
-                        <a href="#">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body">
-
-                        <!--Title-->
-                        <h4 class="card-title"> Historia Psicologica Niño</h4>
-
-                        <button type="button" class="btn " (click)="historiaN()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
-        </div>
-
-
-        <!-- Psiquiatrica paciente -->
-
-        <div>
-            <h3 *ngIf="!consulta">Psiquiatria Paciente</h3>
-        </div>
-
-        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
-
-
-            <div class="col mb-5">
-
-                <!-- Card -->
-                <div class="card">
-
-                    <!--Card image-->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="../../../assets/images/LOGO.jpg" alt="Card image cap">
-                        <a href="#">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body">
-
-                        <!--Title-->
-                        <h4 class="card-title">Historia Psiquiatrica Paciente</h4>
-
-                        <button type="button" class="btn " (click)="historiaPA()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
-
-            <!-- menor de edad -->
-
-            <div class="col mb-5">
-
-                <!-- Card -->
-                <div class="card">
-
-                    <!--Card image-->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="../../../assets/images/LOGO.jpg" alt="Card image cap">
-                        <a href="#">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body">
-
-                        <!--Title-->
-                        <h4 class="card-title">Historia Psiquiatrica Niño</h4>
-
-                        <button type="button" class="btn " (click)="historiaPN()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
-        </div>
-
-        <!-- PAREJA -->
-
-        <div>
-            <h3 *ngIf="!consulta">Parejas</h3>
-        </div>
-
-
-        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
-
-            <div class="col mb-5 ">
-                <!-- Card -->
-                <div class="card ">
-
-                    <!--Card image-->
-                    <div class="view overlay ">
-                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
-                        <a href="#! ">
-                            <div class="mask rgba-white-slight "></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body ">
-
-                        <!--Title-->
-                        <h4 class="card-title ">Terapia De Parejas</h4>
-
-                        <button type="button " class="btn " (click)="parejas() ">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
-
-
-        </div>
-
-
-        <!-- GRUPOS -->
-
-        <div>
-            <h3 *ngIf="!consulta">Grupos</h3>
-        </div>
-
-
-        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
-
-            <div class="col mb-5 ">
-                <!-- Card -->
-                <div class="card ">
-
-                    <!--Card image-->
-                    <div class="view overlay ">
-                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
-                        <a href="#! ">
-                            <div class="mask rgba-white-slight "></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body ">
-
-                        <!--Title-->
-                        <h4 class="card-title ">Terapia De Grupo</h4>
-
-                        <button type="button " class="btn " (click)="grupos() ">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
-
-
-        </div>
-
-
-
-        <!-- SEGUIMIENTOS -->
-
-        <div>
-            <h3 *ngIf="!consulta">Seguimientos</h3>
-        </div>
-
-        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
-            <!-- div para seguimiento -->
-            <div class="col mb-5 ">
-
-                <!-- Card -->
-                <div class="card">
-
-                    <!--Card image-->
-                    <div class="view overlay ">
-                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
-                        <a href="#! ">
-                            <div class="mask rgba-white-slight "></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body ">
-
-                        <!--Title-->
-                        <h4 class="card-title ">Seguimiento De Paciente</h4>
-
-                        <button type="button " class="btn " (click)="seguimiento()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
 
             </div>
 
 
-            <!-- div para seguimiento pareja -->
-            <div class="col mb-5 ">
 
-                <!-- Card -->
-                <div class="card">
 
-                    <!--Card image-->
-                    <div class="view overlay ">
-                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
-                        <a href="#! ">
-                            <div class="mask rgba-white-slight "></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body ">
-
-                        <!--Title-->
-                        <h4 class="card-title ">Seguimiento De Pareja</h4>
-
-                        <button type="button " class="btn " (click)="seguimientoP()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-
-            </div>
 
 
         </div>
-
-        <!-- REMISIONES -->
-
-        <div>
-            <h3 *ngIf="!consulta">Remisiones</h3>
-        </div>
-
-
-        <div class="row row-cols-1 row-cols-md-2" *ngIf="!consulta">
-
-            <div class="col mb-5 ">
-                <!-- Card -->
-                <div class="card ">
-
-                    <!--Card image-->
-                    <div class="view overlay ">
-                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
-                        <a href="#! ">
-                            <div class="mask rgba-white-slight "></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body ">
-
-                        <!--Title-->
-                        <h4 class="card-title "> Remisión De Paciente</h4>
-
-                        <button type="button " class="btn " (click)="remision()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
-
-
-
-            <div class="col mb-5">
-                <!-- Card -->
-                <div class="card ">
-
-                    <!--Card image-->
-                    <div class="view overlay ">
-                        <img class="card-img-top " src="../../../assets/images/LOGO.jpg " alt="Card image cap ">
-                        <a href="#! ">
-                            <div class="mask rgba-white-slight "></div>
-                        </a>
-                    </div>
-
-                    <!--Card content-->
-                    <div class="card-body ">
-
-                        <!--Title-->
-                        <h4 class="card-title "> Remisión De Pareja</h4>
-
-                        <button type="button " class="btn " (click)="remisionP()">Registro</button>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
-            </div>
-        </div>
-
-
-
-    </div>
-
-    <!-- para el recuadro que aparecera consultando cedula -->
-    <div class="consulta" *ngIf="consulta">
-
-        <div class="snip">
-
-            <label for="tab-1" class="tab">Consulta Por Cedula</label>
-
-            <div class="login">
-
-                <div class="group"> <label for="user" class="label">Digite Cedula</label> <input id="user" type="text" class="input" placeholder="Cedula" [(ngModel)]="cedula"> </div>
-
-
-                <div class="group"> <input type="submit" class="button" value="Enviar" (click)="buscarC()"> </div>
-                <div class="hr"></div>
-
-            </div>
-
-        </div>
-
 
 
 
 
 
     </div>
-
-
-
-
-
-</div>

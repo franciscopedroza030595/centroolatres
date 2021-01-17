@@ -28,6 +28,9 @@ import { SeguimientocasoComponent } from './pages/seguimientocaso/seguimientocas
 import { VisualizarseguiComponent } from './pages/visualizarsegui/visualizarsegui.component';
 import { HistorianinosComponent } from './pages/historianinos/historianinos.component';
 import { GruposComponent } from './pages/grupos/grupos.component';
+import { PsiquiatricaComponent } from './pages/psiquiatrica/psiquiatrica.component';
+import { TerapiaocupaComponent } from './pages/terapiaocupa/terapiaocupa.component';
+import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { GruposComponent } from './pages/grupos/grupos.component';
     SeguimientocasoComponent,
     VisualizarseguiComponent,
     HistorianinosComponent,
-    GruposComponent
+    GruposComponent,
+    PsiquiatricaComponent,
+    TerapiaocupaComponent,
+    SolicitudhcComponent
   ],
   imports: [
     BrowserModule,

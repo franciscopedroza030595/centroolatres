@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
+import { Router } from '@angular/router';
 
 
 
@@ -16,7 +17,7 @@ export class SidebarComponent implements OnInit {
 
   
 
-  constructor( private usuarioService: UsuarioService ) { }
+  constructor( private usuarioService: UsuarioService, private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -47,9 +48,12 @@ export class SidebarComponent implements OnInit {
   closeMenu() {
     
     this.showmenu = false;
+    
+  }
 
-    
-    
+  cerrarSession() {
+    localStorage.clear();
+    this.router.navigate(['/home']);
   }
 
 }
