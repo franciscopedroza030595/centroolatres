@@ -15,13 +15,9 @@ import { SeguimientocasoComponent } from './pages/seguimientocaso/seguimientocas
 import { VisualizarseguiComponent } from './pages/visualizarsegui/visualizarsegui.component';
 import { HistorianinosComponent } from './pages/historianinos/historianinos.component';
 import { GruposComponent } from './pages/grupos/grupos.component';
-
-
-
-
-
-
-
+import { TerapiaocupaComponent } from './pages/terapiaocupa/terapiaocupa.component';
+import { PsiquiatricaComponent } from './pages/psiquiatrica/psiquiatrica.component';
+import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component';
 
 
 
@@ -42,6 +38,9 @@ const routes: Routes = [
   {path: 'seguimientoC/:id', component: SeguimientocasoComponent},
   {path: 'visualziarS/:id/:tipo', component: VisualizarseguiComponent},
   {path: 'grupos', component: GruposComponent},
+  {path: 'terapiaO/:id', component: TerapiaocupaComponent},
+  {path: 'psiquiatrica/:id', component: PsiquiatricaComponent},
+  {path: 'solicitudhc/:id', component: SolicitudhcComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

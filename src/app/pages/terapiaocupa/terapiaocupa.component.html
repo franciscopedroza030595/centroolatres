@@ -1,1 +1,165 @@
-<p>terapiaocupa works!</p>
+<div class="content">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="historia">
+        <div class="container contact-form">
+            <div class="contact-image">
+                <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+                <h5>{{infoPaciente.nombreyapellido}}</h5>
+                <h5>Cedula: {{infoPaciente.cedula}} </h5>
+                <h5>Fecha: {{fecha}}</h5>
+                <!-- <img [src]="infoPaciente.firma" alt="firma" /> -->
+            </div>
+            <form [formGroup]="terapiaForm" (ngSubmit)="terapiaOcu()">
+                <h3>Terapia Ocupacional Paciente</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Motivo De Consulta</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Motivo" style="width: 200%; height: 150px;" formControlName="motivo"></textarea>
+                        </div>
+                        <h4>Datos Clínicos</h4>
+                        <h6>Diagnóstico Principal</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Diagnóstico Principal" style="width: 200%; height: 150px;" formControlName="diagnosticoP"></textarea>
+
+                        </div>
+
+                        <h6>Otros diagnósticos</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="otrosD"></textarea>
+
+                        </div>
+
+                        <h4>Aspectos Motores</h4>
+
+                        <h6>Tolerancia</h6>
+
+                        <div class="form-group">
+                            <input type="radio" name="tolerancia" value="Normal" formControlName="tolerancia">Normal <input type="radio" name="tolerancia" value="Anormal" formControlName="tolerancia">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="tolerancia"></textarea>
+
+                        </div>
+                        <h6>Deformidades </h6>
+                        <div class="form-group">
+                            <input type="radio" name="deformidades" value="Normal" formControlName="deformidades">Normal <input type="radio" name="deformidades" value="Anormal" formControlName="deformidades">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="deformidades"></textarea>
+
+                        </div>
+                        <h6>Edema </h6>
+                        <div class="form-group">
+                            <input type="radio" name="edema" value="Normal" formControlName="edema">Normal <input type="radio" name="edema" value="Anormal" formControlName="edema">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="edema"></textarea>
+
+                        </div>
+                        <h6>Rango articular</h6>
+                        <div class="form-group">
+                            <input type="radio" name="rangoA" value="Normal" formControlName="rangoA">Normal <input type="radio" name="rangoA" value="Anormal" formControlName="rangoA">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="rangoA"></textarea>
+
+                        </div>
+                        <h6>Fuerza muscular</h6>
+                        <div class="form-group">fuerzaM
+                            <input type="radio" name="fuerzaM" value="Normal" formControlName="fuerzaM">Normal <input type="radio" name="fuerzaM" value="Anormal" formControlName="fuerzaM">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="fuerzaM"></textarea>
+
+                        </div>
+                        <h6>Reacciones automáticas</h6>
+                        <div class="form-group">
+                            <input type="radio" name="reacciones" value="Normal" formControlName="reacciones">Normal <input type="radio" name="reacciones" value="Anormal" formControlName="reacciones">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="reacciones"></textarea>
+
+                        </div>
+                        <h6>Control postural</h6>
+                        <div class="form-group">
+                            <input type="radio" name="control" value="Normal" formControlName="control">Normal <input type="radio" name="control" value="Anormal" formControlName="control">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="control"></textarea>
+
+                        </div>
+                        <h6>Marcha / Equilibrio</h6>
+                        <div class="form-group">
+                            <input type="radio" name="marcha" value="Normal" formControlName="marcha">Normal <input type="radio" name="marcha" value="Anormal" formControlName="marcha">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="marcha"></textarea>
+
+                        </div>
+                        <h6>Coordinación </h6>
+                        <div class="form-group">
+                            <input type="radio" name="coordinacion" value="Normal" formControlName="coordinacion">Normal <input type="radio" name="coordinacion" value="Anormal" formControlName="coordinacion">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="coordinacion"></textarea>
+
+                        </div>
+                        <h6>Destreza manual</h6>
+                        <div class="form-group">
+                            <input type="radio" name="destreza" value="Normal" formControlName="destreza">Normal <input type="radio" name="destreza" value="Anormal" formControlName="destreza">Anormal
+                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="destreza"></textarea>
+
+                        </div>
+
+                        <h4>Componentes sensoriales</h4>
+
+                        <h6></h6>
+
+                        <h6></h6>
+                        <h6></h6>
+                        <h6></h6>
+                        <h6></h6>
+
+
+
+                        <h6>b. Historia Familiar</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Historia Familiar" style="width: 200%; height: 150px;" formControlName="historiaf"></textarea>
+                        </div>
+                        <h6>c. Relaciones Actuales</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Relaciones Actuales" style="width: 200%; height: 150px;" formControlName="relacionesa"></textarea>
+                        </div>
+
+                        <h4>Proceso Terapeutico</h4>
+
+                        <h6>a. Recuperación de Historia Personal</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Recuperación de Historia Personal" style="width: 200%; height: 150px;" formControlName="recuperacion"></textarea>
+                        </div>
+
+                        <h6>b. Opinión Diagnostica</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Opinión Diagnostica" style="width: 200%; height: 150px;" formControlName="opinion"></textarea>
+                        </div>
+
+                        <h6>c. Objetivos Terapéuticos</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Objetivos Terapéuticos" style="width: 200%; height: 150px;" formControlName="objetivos"></textarea>
+                        </div>
+
+                        <h6>d. Próxima Sesión</h6>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Próxima Sesión" style="width: 200%; height: 150px;" formControlName="proximas"></textarea>
+                        </div>
+
+                        <h4>Observaciones</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Observaciones" style="width: 200%; height: 150px;" formControlName="observaciones"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>

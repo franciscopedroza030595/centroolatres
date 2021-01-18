@@ -134,6 +134,20 @@ historiaNID(id:any) {
 
 
 }
+/* -----------obtener terapiaO por id------------------ */
+terapiaOID(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/terapiaO/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
 
 /* -----------obtener terapiaP por id------------------ */
 terapiaPID(id:any) {
@@ -250,6 +264,18 @@ terapiaP(formData: any) {
 grupo(formData: any) {
 
   return this.http.post(`${ base_url }/grupo`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+}
+/* ----------------crear terapia ocupacional------------------ */
+
+terapiaO(formData: any) {
+
+  return this.http.post(`${ base_url }/terapiaocu`, formData , {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }

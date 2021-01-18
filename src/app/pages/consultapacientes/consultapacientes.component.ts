@@ -157,6 +157,42 @@ export class ConsultapacientesComponent implements OnInit {
 
                 break;
 
+                case 'terapiaO':
+
+                this.consultaService.terapiaOID(this.id).subscribe((res: any) => {
+
+
+                  if(res.resultados !==null) {
+      
+                    Swal.fire('' , 'El Paciente ya tiene Terapia Registrada', 'error').then((result) => {
+                      if (result.value) {
+                        
+                        this.consulta = false;
+            
+                      }
+                    });
+      
+      
+                  } else {
+                    Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                      if (result.value) {
+                        
+                        
+                        this.router.navigate(['/terapiaO', this.id]);
+                        
+      
+                        
+      
+      
+            
+                      }
+                    });
+                  }
+      
+                });
+
+                break;
+
                 case 'seguimiento':
     
                   Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
@@ -207,7 +243,7 @@ export class ConsultapacientesComponent implements OnInit {
 
     } else {
 
-
+/* DESARROLLAR TODO LO REFERENTE A PAREJAS PARA SEGUIMIENTO POR ALGUNA CEDULA Y DEMAS FORMATOS , PREGUNTAR!! */
       this.consultaService.obtenerPareja(this.cedula).subscribe((resp: any) => {
       
         console.log(resp);
