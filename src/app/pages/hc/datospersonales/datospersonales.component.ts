@@ -26,7 +26,7 @@ export class DatospersonalesComponent implements OnInit {
   /* for signature  */
   /* for signature  */
 
-  @ViewChild(SignaturePad) signaturePad: SignaturePad;
+  @ViewChild(SignaturePad) signaturePad: SignaturePad; 
 
   signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
     'minWidth': 1,

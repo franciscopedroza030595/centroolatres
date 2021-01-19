@@ -193,6 +193,42 @@ export class ConsultapacientesComponent implements OnInit {
 
                 break;
 
+                case 'historiaPA':
+
+                this.consultaService.psiquiatricoID(this.id).subscribe((res: any) => {
+
+
+                  if(res.resultados !==null) {
+      
+                    Swal.fire('' , 'El Paciente ya tiene Historia Psiquiatrica registrada', 'error').then((result) => {
+                      if (result.value) {
+                        
+                        this.consulta = false;
+            
+                      }
+                    });
+      
+      
+                  } else {
+                    Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+                      if (result.value) {
+                        
+                        
+                        this.router.navigate(['/psiquiatrica', this.id]);
+                        
+      
+                        
+      
+      
+            
+                      }
+                    });
+                  }
+      
+                });
+
+                break;
+
                 case 'seguimiento':
     
                   Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
@@ -360,15 +396,6 @@ export class ConsultapacientesComponent implements OnInit {
 
   }
 
-  historiaPN(){
-
-
-    this.consulta = true;
-    this.paciente = true;
-    this.tipoh = 'historiaPN';
-   
-
-  }
 
   terapiaO(){
 

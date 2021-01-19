@@ -149,6 +149,21 @@ terapiaOID(id:any) {
 
 }
 
+/*  -----------obtener h psiquiatrico por id------------------ */
+psiquiatricoID(id:any) {
+
+    
+
+  return this.http.get(`${ base_url }/todo/coleccion/psiquiatrica/${id}`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+
+}
+
 /* -----------obtener terapiaP por id------------------ */
 terapiaPID(id:any) {
 
@@ -276,6 +291,18 @@ grupo(formData: any) {
 terapiaO(formData: any) {
 
   return this.http.post(`${ base_url }/terapiaocu`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+}
+/* ----------------crear historia Psiquiatrica----------------- */
+
+psiqui(formData: any) {
+
+  return this.http.post(`${ base_url }/psiquiatrica`, formData , {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }

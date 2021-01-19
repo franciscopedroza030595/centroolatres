@@ -19,6 +19,8 @@ import {formatDate} from '@angular/common';
 })
 export class TerapiaocupaComponent implements OnInit {
 
+
+
   id: any;
   infoPaciente: any;
   fecha: any;
@@ -132,7 +134,7 @@ export class TerapiaocupaComponent implements OnInit {
       fecha:[]
       
         
-      
+       
     });
   }
 
