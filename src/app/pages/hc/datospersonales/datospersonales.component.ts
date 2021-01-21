@@ -16,13 +16,18 @@ import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 
 
 
+
+
 @Component({
   selector: 'app-datospersonales',
   templateUrl: './datospersonales.component.html',
-  styleUrls: ['./datospersonales.component.scss']
+  styleUrls: ['./datospersonales.component.scss'] 
 })
 export class DatospersonalesComponent implements OnInit {
 
+
+
+  
   /* for signature  */
   /* for signature  */
 
@@ -49,7 +54,7 @@ export class DatospersonalesComponent implements OnInit {
     public errors: WebcamInitError[] = [];
   
     // latest snapshot
-    public webcamImage: WebcamImage = null ;
+    public webcamImage: WebcamImage = null ; 
   
     // webcam snapshot trigger
     private trigger: Subject<void> = new Subject<void>();

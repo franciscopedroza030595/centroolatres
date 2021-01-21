@@ -31,9 +31,15 @@ export class SeguimientocasoComponent implements OnInit {
 
   secciones = false;
 
+  infoPa: any;
+
+  pareja = false;
+
   infoSeguimientos: any;
 
   segui = false;
+
+  
 
   nombreP = 'pacho'; // para pdf ver despues!!!
   
@@ -46,6 +52,7 @@ export class SeguimientocasoComponent implements OnInit {
     observaciones: ['', Validators.required ],
     ultima:['', Validators.required],
     paciente: [''],
+    pareja: [''],
     fecha:[]
    
     
@@ -56,13 +63,30 @@ export class SeguimientocasoComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
-
+   
+    
+    this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
+      if(resp !== null){
+      this.infoPa = resp.resultados;
+      this.pareja = false;
+      
+    } 
+    
+    });
+    
+    this.consultaService.parejaporID(this.id).subscribe((resp: any) => {
+      if(resp !== null){
+      this.infoPa = resp.resultados;
+      
+      this.pareja = true;
+      
+      }
+    });
 
     this.consultaService.seguimientoID(this.id).subscribe((res: any) => {
 
       this.infoSeguimientos = res.resultados;
-      console.log(this.infoSeguimientos);
+   
       this.seccionesA = this.infoSeguimientos.length;
       this.secccionN = this.seccionesA + 1;
     
@@ -86,12 +110,24 @@ export class SeguimientocasoComponent implements OnInit {
 
 
   seguimiento() {
+
+    let texto;
+
     this.formSubmitted = true;
     if ( this.seguiForm.invalid ) {
       Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
       return;
     }
-   
+
+    if (this.pareja = true) {
+      texto = 'Pareja';
+      
+
+    } else {
+      texto = 'Paciente';
+      
+    }
+    this.seguiForm.value.pareja = this.id;
     this.seguiForm.value.paciente = this.id;
     this.seguiForm.value.fecha = this.fecha;
 
@@ -104,7 +140,9 @@ export class SeguimientocasoComponent implements OnInit {
         
     });
 
-    Swal.fire('' , 'Seguimiento De Paciente registrado exitosamente', 'success').then((result) => {
+    
+
+    Swal.fire('' , 'Seguimiento De ' + texto +  ' registrado exitosamente', 'success').then((result) => {
       if (result.value) {
     
        
@@ -131,9 +169,15 @@ export class SeguimientocasoComponent implements OnInit {
   visualizarSeguim(id:any) {
 
     const tipo = 'segui'
+    let pareja = ''
+    if(this.pareja === true) {
+       pareja = 'pareja';
+    } else {
+       pareja = 'no';
+    }
 
     const url = this.router.serializeUrl(
-      this.router.createUrlTree([`/visualziarS/${id}/${tipo}`])
+      this.router.createUrlTree([`/visualziarS/${id}/${tipo}/${pareja}`])
     );
 
     this.router.navigate([]).then(result => {  window.open(url, '_blank') });

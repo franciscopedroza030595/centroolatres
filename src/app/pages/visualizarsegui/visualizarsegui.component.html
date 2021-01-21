@@ -14,18 +14,26 @@
 
 
         <div class="foto">
-            <img src="{{infoSeguimiento.paciente.foto}}" />
+            <img *ngIf="!showpareja" src="{{infoSeguimiento.paciente.foto}}" />
 
-            <h4>Historia clinica No: {{infoSeguimiento.paciente.cedula}}</h4>
+            <img *ngIf="showpareja" src="{{infoSeguimiento.pareja.foto}}" />
+            <img *ngIf="showpareja" src="{{infoSeguimiento.pareja.foto2}}" />
+
+            <h4 *ngIf="!showpareja">Historia clinica No: {{infoSeguimiento.paciente.cedula}}</h4>
+            <h4 *ngIf="showpareja">Historia clinica No: {{infoSeguimiento.pareja.cedula}}</h4>
             <h5>Fecha: {{infoSeguimiento.fecha | date: 'YYYY-MM-dd, , h:mm:ss a'}}</h5>
         </div>
 
 
         <div class="datosP">
 
-            <h5>Nombres Y Apellidos: {{infoSeguimiento.paciente.nombreyapellido}}</h5>
+            <h5 *ngIf="!showpareja">Nombres Y Apellidos: {{infoSeguimiento.paciente.nombreyapellido}}</h5>
 
-            <h5>Edad: {{infoSeguimiento.paciente.edad}}</h5>
+            <h5 *ngIf="showpareja">Nombres Y Apellidos: {{infoSeguimiento.pareja.nombreyapellido}} & {{infoSeguimiento.pareja.nombreyapellido2}}</h5>
+
+            <h5 *ngIf="!showpareja">Edad: {{infoSeguimiento.paciente.edad}}</h5>
+
+            <h5 *ngIf="showpareja">Edades: {{infoSeguimiento.pareja.edad}} & {{infoSeguimiento.pareja.edad2}}</h5>
 
 
             <h5>Número De La Sesion: {{infoSeguimiento.sesiones}}</h5>

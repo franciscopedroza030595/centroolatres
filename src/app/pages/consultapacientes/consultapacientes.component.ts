@@ -279,10 +279,10 @@ export class ConsultapacientesComponent implements OnInit {
 
     } else {
 
-/* DESARROLLAR TODO LO REFERENTE A PAREJAS PARA SEGUIMIENTO POR ALGUNA CEDULA Y DEMAS FORMATOS , PREGUNTAR!! */
+/* DESARROLLAR TODO LO REFERENTE A PAREJAS PARA SEGUIMIENTO POR ALGUNA CEDULA Y DEMAS FORMATOS */
       this.consultaService.obtenerPareja(this.cedula).subscribe((resp: any) => {
       
-        console.log(resp);
+      
   
         if(resp.resultados !== null) {
   
@@ -326,7 +326,7 @@ export class ConsultapacientesComponent implements OnInit {
 
             case 'seguimientoP':
 
-              Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
+              Swal.fire('' , 'Pareja Existente', 'success').then((result) => {
                 if (result.value) {
                   
                   

@@ -178,7 +178,7 @@ terapiaPID(id:any) {
 
 
 }
-/* -----------obtener seguimiento por id del paciente------------------ */
+/* -----------obtener seguimientos por id del paciente------------------ */
 seguimientoID(id:any) {
 
     

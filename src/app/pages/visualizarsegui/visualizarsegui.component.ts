@@ -20,7 +20,9 @@ export class VisualizarseguiComponent implements OnInit {
 
   remision = false;
 
-  
+ 
+
+  showpareja = false;
 
   constructor(private consultaService: ConsultasService, private actiRoute: ActivatedRoute) { }
 
@@ -31,6 +33,13 @@ export class VisualizarseguiComponent implements OnInit {
 
     const tipo = this.actiRoute.snapshot.paramMap.get('tipo');
     console.log(tipo);
+
+    const pareja = this.actiRoute.snapshot.paramMap.get('pareja');
+    console.log(pareja);
+
+    if(pareja ===  'pareja') {
+      this.showpareja = true;
+    }
 
     if(tipo ===  'segui') {
     

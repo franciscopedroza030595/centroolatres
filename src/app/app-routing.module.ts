@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'busquedaP', component: BusquedapaComponent},
   {path: 'consultaP', component: ConsultapacientesComponent},
   {path: 'seguimientoC/:id', component: SeguimientocasoComponent},
-  {path: 'visualziarS/:id/:tipo', component: VisualizarseguiComponent},
+  {path: 'visualziarS/:id/:tipo/:pareja', component: VisualizarseguiComponent},
   {path: 'grupos', component: GruposComponent},
   {path: 'terapiaO/:id', component: TerapiaocupaComponent},
   {path: 'psiquiatrica/:id', component: PsiquiatricaComponent},
