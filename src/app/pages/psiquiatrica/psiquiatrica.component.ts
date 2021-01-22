@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {  FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@angular/forms';
+import {  FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 
 
@@ -129,6 +129,8 @@ export class PsiquiatricaComponent implements OnInit {
     this.psiquiForm.value.fecha = this.fecha;
 
      /* RECORDAR CALCULAR IMC PRIMERO */
+
+     this.psiquiForm.value.imc = (this.psiquiForm.value.peso/(this.psiquiForm.value.talla)**2);
   
     console.log(this.psiquiForm.value);
  

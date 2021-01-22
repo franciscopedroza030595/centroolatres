@@ -12,6 +12,8 @@
 
                 <h3>Remisión Del Caso</h3>
 
+                <h5 *ngIf="!pareja">Nombre: {{infoPa.nombreyapellido}}</h5>
+                <h5 *ngIf="pareja">Nombres: {{infoPa.nombreyapellido}} & {{infoPa.nombreyapellido2}}</h5>
                 <h5>Fecha: {{fecha}}</h5>
                 <h5>Número De La Remision: {{remisionN}}</h5>
                 <h5 class="seccionesA" (click)="verRemisiones()">Remisiones Anteriores: {{remisionesA}} </h5>
@@ -50,7 +52,7 @@
 
                         <h4>Medico O Entidad Receptora</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder=">Medico O Entidad Receptora" style="width: 200%; height: 150px;" formControlName="medicoentidad"></textarea>
+                            <textarea class="form-control" placeholder="Medico O Entidad Receptora" style="width: 200%; height: 150px;" formControlName="medicoentidad"></textarea>
                         </div>
 
                         <h4>Observaciones</h4>
@@ -87,7 +89,7 @@
                 Seguimiento {{i + 1}}
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{info.paciente.nombreyapellido}}</h5>
+                <!-- <h5 class="card-title">{{info.paciente.nombreyapellido}}</h5> -->
                 <p class="card-text">Hecho Por: {{info.usuario.role}} {{info.usuario.nombre}} {{info.usuario.apellido}}</p>
                 <a (click)="visualizarSeguim(info.uid, 'segui')" class="btnContactSubmit">Ver Documento</a>
             </div>
@@ -109,7 +111,7 @@
                 Remision {{i + 1}}
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{info.paciente.nombreyapellido}}</h5>
+                <!--   <h5 class="card-title">{{info.paciente.nombreyapellido}}</h5> -->
                 <p class="card-text">Hecho Por: {{info.usuario.role}} {{info.usuario.nombre}} {{info.usuario.apellido}}</p>
                 <a (click)="visualizarSeguim(info.uid, 'remi')" class="btnContactSubmit">Ver Documento</a>
             </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {Subject, Observable} from 'rxjs';
 
@@ -10,7 +10,7 @@ import { UsuarioService } from '../../services/usuario.service';
 
 
 /* for signature */
-import { SignaturePad } from 'angular2-signaturepad';
+/* import { SignaturePad } from 'angular2-signaturepad'; */
 
 /* for camera */
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
@@ -26,20 +26,20 @@ export class DatosparejaComponent implements OnInit {
 
 
     /* for signature  */
-
+/* 
     @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
-    @ViewChild(SignaturePad) signaturePad2: SignaturePad;
+    @ViewChild(SignaturePad) signaturePad2: SignaturePad; */
 
 
-    signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+/*     signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
       'minWidth': 1,
       'canvasWidth': 550,
       'canvasHeight': 200,
       
       
     };
-
+ */
     
   /* variable para firma1 */
     signature: string = '';
@@ -193,7 +193,7 @@ export class DatosparejaComponent implements OnInit {
     /* ---------------------------------------------------------- */
 
     /*----------- methods for signature ---------------------*/
-  ngAfterViewInit() {
+/*   ngAfterViewInit() {
     // this.signaturePad is now available
     this.signaturePad.set('backgroundColor', 'rgb(255, 255, 255)');  // Cambiar el color del fondo
     this.signaturePad.set('penColor', 'rgb(0, 0, 0)'); // Cambiar el color de la pluma
@@ -203,9 +203,9 @@ export class DatosparejaComponent implements OnInit {
     this.signaturePad2.set('penColor', 'rgb(0, 0, 0)'); // Cambiar el color de la pluma
     this.signaturePad2.clear(); // invoke functions from szimek/signature_pad API
     
-  }
+  } */
 
-  clearSignature() {
+ /*  clearSignature() {
     this.signaturePad.clear();
     
   }
@@ -214,9 +214,9 @@ export class DatosparejaComponent implements OnInit {
     this.signaturePad2.clear();
     
   }
+ */
 
-
-  drawComplete() {
+ /*  drawComplete() {
 
    
     this.signature = this.signaturePad.toDataURL();
@@ -230,11 +230,11 @@ export class DatosparejaComponent implements OnInit {
     console.log(this.signature2);
    
 
-    /* this.datospForm.value.firma = this.signature; */
+    
    
   } 
-
-  drawComplete2() {
+ */
+ /*  drawComplete2() {
 
    
     this.signature2 = this.signaturePad2.toDataURL();
@@ -243,16 +243,29 @@ export class DatosparejaComponent implements OnInit {
     console.log(this.signature2);
 
    
-    /* this.datospForm.value.firma2 = this.signature2; */
   } 
 
- 
+ */
 
   
-  drawStart() {
-    // will be notified of szimek/signature_pad's onBegin event
-    console.log('begin drawing');
-  }
+  drawStart(url:any) {
+    
+
+    console.log(url);
+    this.signature = url;
+    this.datospForm.value.firma = url;
+
+  
+  } 
+  drawStart2(url:any) {
+    
+
+    console.log(url);
+    this.signature2 = url;
+    this.datospForm.value.firma2 = url;
+
+  
+  } 
 
 
 

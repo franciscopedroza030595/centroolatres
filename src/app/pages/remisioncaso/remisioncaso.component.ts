@@ -33,6 +33,10 @@ export class RemisioncasoComponent implements OnInit {
 
   infoSeguimientos: any;
 
+  infoPa: any;
+
+  pareja = false;
+
   segui = false;
 
   remi = false; 
@@ -51,6 +55,7 @@ export class RemisioncasoComponent implements OnInit {
     observaciones: ['', Validators.required ],
     ultima:['', Validators.required],
     paciente: [''],
+    pareja: [''],
     fecha:[]
    
    
@@ -64,6 +69,24 @@ export class RemisioncasoComponent implements OnInit {
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
     console.log(this.id);
+
+    this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
+      if(resp !== null){
+      this.infoPa = resp.resultados;
+      this.pareja = false;
+      
+    } 
+    
+    });
+    
+    this.consultaService.parejaporID(this.id).subscribe((resp: any) => {
+      if(resp !== null){
+      this.infoPa = resp.resultados;
+      
+      this.pareja = true;
+      
+      }
+    });
 
 
     this.consultaService.seguimientoID(this.id).subscribe((res: any) => {
@@ -93,14 +116,27 @@ export class RemisioncasoComponent implements OnInit {
 
 
   remision() {
+
+    let texto;
+
     this.formSubmitted = true;
     if ( this.remiForm.invalid ) {
       Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
       return;
     }
 
+    if (this.pareja = true) {
+      texto = 'Pareja';
+      
+
+    } else {
+      texto = 'Paciente';
+      
+    }
+
 
     this.remiForm.value.paciente = this.id;
+    this.remiForm.value.pareja = this.id;
     this.remiForm.value.fecha = this.fecha;
     // Realizar el posteo mediante el servicio
     
@@ -112,7 +148,7 @@ export class RemisioncasoComponent implements OnInit {
         
     });
 
-    Swal.fire('' , 'Remision De Paciente registrado exitosamente', 'success').then((result) => {
+    Swal.fire('' , 'Remision De ' + texto +  ' registrado exitosamente', 'success').then((result) => {
       if (result.value) {
     
        
@@ -144,10 +180,17 @@ export class RemisioncasoComponent implements OnInit {
 
   visualizarSeguim(id:any, tipo:String) {
 
+    let pareja = ''
+    if(this.pareja === true) {
+       pareja = 'pareja';
+    } else {
+       pareja = 'no';
+    }
+
     
 
     const url = this.router.serializeUrl(
-      this.router.createUrlTree([`/visualziarS/${id}/${tipo}`])
+      this.router.createUrlTree([`/visualziarS/${id}/${tipo}/${pareja}`])
     );
 
     this.router.navigate([]).then(result => {  window.open(url, '_blank') });

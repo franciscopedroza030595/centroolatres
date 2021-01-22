@@ -104,7 +104,7 @@
 
                         <h6>Síntomas Generales</h6>
                         <div class="form-group">
-                            <input type="radio" name="sintomas" value="Normal" formControlName="sintomas">Normal <input type="radio" name="sintomas" value="Anormal" formControlName="sintomas">Anormal
+                            <input type="radio" name="sintomas" value="Normal" formControlName="sintomas" [checked]="true">Normal <input type="radio" name="sintomas" value="Anormal" formControlName="sintomas">Anormal
                             <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="sintomas"></textarea>
                         </div>
 
@@ -172,41 +172,51 @@
 
                         <h4>Exploración Física Y Neurológica</h4>
 
-                        <h4>Signos Vitales y Somatometria</h4>
+                        <h5>Signos Vitales y Somatometria</h5>
 
-                        <h6>Presión Arterial</h6>
-                        <div class="form-group">
+                        <div class="cuadro justify-content-center">
+                            <div class="row ">
+                                <div class="col-md-6">
 
-                            <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="presion"></textarea>
+                                    <h6>Presión Arterial</h6>
+                                    <div class="form-group">
+
+                                        <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="presion"></textarea>
+                                    </div>
+                                    <h6>Frecuencia Respiratoria </h6>
+                                    <div class="form-group">
+
+                                        <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="frecuencia"></textarea>
+                                    </div>
+                                    <h6>Frecuencia Cardiaca</h6>
+                                    <div class="form-group">
+
+                                        <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="frecuenciaC"></textarea>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h6>Temperatura</h6>
+                                    <div class="form-group">
+
+                                        <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="temperatura"></textarea>
+                                    </div>
+                                    <h6>Peso(Kg) </h6>
+                                    <div class="form-group">
+                                        <input class="form-control" style="width: 100%; height: 50px;" type="number" formControlName="peso">
+
+                                    </div>
+
+                                    <h6>Talla(M) </h6>
+                                    <div class="form-group">
+                                        <input class="form-control" style="width: 100%; height: 50px;" type="number" formControlName="talla">
+
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                        <h6>Frecuencia Respiratoria </h6>
-                        <div class="form-group">
-
-                            <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="frecuencia"></textarea>
-                        </div>
-                        <h6>Frecuencia Cardiaca</h6>
-                        <div class="form-group">
-
-                            <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="frecuenciaC"></textarea>
-                        </div>
-                        <h6>Temperatura</h6>
-                        <div class="form-group">
-
-                            <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="temperatura"></textarea>
-                        </div>
-                        <h6>Peso(Kg) </h6>
-                        <div class="form-group">
-                            <input class="form-control" style="width: 100%; height: 50px;" type="number" formControlName="peso">
-
-                        </div>
-
-                        <h6>Talla(M) </h6>
-                        <div class="form-group">
-                            <input class="form-control" style="width: 100%; height: 50px;" type="number" formControlName="talla">
-
-                        </div>
-
-
 
 
                         <h4>Cabeza</h4>

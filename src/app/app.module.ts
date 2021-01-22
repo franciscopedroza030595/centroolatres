@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { InterceptorService } from './interceptors/interceptor.service';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {DpDatePickerModule} from 'ng2-date-picker';
@@ -31,6 +33,8 @@ import { GruposComponent } from './pages/grupos/grupos.component';
 import { PsiquiatricaComponent } from './pages/psiquiatrica/psiquiatrica.component';
 import { TerapiaocupaComponent } from './pages/terapiaocupa/terapiaocupa.component';
 import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component';
+import { SignaturefildComponent } from './components/signaturefild/signaturefild.component';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +56,8 @@ import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component'
     GruposComponent,
     PsiquiatricaComponent,
     TerapiaocupaComponent,
-    SolicitudhcComponent
+    SolicitudhcComponent,
+    SignaturefildComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,13 @@ import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component'
     WebcamModule  
 
   ],
-  providers: [],
+  providers: [
+   /*  {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }, */
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

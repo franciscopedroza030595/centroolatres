@@ -337,6 +337,19 @@ export class ConsultapacientesComponent implements OnInit {
 
               break;
 
+            case 'remisionP':
+
+              Swal.fire('' , 'Pareja Existente', 'success').then((result) => {
+                if (result.value) {
+                  
+                  
+                  this.router.navigate(['/remision', this.id]);
+                
+                }
+              });
+
+              break;
+
 
           }
 

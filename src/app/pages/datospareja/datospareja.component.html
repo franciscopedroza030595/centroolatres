@@ -155,17 +155,21 @@
                     </div>
                 </div>
 
+                <app-signaturefild (firmaClick)="drawStart($event)" class="firma"></app-signaturefild>
+
+                <app-signaturefild (firmaClick)="drawStart2($event)" class="firma"></app-signaturefild>
+
                 <!-- signature    -->
-                <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+                <!--  <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
                 <div class="tomar">
                     <button type="button" class="btnContacti" (click)="clearSignature()">Limpiar</button>
-                </div>
+                </div> -->
 
                 <!-- signature  2  -->
-                <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete2()"></signature-pad>
+                <!--  <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete2()"></signature-pad>
                 <div class="tomar">
                     <button type="button" class="btnContacti" (click)="clearSignatureTwo()">Limpiar</button>
-                </div>
+                </div> -->
 
                 <div class="enviar">
                     <!-- boton enviar -->
