@@ -16,7 +16,7 @@ export class RegistropacientesComponent implements OnInit {
   public nameObj = {
     nombreU: '',
     apellidoU: '',
-    role: ''
+    cargo: ''
   }
 
   
@@ -24,31 +24,14 @@ export class RegistropacientesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.usuarioService.validarToken().subscribe((res: any) => {
-   
-      if (res === false ) {
-        /* pedir que haga loguin o creee cuenta para obtener token de local storage */
-        
-        Swal.fire('', 'Por favor inicie sesion', 'error' );
-        
-        this.router.navigate(['/home']);
-        
-      } else {
-
         this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
           console.log(resp);
           this.nameObj.nombreU = resp.resultados[0].nombre;
           this.nameObj.apellidoU = resp.resultados[0].apellido;
-          this.nameObj.role = resp.resultados[0].role;
+          this.nameObj.cargo = resp.resultados[0].profesion;
           
           localStorage.setItem('nameObj', JSON.stringify(this.nameObj));
         });
-
-
-
-        
-      }
-    });
 
 
   }

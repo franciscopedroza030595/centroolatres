@@ -8,14 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../../../services/usuario.service';
 
-/* for signature */
-import { SignaturePad } from 'angular2-signaturepad';
-
-/* for camera */
-import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
-
-
-
 
 
 @Component({
@@ -26,42 +18,13 @@ import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 export class DatospersonalesComponent implements OnInit {
 
 
-
-  
-  /* for signature  */
-  /* for signature  */
-
-  @ViewChild(SignaturePad) signaturePad: SignaturePad; 
-
-  signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
-    'minWidth': 1,
-    'canvasWidth': 550,
-    'canvasHeight': 200,
-    
-    
-  };
 /* variable para firma */
   signature: string = '';
  
 
-  /* --------------------------------- */
-
   /* ------------------- for camera ----------------- */
-
-    // toggle webcam on/off
-    public showWebcam = true;
-   
-    public errors: WebcamInitError[] = [];
-  
-    // latest snapshot
-    public webcamImage: WebcamImage = null ;  
-  
-    // webcam snapshot trigger
-    private trigger: Subject<void> = new Subject<void>();
-  
-    /* variable para foto */
-
-    webcam: string = '';
+  webcam: string = '';
+ 
 
   /* ----------------------------------------------------------- */
 
@@ -106,81 +69,27 @@ export class DatospersonalesComponent implements OnInit {
 
                 }
 
-  ngOnInit(): void {
-
+  ngOnInit(): void { 
+ 
   
   }
 
-  /*---------------- methods for camera ---------------------*/
-
-  public triggerSnapshot(): void {
-    this.trigger.next();
-  }
-
-
-  public handleInitError(error: WebcamInitError): void {
-    this.errors.push(error);
-  }
-
  
-
-  public handleImage(webcamImage: WebcamImage): void {
-    console.info('received webcam image', webcamImage);
-    this.webcamImage = webcamImage;
-    
-
-    this.webcam = this.webcamImage.imageAsDataUrl;
-    console.log( this.webcam);
-
-    
-
-
-
+  /* --------------------------camera--------------------------- */
+  webimage(url:any){
+    console.log(url);
+    this.webcam = url;
   }
-
- 
-
-  public get triggerObservable(): Observable<void> {
-    return this.trigger.asObservable();
-  }
-
- 
-
-  /* ---------------------------------------------------------- */
-
 
   /*----------- methods for signature ---------------------*/
-  ngAfterViewInit() {
-    // this.signaturePad is now available
-    this.signaturePad.set('backgroundColor', 'rgb(255, 255, 255)');  // Cambiar el color del fondo
-    this.signaturePad.set('penColor', 'rgb(0, 0, 0)'); // Cambiar el color de la pluma
-    this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
+  drawStart(url:any) {
     
-  }
 
-  clearSignature() {
-    this.signaturePad.clear();
-  }
-
-  drawComplete() {
-
+    console.log(url);
+    this.signature = url;
    
-
-    this.signature = this.signaturePad.toDataURL();
-    
-    console.log(this.signature);
-
-    this.datospForm.value.firma = this.signature;
-  } 
-
- 
-
   
-  drawStart() {
-    // will be notified of szimek/signature_pad's onBegin event
-    console.log('begin drawing');
-  }
-
+  } 
 
   /* ------------------------------------------------------------------- */
 
@@ -200,6 +109,8 @@ export class DatospersonalesComponent implements OnInit {
     
     /* asigno la foto */
     this.datospForm.value.foto = this.webcam;
+    //firma
+    this.datospForm.value.firma = this.signature;
 
     // Realizar el posteo mediante el servicio
     
@@ -220,9 +131,7 @@ export class DatospersonalesComponent implements OnInit {
   }
 });
  
-    
-    
-    
+     
 
   }
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
+import { Output } from '@angular/core';
 
 
 
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  showFiller = false;
+  @Output() toggle = new EventEmitter<any>();
+  visible: boolean = false;
 
   showmenu = false;
 
@@ -25,6 +27,13 @@ export class SidebarComponent implements OnInit {
 
 
 
+  }
+
+  onToggle() {
+    this.visible = !this.visible;
+    this.toggle.emit(this.visible);
+    /* console.log("from side-menu", this.visible); */
+    
   }
 
   showMenu() {
@@ -45,11 +54,7 @@ export class SidebarComponent implements OnInit {
     
     
   }
-  closeMenu() {
-    
-    this.showmenu = false;
-    
-  }
+
 
   cerrarSession() {
     localStorage.clear();

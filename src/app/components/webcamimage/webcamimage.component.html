@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-6">
+        <webcam class="webcam" [height]="275" [width]="400" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
+    </div>
+
+    <div class="col-md-6" *ngIf="webcamImage">
+
+
+        <img [height]="275" [width]="350" [src]="webcamImage.imageAsDataUrl" />
+    </div>
+
+
+</div>
+
+
+<div class="tomar">
+    <button class="btnContacti" (click)="triggerSnapshot();">Tomar</button>
+</div>

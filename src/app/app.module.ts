@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+/* interceptors */
 import { InterceptorService } from './interceptors/interceptor.service';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,6 +35,7 @@ import { PsiquiatricaComponent } from './pages/psiquiatrica/psiquiatrica.compone
 import { TerapiaocupaComponent } from './pages/terapiaocupa/terapiaocupa.component';
 import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component';
 import { SignaturefildComponent } from './components/signaturefild/signaturefild.component';
+import { WebcamimageComponent } from './components/webcamimage/webcamimage.component';
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import { SignaturefildComponent } from './components/signaturefild/signaturefild
     PsiquiatricaComponent,
     TerapiaocupaComponent,
     SolicitudhcComponent,
-    SignaturefildComponent
+    SignaturefildComponent,
+    WebcamimageComponent
   ],
   imports: [
     BrowserModule,
@@ -71,11 +74,11 @@ import { SignaturefildComponent } from './components/signaturefild/signaturefild
 
   ],
   providers: [
-   /*  {
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
       multi: true
-    }, */
+    },
   ],
   bootstrap: [AppComponent]
 })

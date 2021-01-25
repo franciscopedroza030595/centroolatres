@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   nameObj = {
     nombreU: '',
     apellidoU: '',
-    role: ''
+    cargo: ''
   }
 
 
@@ -46,31 +46,26 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-   
-
-    this.usuarioService.validarToken().subscribe((res: any) => {
-   
-      if (res === false ) {
-        /* pedir que haga loguin o creee cuenta para obtener token de local storage */
-        
-        Swal.fire('', 'Por favor inicie sesion', 'error' );
-
-        
-      } else {
+  
        
         this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
+
+          if (resp !== null) {
+
           console.log(resp);
           this.nameObj.nombreU = resp.resultados[0].nombre;
           this.nameObj.apellidoU = resp.resultados[0].apellido;
-          this.nameObj.role = resp.resultados[0].role;
+          this.nameObj.cargo = resp.resultados[0].profesion;
           
           localStorage.setItem('nameObj', JSON.stringify(this.nameObj));
-        });
-        this.inicio = true; 
-        
-      }
-    });
 
+          this.inicio = true; 
+        }
+        });
+        
+        
+      
+   
       
 
   }
@@ -100,7 +95,7 @@ export class LoginComponent implements OnInit {
           console.log(resp);
           this.nameObj.nombreU = resp.resultados[0].nombre;
           this.nameObj.apellidoU = resp.resultados[0].apellido;
-          this.nameObj.role = resp.resultados[0].role;
+          this.nameObj.cargo = resp.resultados[0].profesion;
           
           localStorage.setItem('nameObj', JSON.stringify(this.nameObj));
         });

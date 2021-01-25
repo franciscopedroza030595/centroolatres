@@ -11,23 +11,8 @@
             </div>
             <!-- for camera -->
 
-            <div class="row">
-                <div class="col-md-6">
-                    <webcam class="webcam" [height]="275" [width]="400" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
-                </div>
+            <app-webcamimage (webcamoutput)="webimage($event)"></app-webcamimage>
 
-                <div class="col-md-6" *ngIf="webcamImage">
-
-
-                    <img [height]="275" [width]="400" [src]="webcamImage.imageAsDataUrl" />
-                </div>
-
-
-            </div>
-
-            <div class="tomar">
-                <button class="btnContacti" (click)="triggerSnapshot();">Tomar</button>
-            </div>
 
             <!-- ----------- -->
             <form [formGroup]="datospForm" (ngSubmit)="datosPersonales()">
@@ -94,10 +79,8 @@
                 </div>
 
                 <!-- signature    -->
-                <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
-                <div class="tomar">
-                    <button type="button" class="btnContacti" (click)="clearSignature()">Limpiar</button>
-                </div>
+                <app-signaturefild (firmaClick)="drawStart($event)" class="firma"></app-signaturefild>
+
 
                 <h6>Al firmar acepta los termino y condiciones del consentimiento informado al momento del registro en esta institucion prestadora de servicios de salud</h6>
 

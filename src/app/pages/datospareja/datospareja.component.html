@@ -11,44 +11,11 @@
 
             <!-- for camera 1-->
 
-            <div class="row">
-                <div class="col-md-6">
-                    <webcam class="webcam" [height]="275" [width]="400" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
-                </div>
+            <app-webcamimage (webcamoutput)="webimage($event)"></app-webcamimage>
 
-                <div class="col-md-6" *ngIf="webcamImage">
-
-
-                    <img [height]="275" [width]="400" [src]="webcamImage.imageAsDataUrl" />
-                </div>
-
-
-            </div>
-
-            <div class="tomar">
-                <button class="btnContacti" (click)="triggerSnapshot();">Tomar</button>
-            </div>
-
-            <!-- ----------- --------------------------------------------------->
             <!-- for camera 2-->
+            <app-webcamimage (webcamoutput)="webimage2($event)"></app-webcamimage>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <webcam class="webcam" [height]="275" [width]="400" [trigger]="triggerObservable2" (imageCapture)="handleImage2($event)" *ngIf="showWebcam" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
-                </div>
-
-                <div class="col-md-6" *ngIf="webcamImage2">
-
-
-                    <img [height]="275" [width]="400" [src]="webcamImage2.imageAsDataUrl" />
-                </div>
-
-
-            </div>
-
-            <div class="tomar">
-                <button class="btnContacti" (click)="triggerSnapshot2();">Tomar</button>
-            </div>
 
             <!-- ----------- --------------------------------------------------->
 
@@ -156,20 +123,12 @@
                 </div>
 
                 <app-signaturefild (firmaClick)="drawStart($event)" class="firma"></app-signaturefild>
+                <h6>Al firmar acepta los termino y condiciones del consentimiento informado al momento del registro en esta institucion prestadora de servicios de salud</h6>
 
                 <app-signaturefild (firmaClick)="drawStart2($event)" class="firma"></app-signaturefild>
+                <h6>Al firmar acepta los termino y condiciones del consentimiento informado al momento del registro en esta institucion prestadora de servicios de salud</h6>
 
-                <!-- signature    -->
-                <!--  <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
-                <div class="tomar">
-                    <button type="button" class="btnContacti" (click)="clearSignature()">Limpiar</button>
-                </div> -->
 
-                <!-- signature  2  -->
-                <!--  <signature-pad class="firma" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete2()"></signature-pad>
-                <div class="tomar">
-                    <button type="button" class="btnContacti" (click)="clearSignatureTwo()">Limpiar</button>
-                </div> -->
 
                 <div class="enviar">
                     <!-- boton enviar -->

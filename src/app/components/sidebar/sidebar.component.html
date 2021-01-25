@@ -7,12 +7,12 @@
 
 
 
-        <div class="menu clickme p-2" (click)="showMenu()">
+        <div class="menu clickme p-2" (click)="onToggle()">
 
-            <hr>
-            <hr>
+            <img src="../../../assets/images/imenu.jpg" class="menu ">
 
-            <div class="popupmenu" *ngIf="showmenu">
+
+            <div class="popupmenu" *ngIf="visible">
                 <div class="d-flex flex-column text-right option">
 
 
@@ -34,10 +34,11 @@
 
         <!-- ------------------------------------- -->
 
-        <img src="../../../assets/images/logo_n.jpg" class="logo" routerLink="/home">
+        <img src="../../../assets/images/logof.jpeg" class="logo" routerLink="/home">
+        <img src="../../../assets/images/logo_n.jpg" class="logo2" routerLink="/home">
 
         <div class="info">
-            <p> Dirección Carrera 38 No 6 - 50 <br>Barrio el templete <br>PBX.(2)347 5462 Movil 314 518 1303 <br>centro.olatres@gmail.com
+            <p> Dirección Carrera 38 No 6 - 50 <br>Barrio el templete <br>PBX.(2)3468124 Movil 314 518 1303 <br>centro.olatres@gmail.com
             </p>
         </div>
 

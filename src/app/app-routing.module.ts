@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+
 /* pages/components */
 import { HomeComponent } from './pages/home/home.component';
 import { DatospersonalesComponent } from './pages/hc/datospersonales/datospersonales.component';
@@ -21,25 +22,34 @@ import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component'
 
 
 
+/* guards */
+import { AuxiliarGuard } from './guards/auxiliar.guard';
+import { PsicologoGuard } from './guards/psicologo.guard';
+import { PsiquiatraGuard } from './guards/psiquiatra.guard';
+
+
+
+
+
 
 
 const routes: Routes = [
 
   {path: 'home', component: HomeComponent},
   {path: 'datospersonales', component: DatospersonalesComponent},
-  {path: 'historiaA/:id', component: HistoriaadultosComponent},
-  {path: 'historiaN/:id', component: HistorianinosComponent},
+  {path: 'historiaA/:id', canActivate:[PsiquiatraGuard], component: HistoriaadultosComponent},
+  {path: 'historiaN/:id', canActivate:[PsiquiatraGuard], component: HistorianinosComponent},
   {path: 'terapiaP/:id', component: TerapiaparejasComponent},
-  {path: 'registroP', component: RegistropacientesComponent},
+  {path: 'registroP', canActivate:[PsicologoGuard, PsiquiatraGuard], component: RegistropacientesComponent},
   {path: 'datospareja', component: DatosparejaComponent},
   {path: 'remision/:id', component: RemisioncasoComponent},
   {path: 'busquedaP', component: BusquedapaComponent},
-  {path: 'consultaP', component: ConsultapacientesComponent},
+  {path: 'consultaP', canActivate:[AuxiliarGuard], component: ConsultapacientesComponent},
   {path: 'seguimientoC/:id', component: SeguimientocasoComponent},
   {path: 'visualziarS/:id/:tipo/:pareja', component: VisualizarseguiComponent},
   {path: 'grupos', component: GruposComponent},
-  {path: 'terapiaO/:id', component: TerapiaocupaComponent},
-  {path: 'psiquiatrica/:id', component: PsiquiatricaComponent},
+  {path: 'terapiaO/:id', canActivate:[PsicologoGuard, PsiquiatraGuard], component: TerapiaocupaComponent},
+  {path: 'psiquiatrica/:id', canActivate:[PsicologoGuard], component: PsiquiatricaComponent},
   {path: 'solicitudhc/:id', component: SolicitudhcComponent},
 
 
