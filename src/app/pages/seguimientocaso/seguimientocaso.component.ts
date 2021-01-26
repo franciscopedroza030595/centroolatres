@@ -86,9 +86,10 @@ export class SeguimientocasoComponent implements OnInit {
     this.consultaService.seguimientoID(this.id).subscribe((res: any) => {
 
       this.infoSeguimientos = res.resultados;
+      console.log(this.infoSeguimientos);
    
       this.seccionesA = this.infoSeguimientos.length;
-      this.secccionN = this.seccionesA + 1;
+      this.secccionN = this.seccionesA + 1;   
     
     });
 

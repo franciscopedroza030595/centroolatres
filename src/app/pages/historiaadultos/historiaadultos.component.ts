@@ -127,7 +127,7 @@ export class HistoriaadultosComponent implements OnInit {
     }));
   }
 
-  deleteF(index: any) {
+  deleteF(index: any) { 
     this.caracteristicaf.removeAt(index);
   }
 

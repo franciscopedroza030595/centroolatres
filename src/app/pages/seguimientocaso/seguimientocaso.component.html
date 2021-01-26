@@ -12,12 +12,84 @@
             <form [formGroup]="seguiForm" (ngSubmit)="seguimiento()">
 
                 <h3>Seguimiento Del Caso</h3>
+                <h4>Fecha: {{fecha}}</h4>
 
-                <h5 *ngIf="!pareja">Nombre: {{infoPa.nombreyapellido}}</h5>
-                <h5 *ngIf="pareja">Nombres: {{infoPa.nombreyapellido}} & {{infoPa.nombreyapellido2}}</h5>
-                <h5>Fecha: {{fecha}}</h5>
                 <h5>Número De La Sesion: {{secccionN}}</h5>
                 <h5 class="seccionesA" (click)="verSecciones()">Sesiones Anteriores: {{seccionesA}} </h5>
+                <!-- paciente -->
+
+
+                <table style="width: 100%;" *ngIf="!pareja">
+
+                    <tr>
+
+                        <th>Nombre y Apellido</th>
+                        <th>Cedula</th>
+                        <th>Edad</th>
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.nombreyapellido}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.cedula}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.edad}}" /></td>
+                    </tr>
+                    <tr>
+
+                        <th>Lugar De Nacimiento</th>
+                        <th>Fecha De Nacimiento</th>
+                        <th>Ocupación</th>
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.lugarnacimiento}}" /></td>
+                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.fechanacimiento}}" /></td>
+                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.ocupacion}}" /></td>
+                    </tr>
+                    <tr>
+                        <th>telefono</th>
+                        <th>Escolaridad</th>
+                        <th>EPS</th>
+
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.telefono}}" /></td>
+                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.escolaridad}}" /></td>
+                        <td><input type="text" name="" class="form-control" placeholder=" {{infoPa.eps}}" /></td>
+                    </tr>
+                    <tr>
+                        <th>Dirección</th>
+                        <th>Estrato</th>
+                        <th>Nombre Acudiente</th>
+
+
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.direccion}}" /></td>
+                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.estrato}}" /></td>
+                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.nombreacudiente}}" /></td>
+
+
+                    </tr>
+
+                </table>
+
+
+
+
+                <!--  -->
+
+
+                <!-- parejas -->
+                <h5 *ngIf="pareja">Nombres: {{infoPa.nombreyapellido}} & {{infoPa.nombreyapellido2}}</h5>
+
+                <!-- ---- -->
+
                 <h5>Ultima sesion: SI <input type="radio" name="ultima" value="si" formControlName="ultima"> NO <input type="radio" name="ultima" value="no" formControlName="ultima"></h5>
 
 
@@ -84,7 +156,7 @@
             <div class="card-body">
                 <!--  <h5 class="card-title" *ngIf="!pareja">{{info.nombreyapellido}}</h5>
                 <h5 class="card-title" *ngIf="pareja">{{info.nombreyapellido}} & {{info.nombreyapellido2}}</h5> -->
-                <p class="card-text">Hecho Por: {{info.usuario.role}} {{info.usuario.nombre}} {{info.usuario.apellido}}</p>
+                <p class="card-text">Hecho Por: {{info.usuario.profesion}} {{info.usuario.nombre}} {{info.usuario.apellido}}</p>
                 <a (click)="visualizarSeguim(info.uid)" class="btnContactSubmit">Ver Documento</a>
             </div>
             <div class="card-footer text-muted">

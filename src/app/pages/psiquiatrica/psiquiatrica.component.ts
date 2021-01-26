@@ -26,6 +26,8 @@ export class PsiquiatricaComponent implements OnInit {
   public formSubmitted = false;
   psiquiForm:FormGroup;
 
+  check = true;
+
 
   constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute, private router: Router) { 
 
