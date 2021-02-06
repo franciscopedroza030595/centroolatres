@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import {  FormBuilder, Validators, FormGroup } from '@angular/forms';
 
@@ -28,6 +28,10 @@ export class PsiquiatricaComponent implements OnInit {
 
   check = true;
 
+  /* para radio buttons */
+  data1: any[] =[];
+  data2: any[] =[];
+
 
   constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute, private router: Router) { 
 
@@ -50,18 +54,18 @@ export class PsiquiatricaComponent implements OnInit {
       historiaPiscoSex: ['', Validators.required ],
       historiaOcupa: ['', Validators.required ],
       tiempoL: ['', Validators.required ],
-      sintomas: ['', Validators.required ],
-      respiratorio: ['', Validators.required ],
-      cardiovascu: ['', Validators.required ],
-      digestivo: ['', Validators.required ],
-      renal: ['', Validators.required ],
-      genital: ['', Validators.required ],
-      endocrino: ['', Validators.required ],
-      hematopoyetico: ['', Validators.required ],
-      piel: ['', Validators.required ],
-      musculoEsque: ['', Validators.required ],
-      nervioso: ['', Validators.required ],
-      organosS: ['', Validators.required ],
+      sintomas: ['' ],
+      respiratorio: ['' ],
+      cardiovascu: ['' ],
+      digestivo: ['' ],
+      renal: ['' ],
+      genital: ['' ],
+      endocrino: ['' ],
+      hematopoyetico: ['' ],
+      piel: ['' ],
+      musculoEsque: ['' ],
+      nervioso: ['' ],
+      organosS: ['' ],
       presion: ['', Validators.required ],
       frecuencia: ['', Validators.required ],
       frecuenciaC: ['', Validators.required ],
@@ -69,16 +73,16 @@ export class PsiquiatricaComponent implements OnInit {
       peso:[],
       talla:[],
       imc:[],
-      craneo: ['', Validators.required ],
-      ojos: ['', Validators.required ],
-      oidos: ['', Validators.required ],
-      nariz: ['', Validators.required ],
-      boca: ['', Validators.required ],
-      cuello: ['', Validators.required ],
-      torax: ['', Validators.required ],
-      abdomen: ['', Validators.required ],
-      extremidades: ['', Validators.required ],
-      neurologica: ['', Validators.required ],
+      craneo: [''],
+      ojos: ['' ],
+      oidos: ['' ],
+      nariz: ['' ],
+      boca: ['' ],
+      cuello: [''],
+      torax: [''],
+      abdomen: [''],
+      extremidades: [''],
+      neurologica: [''],
       mental: ['', Validators.required ],
       diagnosticos: ['', Validators.required ],
     
@@ -91,11 +95,140 @@ export class PsiquiatricaComponent implements OnInit {
     });
 
 
+    
+
   }
 
   
 
+
   ngOnInit(): void {
+
+    this.data1 = [
+      
+      {
+        titulo:'Síntomas Generales',
+        name:'sintomas',
+        value:'Normal'
+      },
+      {
+        titulo:'Aparato Respiratorio',
+        name:'respiratorio',
+        value:'Normal'
+      },
+      {
+        titulo:'Aparato Cardiovascular ',
+        name:'cardiovascu',
+        value:'Normal'
+      }
+      ,
+      {
+        titulo:'Aparato Digestivo ',
+        name:'digestivo',
+        value:'Normal'
+      }
+      ,
+      {
+        titulo:'Aparato Renal Y Urinario ',
+        name:'renal',
+        value:'Normal'
+      }
+      ,
+      {
+        titulo:'Aparato Genital ',
+        name:'genital',
+        value:'Normal'
+      }
+      ,
+      {
+        titulo:'Sistema Endocrino ',
+        name:'endocrino',
+        value:'Normal'
+      }
+      ,
+      {
+        titulo:'Sistema Hematopoyético y linfático ',
+        name:'hematopoyetico',
+        value:'Normal'
+      },
+      {
+        titulo:'Piel Y Anexos ',
+        name:'piel',
+        value:'Normal'
+      },
+      {
+        titulo:'Musculoesquelético ',
+        name:'musculoEsque',
+        value:'Normal'
+      },
+      {
+        titulo:'Sistema Nerviso ',
+        name:'nervioso',
+        value:'Normal'
+      },
+      {
+        titulo:'Óganos De Los Sentidos ',
+        name:'organosS',
+        value:'Normal'
+      }
+    ];
+
+    this.data2 = [
+      
+      {
+        titulo:'Cráneo',
+        name:'craneo',
+        value:'Normal'
+      },
+      {
+        titulo:'Ojos',
+        name:'ojos',
+        value:'Normal'
+      },
+      {
+        titulo:'Oídos',
+        name:'oidos',
+        value:'Normal'
+      },
+      {
+        titulo:'Nariz Y Senos Paranasales',
+        name:'nariz',
+        value:'Normal'
+      },
+      {
+        titulo:'Boca',
+        name:'boca',
+        value:'Normal'
+      } ,
+      {
+        titulo:'Cuello',
+        name:'cuello',
+        value:'Normal'
+      },
+      {
+        titulo:'Tórax',
+        name:'torax',
+        value:'Normal'
+      },
+      {
+        titulo:'Abdomen',
+        name:'abdomen',
+        value:'Normal'
+      },
+      {
+        titulo:'Extremidades Superiores e Inferiores',
+        name:'extremidades',
+        value:'Normal'
+      },
+      {
+        titulo:'Exploración Neurológica',
+        name:'neurologica',
+        value:'Normal'
+      } 
+      
+    ];
+
+ 
 
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
@@ -115,6 +248,74 @@ export class PsiquiatricaComponent implements OnInit {
 
   }
 
+  procesaPropagar(recibo:any) {
+    
+
+    if(recibo.length === 12) {
+
+      this.psiquiForm.value.sintomas = recibo[0].value;
+      this.psiquiForm.value.respiratorio = recibo[1].value;
+      this.psiquiForm.value.cardiovascu = recibo[2].value;
+      this.psiquiForm.value.digestivo = recibo[3].value;
+      this.psiquiForm.value.renal = recibo[4].value;
+      this.psiquiForm.value.genital = recibo[5].value;
+      this.psiquiForm.value.endocrino = recibo[6].value;
+      this.psiquiForm.value.hematopoyetico = recibo[7].value;
+      this.psiquiForm.value.piel = recibo[8].value;
+      this.psiquiForm.value.musculoEsque = recibo[9].value;
+      this.psiquiForm.value.nervioso = recibo[10].value;
+      this.psiquiForm.value.organosS = recibo[11].value;
+
+      console.log(this.psiquiForm.value);
+
+    } else {
+      this.psiquiForm.value.craneo = recibo[0].value;
+      this.psiquiForm.value.ojos = recibo[1].value;
+      this.psiquiForm.value.oidos = recibo[2].value;
+      this.psiquiForm.value.nariz = recibo[3].value;
+      this.psiquiForm.value.boca = recibo[4].value;
+      this.psiquiForm.value.cuello = recibo[5].value;
+      this.psiquiForm.value.torax = recibo[6].value;
+      this.psiquiForm.value.abdomen = recibo[7].value;
+      this.psiquiForm.value.extremidades = recibo[8].value;
+      this.psiquiForm.value.neurologica = recibo[9].value;
+
+      console.log(this.psiquiForm.value);
+
+    } 
+    /* else {
+      this.psiquiForm.value.sintomas = 'Normal';
+      this.psiquiForm.value.respiratorio = 'Normal';
+      this.psiquiForm.value.cardiovascu = 'Normal';
+      this.psiquiForm.value.digestivo = 'Normal';
+      this.psiquiForm.value.renal = 'Normal';
+      this.psiquiForm.value.genital = 'Normal';
+      this.psiquiForm.value.endocrino = 'Normal';
+      this.psiquiForm.value.hematopoyetico = 'Normal';
+      this.psiquiForm.value.piel = 'Normal';
+      this.psiquiForm.value.musculoEsque = 'Normal';
+      this.psiquiForm.value.nervioso = 'Normal';
+      this.psiquiForm.value.organosS = 'Normal';
+
+      this.psiquiForm.value.craneo = 'Normal';
+      this.psiquiForm.value.ojos = 'Normal';
+      this.psiquiForm.value.oidos = 'Normal';
+      this.psiquiForm.value.nariz = 'Normal';
+      this.psiquiForm.value.boca = 'Normal';
+      this.psiquiForm.value.cuello = 'Normal';
+      this.psiquiForm.value.torax = 'Normal';
+      this.psiquiForm.value.abdomen = 'Normal';
+      this.psiquiForm.value.extremidades = 'Normal';
+      this.psiquiForm.value.neurologica = 'Normal'; 
+
+
+    }*/
+
+
+
+  }
+
+  
 
   psiqui() {
 
@@ -146,7 +347,7 @@ export class PsiquiatricaComponent implements OnInit {
         
     });
   
-    Swal.fire('' , 'Terapia Ocupacional De Paciente registrado exitosamente', 'success').then((result) => {
+    Swal.fire('' , 'Historia Psiquiatrica De Paciente registrado exitosamente', 'success').then((result) => {
       if (result.value) {
     
        

@@ -20,6 +20,7 @@ import { ConsultasService } from '../../services/consultas.service';
 export class RemisioncasoComponent implements OnInit {
 
   fecha: any;
+  fechaN: String[] = [];
   id: any;
   remisionesA = 0;
   remisionN = 0;
@@ -74,6 +75,9 @@ export class RemisioncasoComponent implements OnInit {
       if(resp !== null){
       this.infoPa = resp.resultados;
       this.pareja = false;
+
+      this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+
       
     } 
     
@@ -84,6 +88,9 @@ export class RemisioncasoComponent implements OnInit {
       this.infoPa = resp.resultados;
       
       this.pareja = true;
+
+      this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+      this.fechaN[1] = formatDate(new Date(this.infoPa.fechanacimiento2), 'YYYY-MM-dd', 'en');
       
       }
     });

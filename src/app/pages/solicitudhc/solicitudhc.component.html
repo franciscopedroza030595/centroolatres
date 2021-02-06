@@ -1,1 +1,33 @@
-<p>solicitudhc works!</p>
+<div class="content" id="htmlData">
+
+
+    <app-sidebar></app-sidebar>
+
+    <div class="historia">
+
+        <div class="container contact-form">
+
+            <div class="contact-image">
+                <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+            </div>
+
+            <form [formGroup]="solicitudForm" (ngSubmit)="solicitud()">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Motivo</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Motivo" style="width: 200%; height: 150px;" formControlName="motivo"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

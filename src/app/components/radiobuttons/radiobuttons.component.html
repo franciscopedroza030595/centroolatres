@@ -1,0 +1,7 @@
+<!-- (ngSubmit)="psiqui()" [placeholder]="data.titulo" -->
+<div *ngFor="let data of DataComponent; index as i" class="form-group">
+
+    <h6>{{data.titulo}}</h6>
+    <input type="radio" [name]="data.name" value="Normal" (change)="normalHandle($event)" [checked]="true">Normal <input type="radio" [name]="data.name" value="Anormal" (change)="anormalHandle($event)">Anormal
+    <textarea [id]="data.name" [class]="statusTextArea" (keyup)="keyHandle($event, data.name)"></textarea>
+</div>

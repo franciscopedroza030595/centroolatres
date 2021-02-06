@@ -36,6 +36,7 @@ import { TerapiaocupaComponent } from './pages/terapiaocupa/terapiaocupa.compone
 import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component';
 import { SignaturefildComponent } from './components/signaturefild/signaturefild.component';
 import { WebcamimageComponent } from './components/webcamimage/webcamimage.component';
+import { RadiobuttonsComponent } from './components/radiobuttons/radiobuttons.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { WebcamimageComponent } from './components/webcamimage/webcamimage.compo
     TerapiaocupaComponent,
     SolicitudhcComponent,
     SignaturefildComponent,
-    WebcamimageComponent
+    WebcamimageComponent,
+    RadiobuttonsComponent
   ],
   imports: [
     BrowserModule,

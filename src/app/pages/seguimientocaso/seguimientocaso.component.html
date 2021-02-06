@@ -47,9 +47,9 @@
 
                     <tr>
 
-                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.lugarnacimiento}}" /></td>
-                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.fechanacimiento}}" /></td>
-                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.ocupacion}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.lugarnacimiento}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{fechaN[0]}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.ocupacion}}" /></td>
                     </tr>
                     <tr>
                         <th>telefono</th>
@@ -58,9 +58,9 @@
 
                     </tr>
                     <tr>
-                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.telefono}}" /></td>
-                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.escolaridad}}" /></td>
-                        <td><input type="text" name="" class="form-control" placeholder=" {{infoPa.eps}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.telefono}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.escolaridad}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder=" {{infoPa.eps}}" /></td>
                     </tr>
                     <tr>
                         <th>Dirección</th>
@@ -70,9 +70,9 @@
 
                     </tr>
                     <tr>
-                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.direccion}}" /></td>
-                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.estrato}}" /></td>
-                        <td><input type="text" name="" class="form-control" placeholder="{{infoPa.nombreacudiente}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.direccion}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.estrato}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.nombreacudiente}}" /></td>
 
 
                     </tr>
@@ -86,7 +86,124 @@
 
 
                 <!-- parejas -->
-                <h5 *ngIf="pareja">Nombres: {{infoPa.nombreyapellido}} & {{infoPa.nombreyapellido2}}</h5>
+
+                <table style="width: 100%;" *ngIf="pareja">
+
+                    <tr>
+                        <th>Persona 1</th>
+                    </tr>
+
+                    <tr>
+
+                        <th>Nombres y Apellidos</th>
+                        <th>Cedula</th>
+                        <th>Edad</th>
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.nombreyapellido}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.cedula}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.edad}}" /></td>
+                    </tr>
+                    <tr>
+
+                        <th>Lugar De Nacimiento</th>
+                        <th>Fecha De Nacimiento</th>
+                        <th>Ocupación</th>
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.lugarnacimiento}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{fechaN[0]}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.ocupacion}}" /></td>
+                    </tr>
+                    <tr>
+                        <th>telefono</th>
+                        <th>Escolaridad</th>
+                        <th>EPS</th>
+
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.telefono}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.escolaridad}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder=" {{infoPa.eps}}" /></td>
+                    </tr>
+                    <tr>
+                        <th>Dirección</th>
+                        <th>Estrato</th>
+
+
+
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.direccion}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.estrato}}" /></td>
+
+                    </tr>
+                    <!-- persona 2  -->
+                    <tr>
+                        <th>Persona 2</th>
+                    </tr>
+                    <tr>
+
+                        <th>Nombres y Apellidos</th>
+                        <th>Cedula</th>
+                        <th>Edad</th>
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.nombreyapellido2}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.cedula2}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.edad2}}" /></td>
+                    </tr>
+                    <tr>
+
+                        <th>Lugar De Nacimiento</th>
+                        <th>Fecha De Nacimiento</th>
+                        <th>Ocupación</th>
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.lugarnacimiento2}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{fechaN[1]}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.ocupacion2}}" /></td>
+                    </tr>
+                    <tr>
+                        <th>telefono</th>
+                        <th>Escolaridad</th>
+                        <th>EPS</th>
+
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.telefono2}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.escolaridad2}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder=" {{infoPa.eps2}}" /></td>
+                    </tr>
+                    <tr>
+                        <th>Dirección</th>
+                        <th>Estrato</th>
+
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.direccion2}}" /></td>
+                        <td><input type="text" name="" class="form-control" readonly placeholder="{{infoPa.estrato2}}" /></td>
+
+                    </tr>
+
+
+                </table>
 
                 <!-- ---- -->
 

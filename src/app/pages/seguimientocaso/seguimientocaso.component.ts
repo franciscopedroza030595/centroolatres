@@ -25,6 +25,9 @@ export class SeguimientocasoComponent implements OnInit {
   public formSubmitted = false;
 
   fecha: any;
+  
+  fechaN: String[] = [];
+
   id: any;
   seccionesA = 0;
   secccionN = 0;
@@ -69,6 +72,9 @@ export class SeguimientocasoComponent implements OnInit {
       if(resp !== null){
       this.infoPa = resp.resultados;
       this.pareja = false;
+
+      this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+
       
     } 
     
@@ -79,6 +85,9 @@ export class SeguimientocasoComponent implements OnInit {
       this.infoPa = resp.resultados;
       
       this.pareja = true;
+
+      this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+      this.fechaN[1] = formatDate(new Date(this.infoPa.fechanacimiento2), 'YYYY-MM-dd', 'en');
       
       }
     });
@@ -95,7 +104,8 @@ export class SeguimientocasoComponent implements OnInit {
 
         /* creo la fecha actual con la cual el registro es guardado */
         this.fecha = formatDate(new Date(), 'YYYY-MM-dd, h:mm:ss a', 'en');
-
+        
+        
 
 
      /* prueba de pdf */

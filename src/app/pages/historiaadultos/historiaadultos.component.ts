@@ -26,7 +26,7 @@ export class HistoriaadultosComponent implements OnInit {
   fecha: any;
 
   public formSubmitted = false;
-  haForm:FormGroup;
+  haForm:FormGroup; 
 
 
   constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute, private router: Router) { 

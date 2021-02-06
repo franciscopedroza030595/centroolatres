@@ -7,7 +7,7 @@
             <div class="contact-image">
                 <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
                 <h5>{{infoPaciente.nombreyapellido}}</h5>
-                <h5>Cedula: {{infoPaciente.cedula}} </h5>
+                <h5>Historia Clinica No: {{infoPaciente.cedula}} </h5>
                 <h5>Fecha: {{fecha}}</h5>
                 <!-- <img [src]="infoPaciente.firma" alt="firma" /> -->
             </div>
@@ -21,269 +21,181 @@
                         </div>
                         <h4>Padecimiento Actual</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Diagnóstico Principal" style="width: 200%; height: 150px;" formControlName="padecimiento"></textarea>
+                            <textarea class="form-control" placeholder="Padecimiento Actual" style="width: 200%; height: 150px;" formControlName="padecimiento"></textarea>
 
                         </div>
 
                         <h4>Antecedentes Heredofamiliares</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="heredofamiliares"></textarea>
+                            <textarea class="form-control" placeholder="Antecedentes Heredofamiliares" style="width: 200%; height: 150px;" formControlName="heredofamiliares"></textarea>
 
                         </div>
 
                         <h4>Antecedentes Personales No Patológicos</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="antecedentesPerso"></textarea>
+                            <textarea class="form-control" placeholder="Antecedentes Personales No Patológicos " style="width: 200%; height: 150px;" formControlName="antecedentesPerso"></textarea>
                         </div>
                         <h4>Antecedentes Personales Patológicos</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="antecedentesPato"></textarea>
+                            <textarea class="form-control" placeholder=" Antecedentes Personales Patológicos" style="width: 200%; height: 150px;" formControlName="antecedentesPato"></textarea>
                         </div>
 
 
 
                         <h4>Antecedentes Andrológicos</h4>
 
-                        <h6>Circuncisión</h6>
+                        <table style="width: 200%;">
+                            <tr>
+                                <th>Circuncisión</th>
+                                <th>Criptorquidia</th>
+                                <th>Poluciones Nocturnas</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="radio" name="circuncision" value="Si" formControlName="circuncision">Si <input type="radio" name="circuncision" value="No" formControlName="circuncision">No
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="radio" name="criptorquidia" value="Si" formControlName="criptorquidia">Si <input type="radio" name="criptorquidia" value="No" formControlName="criptorquidia">No
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="radio" name="polucionesNoctu" value="Si" formControlName="polucionesNoctu" checked>Si <input type="radio" name="polucionesNoctu" value="No" formControlName="polucionesNoctu">No
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>IVSA</th>
+                                <th>No. De Parejas</th>
+                                <th>ETS</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="" style="width: 50%; height: 50px;" type="number" formControlName="ivsa">
+                                    </div>
 
-                        <div class="form-group">
-                            <input type="radio" name="circuncision" value="Si" formControlName="circuncision" checked>Si <input type="radio" name="circuncision" value="No" formControlName="circuncision" ng-model="show">No
-                        </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="" style="width: 50%; height: 50px;" type="number" formControlName="parejas">
+                                    </div>
 
-                        <h6>Criptorquidia </h6>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="criptorquidia"></textarea>
-                        </div>
-                        <h6>Poluciones Nocturnas </h6>
-                        <div class="form-group">
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="ets"></textarea>
+                                    </div>
+                                </td>
 
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="polucionesNoctu"></textarea>
+                            </tr>
 
-                        </div>
-                        <h6>IVSA</h6>
-                        <div class="form-group">
 
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="ivsa"></textarea>
 
-                        </div>
-                        <h6>No. De Parejas</h6>
-                        <div class="form-group">
 
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="parejas"></textarea>
+                        </table>
 
-                        </div>
-                        <h6>ETS</h6>
-                        <div class="form-group">
-
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="ets"></textarea>
-
-                        </div>
 
                         <h4>Antecedentes Familiares</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="AntecendesFami"></textarea>
+                            <textarea class="form-control" placeholder="Antecedentes Familiares" style="width: 200%; height: 150px;" formControlName="AntecendesFami"></textarea>
                         </div>
                         <h4>Antecedentes Escolares</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="AntecendesEsco"></textarea>
+                            <textarea class="form-control" placeholder="Antecedentes Escolares" style="width: 200%; height: 150px;" formControlName="AntecendesEsco"></textarea>
                         </div>
                         <h4>Historia Psicosexual</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="historiaPiscoSex"></textarea>
+                            <textarea class="form-control" placeholder="Historia Psicosexual" style="width: 200%; height: 150px;" formControlName="historiaPiscoSex"></textarea>
                         </div>
                         <h4>Historia Ocupacional</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="historiaOcupa"></textarea>
+                            <textarea class="form-control" placeholder="Historia Ocupacional" style="width: 200%; height: 150px;" formControlName="historiaOcupa"></textarea>
                         </div>
                         <h4>Tiempo Libre</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Otros diagnósticos" style="width: 200%; height: 150px;" formControlName="tiempoL"></textarea>
+                            <textarea class="form-control" placeholder="Tiempo Libre" style="width: 200%; height: 150px;" formControlName="tiempoL"></textarea>
                         </div>
 
                         <h4>Interrogatorio Por Aparatos Y Sistemas</h4>
 
-                        <h6>Síntomas Generales</h6>
-                        <div class="form-group">
-                            <input type="radio" name="sintomas" value="Normal" formControlName="sintomas" [checked]="true">Normal <input type="radio" name="sintomas" value="Anormal" formControlName="sintomas">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="sintomas"></textarea>
-                        </div>
-
-                        <h6>Aparato Respiratorio</h6>
-                        <div class="form-group">
-                            <input type="radio" name="respiratorio" value="Normal" formControlName="respiratorio" [checked]="true">Normal <input type="radio" name="respiratorio" value="Anormal" formControlName="respiratorio">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="respiratorio"></textarea>
-
-                        </div>
-                        <h6>Aparato Cardiovascular</h6>
-                        <div class="form-group">
-                            <input type="radio" name="cardiovascu" value="Normal" formControlName="cardiovascu" [checked]="true">Normal <input type="radio" name="cardiovascu" value="Anormal" formControlName="cardiovascu">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="cardiovascu"></textarea>
-
-                        </div>
-                        <h6>Aparato Digestivo </h6>
-                        <div class="form-group">
-                            <input type="radio" name="digestivo" value="Normal" formControlName="digestivo" [checked]="true">Normal <input type="radio" name="digestivo" value="Anormal" formControlName="digestivo">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="digestivo"></textarea>
-
-                        </div>
-                        <h6>Aparato Renal Y Urinario</h6>
-                        <div class="form-group">
-                            <input type="radio" name="renal" value="Normal" formControlName="renal" [checked]="true">Normal <input type="radio" name="renal" value="Anormal" formControlName="renal">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="renal"></textarea>
-                        </div>
-                        <h6>Aparato Genital</h6>
-                        <div class="form-group">
-                            <input type="radio" name="genital" value="Normal" formControlName="genital" [checked]="true">Normal <input type="radio" name="genital" value="Anormal" formControlName="genital">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="genital"></textarea>
-                        </div>
-                        <h6>Sistema Endocrino</h6>
-                        <div class="form-group">
-                            <input type="radio" name="endocrino" value="Normal" formControlName="endocrino" [checked]="true">Normal <input type="radio" name="endocrino" value="Anormal" formControlName="endocrino">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="endocrino"></textarea>
-                        </div>
-                        <h6>Sistema Hematopoyético y linfático</h6>
-                        <div class="form-group">
-                            <input type="radio" name="hematopoyetico" value="Normal" formControlName="hematopoyetico" [checked]="true">Normal <input type="radio" name="hematopoyetico" value="Anormal" formControlName="hematopoyetico">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="hematopoyetico"></textarea>
-                        </div>
-                        <h6>Piel Y Anexos</h6>
-                        <div class="form-group">
-                            <input type="radio" name="piel" value="Normal" formControlName="piel" [checked]="true">Normal <input type="radio" name="piel" value="Anormal" formControlName="piel">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="piel"></textarea>
-                        </div>
-                        <h6>Musculoesquelético</h6>
-                        <div class="form-group">
-                            <input type="radio" name="musculoEsque" value="Normal" formControlName="musculoEsque" [checked]="true">Normal <input type="radio" name="musculoEsque" value="Anormal" formControlName="musculoEsque">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="musculoEsque"></textarea>
-                        </div>
+                        <app-radiobuttons [DataComponent]="data1" (propagar)="procesaPropagar($event)"></app-radiobuttons>
 
 
-                        <h6>Sistema Nerviso</h6>
-                        <div class="form-group">
-                            <input type="radio" name="nervioso" value="Normal" formControlName="nervioso" [checked]="true">Normal <input type="radio" name="nervioso" value="Anormal" formControlName="nervioso">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="nervioso"></textarea>
-                        </div>
-
-                        <h6>Óganos De Los Sentidos</h6>
-                        <div class="form-group">
-                            <input type="radio" name="organosS" value="Normal" formControlName="organosS" [checked]="true">Normal <input type="radio" name="organosS" value="Anormal" formControlName="organosS">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="organosS"></textarea>
-                        </div>
 
                         <h4>Exploración Física Y Neurológica</h4>
 
+                        <app-radiobuttons [DataComponent]="data2" (propagar)="procesaPropagar($event)"></app-radiobuttons>
+
                         <h5>Signos Vitales y Somatometria</h5>
 
-                        <div class="cuadro justify-content-center">
-                            <div class="row ">
-                                <div class="col-md-6">
+                        <table style="width: 200%;">
+                            <tr>
+                                <th>Presión Arterial</th>
 
-                                    <h6>Presión Arterial</h6>
+                                <th>Frecuencia Respiratoria </th>
+
+                                <th>Frecuencia Cardiaca</th>
+
+                            </tr>
+                            <tr>
+                                <th>
                                     <div class="form-group">
-
                                         <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="presion"></textarea>
                                     </div>
-                                    <h6>Frecuencia Respiratoria </h6>
+                                </th>
+                                <th>
                                     <div class="form-group">
-
                                         <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="frecuencia"></textarea>
                                     </div>
-                                    <h6>Frecuencia Cardiaca</h6>
+                                </th>
+                                <th>
                                     <div class="form-group">
-
                                         <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="frecuenciaC"></textarea>
                                     </div>
+                                </th>
 
-                                </div>
-
-                                <div class="col-md-6">
-                                    <h6>Temperatura</h6>
+                            </tr>
+                            <tr>
+                                <th>Temperatura(°C)</th>
+                                <th>Peso(Kg) </th>
+                                <th>Talla(M) </th>
+                            </tr>
+                            <tr>
+                                <th>
                                     <div class="form-group">
-
-                                        <textarea class="form-control" placeholder="" style="width: 100%; height: 50px;" formControlName="temperatura"></textarea>
+                                        <input class="form-control" placeholder="" style="width: 100%; height: 50px;" type="number" formControlName="temperatura">
                                     </div>
-                                    <h6>Peso(Kg) </h6>
+                                </th>
+                                <th>
                                     <div class="form-group">
                                         <input class="form-control" style="width: 100%; height: 50px;" type="number" formControlName="peso">
-
                                     </div>
-
-                                    <h6>Talla(M) </h6>
+                                </th>
+                                <th>
                                     <div class="form-group">
                                         <input class="form-control" style="width: 100%; height: 50px;" type="number" formControlName="talla">
-
                                     </div>
+                                </th>
+                            </tr>
 
-                                </div>
-                            </div>
-                        </div>
+                        </table>
 
-
-                        <h4>Cabeza</h4>
-
-                        <h6>Cráneo</h6>
-                        <div class="form-group">
-                            <input type="radio" name="craneo" value="Normal" formControlName="craneo" [checked]="true">Normal <input type="radio" name="craneo" value="Anormal" formControlName="craneo">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="craneo"></textarea>
-                        </div>
-
-                        <h6>Ojos</h6>
-                        <div class="form-group">
-                            <input type="radio" name="ojos" value="Normal" formControlName="ojos" [checked]="true">Normal <input type="radio" name="ojos" value="Anormal" formControlName="ojos">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="ojos"></textarea>
-                        </div>
-                        <h6>Oídos</h6>
-                        <div class="form-group">
-                            <input type="radio" name="oidos" value="Normal" formControlName="oidos" [checked]="true">Normal <input type="radio" name="oidos" value="Anormal" formControlName="oidos">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="oidos"></textarea>
-                        </div>
-                        <h6>Nariz Y Senos Paranasales </h6>
-                        <div class="form-group">
-                            <input type="radio" name="nariz" value="Normal" formControlName="nariz" [checked]="true">Normal <input type="radio" name="nariz" value="Anormal" formControlName="nariz">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="nariz"></textarea>
-                        </div>
-                        <h6>Boca</h6>
-                        <div class="form-group">
-                            <input type="radio" name="boca" value="Normal" formControlName="boca" [checked]="true">Normal <input type="radio" name="boca" value="Anormal" formControlName="boca">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="boca"></textarea>
-                        </div>
-                        <h6>Cuello</h6>
-                        <div class="form-group">
-                            <input type="radio" name="cuello" value="Normal" formControlName="cuello" [checked]="true">Normal <input type="radio" name="cuello" value="Anormal" formControlName="cuello">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="cuello"></textarea>
-                        </div>
-                        <h6>Tórax</h6>
-                        <div class="form-group">
-                            <input type="radio" name="torax" value="Normal" formControlName="torax" [checked]="true">Normal <input type="radio" name="torax" value="Anormal" formControlName="torax">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="torax"></textarea>
-                        </div>
-                        <h6>Abdomen</h6>
-                        <div class="form-group">
-                            <input type="radio" name="abdomen" value="Normal" formControlName="abdomen" [checked]="check">Normal <input type="radio" name="abdomen" value="Anormal" formControlName="abdomen">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="abdomen"></textarea>
-                        </div>
-                        <h6>Extremidades Superiores e Inferiores</h6>
-                        <div class="form-group">
-                            <input type="radio" name="extremidades" value="Normal" formControlName="extremidades" [checked]="check">Normal <input type="radio" name="extremidades" value="Anormal" formControlName="extremidades">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="extremidades"></textarea>
-                        </div>
-                        <h6>Exploración Neurológica</h6>
-                        <div class="form-group">
-                            <input type="radio" name="neurologicamental" value="Normal" formControlName="neurologicamental" [checked]="check">Normal <input type="radio" name="neurologicamental" value="Anormal" formControlName="neurologicamental">Anormal
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="neurologicamental"></textarea>
-                        </div>
 
 
                         <h4>Examen Mental</h4>
 
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 100px;" formControlName="mental"></textarea>
+                            <textarea class="form-control" placeholder="Examen Mental" style="width: 200%; height: 100px;" formControlName="mental"></textarea>
                         </div>
 
                         <h4>Diagnósticos</h4>
 
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="" style="width: 200%; height: 100px;" formControlName="diagnosticos"></textarea>
+                            <textarea class="form-control" placeholder="Diagnósticos" style="width: 200%; height: 100px;" formControlName="diagnosticos"></textarea>
                         </div>
 
 

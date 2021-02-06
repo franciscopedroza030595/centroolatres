@@ -1,0 +1,19 @@
+.contact-form .form-control {
+    border-radius: 1rem;
+}
+
+.show-element {
+    opacity: 1;
+    width: 200%;
+    height: 50px;
+    transition: all linear 0.5s;
+}
+
+.hide-element {
+    opacity: 0;
+    height: 0%;
+}
+
+h6 {
+    padding-top: 15px;
+}
