@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 
 @Component({
@@ -25,7 +27,7 @@ export class RadiobuttonsComponent implements OnInit {
   
   
 
-  constructor( ) { 
+  constructor( ) {  
 
    
   }
@@ -36,16 +38,7 @@ export class RadiobuttonsComponent implements OnInit {
 
     this.datosPrueba = this.DataComponent;
     
-    console.log(this.datosPrueba);
-
-    for(let i = 0; i <  this.datosPrueba.length; i ++) {
-
-        this.datosPrueba[i].value = 'Normal';
-      
-      
-    };
-    this.propagar.emit(this.datosPrueba);
-
+  
   
 
    
@@ -68,7 +61,7 @@ export class RadiobuttonsComponent implements OnInit {
       
     };
 
-    console.log(this.datosPrueba);
+    
 
     this.propagar.emit(this.datosPrueba);
  
@@ -95,7 +88,7 @@ anormalHandle(event:any){
       
     };
 
-    console.log(this.datosPrueba);
+    
     this.propagar.emit(this.datosPrueba);
     
     
@@ -106,7 +99,7 @@ anormalHandle(event:any){
 
 keyHandle(event:any, data:string) {
 
-  console.log(event.currentTarget.value);
+  
 
   for(let i = 0; i <  this.datosPrueba.length; i ++) {
 
@@ -119,7 +112,7 @@ keyHandle(event:any, data:string) {
     
   };
 
-  console.log(this.datosPrueba);
+ 
   this.propagar.emit(this.datosPrueba);
   
  

@@ -30,7 +30,9 @@ export class PsiquiatricaComponent implements OnInit {
 
   /* para radio buttons */
   data1: any[] =[];
-  data2: any[] =[];
+
+  recibo: any;
+
 
 
   constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute, private router: Router) { 
@@ -41,19 +43,19 @@ export class PsiquiatricaComponent implements OnInit {
       motivo: ['', Validators.required ],
       padecimiento: ['', Validators.required ],
       heredofamiliares: ['', Validators.required ],
-      antecedentesPerso: ['', Validators.required ],
-      antecedentesPato: ['', Validators.required ],
-      circuncision: ['', Validators.required ],
-      criptorquidia: ['', Validators.required ],
-      polucionesNoctu: ['', Validators.required ],
-      ivsa: ['', Validators.required ],
-      parejas: [''],
-      ets: ['', Validators.required ],
-      AntecendesFami: ['', Validators.required ],
+      antecedentesPerso: ['',  Validators.required],
+      antecedentesPato: ['',  Validators.required],
+      circuncision: ['',  Validators.required],
+      criptorquidia: ['',  Validators.required],
+      polucionesNoctu: ['',  Validators.required],
+      ivsa: ['',  ], 
+      parejas: ['' ],
+      ets: ['',  ],
+      AntecendesFami: ['',  Validators.required],
       AntecendesEsco: ['', Validators.required ],
-      historiaPiscoSex: ['', Validators.required ],
-      historiaOcupa: ['', Validators.required ],
-      tiempoL: ['', Validators.required ],
+      historiaPiscoSex: ['',  Validators.required],
+      historiaOcupa: ['',  Validators.required],
+      tiempoL: ['',  Validators.required],
       sintomas: ['' ],
       respiratorio: ['' ],
       cardiovascu: ['' ],
@@ -61,30 +63,30 @@ export class PsiquiatricaComponent implements OnInit {
       renal: ['' ],
       genital: ['' ],
       endocrino: ['' ],
-      hematopoyetico: ['' ],
+      hematopoyetico: [ ''],
       piel: ['' ],
-      musculoEsque: ['' ],
-      nervioso: ['' ],
+      musculoEsque: [ ''],
+      nervioso: [ ''],
       organosS: ['' ],
-      presion: ['', Validators.required ],
-      frecuencia: ['', Validators.required ],
-      frecuenciaC: ['', Validators.required ],
-      temperatura: ['', Validators.required ],
-      peso:[],
-      talla:[],
+      presion: ['',  ],
+      frecuencia: ['',  ],
+      frecuenciaC: ['',  ],
+      temperatura: ['',  ],
+      peso:[, Validators.required],
+      talla:[, Validators.required],
       imc:[],
       craneo: [''],
-      ojos: ['' ],
+      ojos: [ ''],
       oidos: ['' ],
       nariz: ['' ],
-      boca: ['' ],
+      boca: [ ''],
       cuello: [''],
       torax: [''],
       abdomen: [''],
       extremidades: [''],
       neurologica: [''],
       mental: ['', Validators.required ],
-      diagnosticos: ['', Validators.required ],
+      diagnosticos: ['',  Validators.required],
     
 
       paciente: [''],
@@ -103,6 +105,9 @@ export class PsiquiatricaComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+  
+    /* ---------- */
 
     this.data1 = [
       
@@ -170,11 +175,9 @@ export class PsiquiatricaComponent implements OnInit {
         titulo:'Óganos De Los Sentidos ',
         name:'organosS',
         value:'Normal'
-      }
-    ];
-
-    this.data2 = [
+      },
       
+
       {
         titulo:'Cráneo',
         name:'craneo',
@@ -225,7 +228,6 @@ export class PsiquiatricaComponent implements OnInit {
         name:'neurologica',
         value:'Normal'
       } 
-      
     ];
 
  
@@ -249,75 +251,17 @@ export class PsiquiatricaComponent implements OnInit {
   }
 
   procesaPropagar(recibo:any) {
-    
 
-    if(recibo.length === 12) {
-
-      this.psiquiForm.value.sintomas = recibo[0].value;
-      this.psiquiForm.value.respiratorio = recibo[1].value;
-      this.psiquiForm.value.cardiovascu = recibo[2].value;
-      this.psiquiForm.value.digestivo = recibo[3].value;
-      this.psiquiForm.value.renal = recibo[4].value;
-      this.psiquiForm.value.genital = recibo[5].value;
-      this.psiquiForm.value.endocrino = recibo[6].value;
-      this.psiquiForm.value.hematopoyetico = recibo[7].value;
-      this.psiquiForm.value.piel = recibo[8].value;
-      this.psiquiForm.value.musculoEsque = recibo[9].value;
-      this.psiquiForm.value.nervioso = recibo[10].value;
-      this.psiquiForm.value.organosS = recibo[11].value;
-
-      console.log(this.psiquiForm.value);
-
-    } else {
-      this.psiquiForm.value.craneo = recibo[0].value;
-      this.psiquiForm.value.ojos = recibo[1].value;
-      this.psiquiForm.value.oidos = recibo[2].value;
-      this.psiquiForm.value.nariz = recibo[3].value;
-      this.psiquiForm.value.boca = recibo[4].value;
-      this.psiquiForm.value.cuello = recibo[5].value;
-      this.psiquiForm.value.torax = recibo[6].value;
-      this.psiquiForm.value.abdomen = recibo[7].value;
-      this.psiquiForm.value.extremidades = recibo[8].value;
-      this.psiquiForm.value.neurologica = recibo[9].value;
-
-      console.log(this.psiquiForm.value);
-
-    } 
-    /* else {
-      this.psiquiForm.value.sintomas = 'Normal';
-      this.psiquiForm.value.respiratorio = 'Normal';
-      this.psiquiForm.value.cardiovascu = 'Normal';
-      this.psiquiForm.value.digestivo = 'Normal';
-      this.psiquiForm.value.renal = 'Normal';
-      this.psiquiForm.value.genital = 'Normal';
-      this.psiquiForm.value.endocrino = 'Normal';
-      this.psiquiForm.value.hematopoyetico = 'Normal';
-      this.psiquiForm.value.piel = 'Normal';
-      this.psiquiForm.value.musculoEsque = 'Normal';
-      this.psiquiForm.value.nervioso = 'Normal';
-      this.psiquiForm.value.organosS = 'Normal';
-
-      this.psiquiForm.value.craneo = 'Normal';
-      this.psiquiForm.value.ojos = 'Normal';
-      this.psiquiForm.value.oidos = 'Normal';
-      this.psiquiForm.value.nariz = 'Normal';
-      this.psiquiForm.value.boca = 'Normal';
-      this.psiquiForm.value.cuello = 'Normal';
-      this.psiquiForm.value.torax = 'Normal';
-      this.psiquiForm.value.abdomen = 'Normal';
-      this.psiquiForm.value.extremidades = 'Normal';
-      this.psiquiForm.value.neurologica = 'Normal'; 
-
-
-    }*/
-
-
+  this.recibo = recibo;
 
   }
 
   
 
-  psiqui() {
+  psiqui() { 
+
+
+
 
     this.formSubmitted = true;
   
@@ -327,6 +271,63 @@ export class PsiquiatricaComponent implements OnInit {
       Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
       return;
     }
+  
+
+    if (this.recibo === undefined) {
+      /* normal  */
+    this.psiquiForm.value.sintomas = 'Normal';
+    this.psiquiForm.value.respiratorio = 'Normal';
+    this.psiquiForm.value.cardiovascu = 'Normal';
+    this.psiquiForm.value.digestivo = 'Normal';
+    this.psiquiForm.value.renal = 'Normal';
+    this.psiquiForm.value.genital = 'Normal';
+    this.psiquiForm.value.endocrino = 'Normal';
+    this.psiquiForm.value.hematopoyetico = 'Normal';
+    this.psiquiForm.value.piel = 'Normal';
+    this.psiquiForm.value.musculoEsque = 'Normal';
+    this.psiquiForm.value.nervioso = 'Normal';
+    this.psiquiForm.value.organosS = 'Normal'; 
+
+    this.psiquiForm.value.craneo = 'Normal';
+    this.psiquiForm.value.ojos = 'Normal';
+    this.psiquiForm.value.oidos = 'Normal';
+    this.psiquiForm.value.nariz = 'Normal';
+    this.psiquiForm.value.boca = 'Normal';
+    this.psiquiForm.value.cuello = 'Normal';
+    this.psiquiForm.value.torax = 'Normal';
+    this.psiquiForm.value.abdomen = 'Normal';
+    this.psiquiForm.value.extremidades = 'Normal';
+    this.psiquiForm.value.neurologica = 'Normal';
+
+  } else {
+   
+    this.psiquiForm.value.sintomas = this.recibo[0].value;
+    this.psiquiForm.value.respiratorio = this.recibo[1].value;
+    this.psiquiForm.value.cardiovascu = this.recibo[2].value;
+    this.psiquiForm.value.digestivo = this.recibo[3].value;
+    this.psiquiForm.value.renal = this.recibo[4].value;
+    this.psiquiForm.value.genital = this.recibo[5].value;
+    this.psiquiForm.value.endocrino = this.recibo[6].value;
+    this.psiquiForm.value.hematopoyetico = this.recibo[7].value;
+    this.psiquiForm.value.piel = this.recibo[8].value;
+    this.psiquiForm.value.musculoEsque = this.recibo[9].value;
+    this.psiquiForm.value.nervioso = this.recibo[10].value;
+    this.psiquiForm.value.organosS = this.recibo[11].value; 
+
+    this.psiquiForm.value.craneo = this.recibo[12].value;
+    this.psiquiForm.value.ojos = this.recibo[13].value;
+    this.psiquiForm.value.oidos = this.recibo[14].value;
+    this.psiquiForm.value.nariz = this.recibo[15].value;
+    this.psiquiForm.value.boca = this.recibo[16].value;
+    this.psiquiForm.value.cuello = this.recibo[17].value;
+    this.psiquiForm.value.torax = this.recibo[18].value;
+    this.psiquiForm.value.abdomen = this.recibo[19].value;
+    this.psiquiForm.value.extremidades = this.recibo[20].value;
+    this.psiquiForm.value.neurologica = this.recibo[21].value;
+  }
+
+    
+    
   
     this.psiquiForm.value.paciente = this.id;
     this.psiquiForm.value.fecha = this.fecha;
