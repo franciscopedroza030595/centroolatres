@@ -37,6 +37,7 @@ import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component'
 import { SignaturefildComponent } from './components/signaturefild/signaturefild.component';
 import { WebcamimageComponent } from './components/webcamimage/webcamimage.component';
 import { RadiobuttonsComponent } from './components/radiobuttons/radiobuttons.component';
+import { VersolicitudesComponent } from './pages/versolicitudes/versolicitudes.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { RadiobuttonsComponent } from './components/radiobuttons/radiobuttons.co
     SolicitudhcComponent,
     SignaturefildComponent,
     WebcamimageComponent,
-    RadiobuttonsComponent
+    RadiobuttonsComponent,
+    VersolicitudesComponent
   ],
   imports: [
     BrowserModule,

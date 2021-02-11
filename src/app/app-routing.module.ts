@@ -19,6 +19,7 @@ import { GruposComponent } from './pages/grupos/grupos.component';
 import { TerapiaocupaComponent } from './pages/terapiaocupa/terapiaocupa.component';
 import { PsiquiatricaComponent } from './pages/psiquiatrica/psiquiatrica.component';
 import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component';
+import { VersolicitudesComponent } from './pages/versolicitudes/versolicitudes.component';
 
 
 
@@ -26,6 +27,7 @@ import { SolicitudhcComponent } from './pages/solicitudhc/solicitudhc.component'
 import { AuxiliarGuard } from './guards/auxiliar.guard';
 import { PsicologoGuard } from './guards/psicologo.guard';
 import { PsiquiatraGuard } from './guards/psiquiatra.guard';
+
 
 
 
@@ -50,7 +52,8 @@ const routes: Routes = [
   {path: 'grupos', component: GruposComponent},
   {path: 'terapiaO/:id', canActivate:[PsicologoGuard, PsiquiatraGuard], component: TerapiaocupaComponent},
   {path: 'psiquiatrica/:id', canActivate:[PsicologoGuard], component: PsiquiatricaComponent},
-  {path: 'solicitudhc/:id', component: SolicitudhcComponent},
+  {path: 'solicitudhc', component: SolicitudhcComponent},
+  {path: 'versolicitudhc', canActivate:[PsicologoGuard, PsiquiatraGuard, AuxiliarGuard], component: VersolicitudesComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

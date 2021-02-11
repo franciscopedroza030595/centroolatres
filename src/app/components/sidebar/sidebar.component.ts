@@ -49,7 +49,7 @@ export class SidebarComponent implements OnInit {
         this.showmenu = true;
         
       }
-    });
+    }); 
 
     
     
@@ -59,6 +59,11 @@ export class SidebarComponent implements OnInit {
   cerrarSession() {
     localStorage.clear();
     this.router.navigate(['/home']);
+  }
+
+  solicitudhc() {
+
+    this.router.navigate(['/solicitudhc']);
   }
 
 }

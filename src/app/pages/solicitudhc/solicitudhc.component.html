@@ -9,9 +9,12 @@
 
             <div class="contact-image">
                 <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+                <h5>Fecha: {{fecha}}</h5>
             </div>
 
             <form [formGroup]="solicitudForm" (ngSubmit)="solicitud()">
+
+                <h3>Solicitud De Historia Clinica</h3>
 
                 <div class="row">
                     <div class="col-md-6">
@@ -19,6 +22,51 @@
                         <div class="form-group">
                             <textarea class="form-control" placeholder="Motivo" style="width: 200%; height: 150px;" formControlName="motivo"></textarea>
                         </div>
+
+                        <h4>Nombre De Quien Solicita</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Nombre Quien Solicita" style="width: 200%; height: 50px;" formControlName="nombre"></textarea>
+                        </div>
+
+                        <h4>Cedula De Quien Solicita</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Cedula De Quien Solicita" style="width: 200%; height: 50px;" formControlName="identificacion"></textarea>
+                        </div>
+
+                        <h4>Parentesco</h4>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Parestesco" style="width: 200%; height: 50px;" formControlName="parestesco"></textarea>
+                        </div>
+
+                        <h4>Cedula De Paciente</h4>
+                        <table style="width: 200%; ">
+
+                            <tr>
+
+                                <th>Cedula</th>
+                                <th>Nombre</th>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><input type="text" name="" class="form-control" placeholder="Cedula" formControlName="cedulaP" /></td>
+                                <td><input type="text" name="" class="form-control" placeholder="{{nameP}}" readonly /></td>
+
+                            </tr>
+
+
+                        </table>
+
+                        <div class="form-group">
+                            <input type="button" name="search" class="btnContact" (click)="search()" value="Buscar" />
+
+                        </div>
+                        <!-- poner ngif para que solo se muestre si el paciente aparecio -->
+                        <div class="form-group" *ngIf="idpaciente">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+                        </div>
+
 
                     </div>
                 </div>

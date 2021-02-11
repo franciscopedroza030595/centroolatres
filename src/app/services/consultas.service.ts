@@ -310,6 +310,18 @@ psiqui(formData: any) {
   });
 
 }
+/* ----------------crear solicitudhc------------------ */
+
+solicitudhc(formData: any) {
+
+  return this.http.post(`${ base_url }/solicitudhc`, formData , {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }
+
+  });
+
+}
 /* ------------------------------------- */
 
 }
