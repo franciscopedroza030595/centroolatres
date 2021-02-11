@@ -32,11 +32,9 @@
 
                         </div>
 
+                        <!--  <h4>Aspectos Motores</h4> -->
 
-
-                        <h4>Aspectos Motores</h4>
-
-                        <h6>Tolerancia</h6>
+                        <!-- <h6>Tolerancia</h6>
 
                         <div class="form-group">
                             <input type="radio" name="tolerancia" value="Normal" formControlName="tolerancia" checked>Normal <input type="radio" name="tolerancia" value="Anormal" formControlName="tolerancia" ng-model="show">Anormal
@@ -95,11 +93,11 @@
                         <div class="form-group">
                             <input type="radio" name="destreza" value="Normal" formControlName="destreza">Normal <input type="radio" name="destreza" value="Anormal" formControlName="destreza">Anormal
                             <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="destreza"></textarea>
-                        </div>
+                        </div> -->
 
-                        <h4>Componentes Sensoriales</h4>
+                        <!--  <h4> - Componentes Sensoriales</h4> -->
 
-                        <h6>Vista</h6>
+                        <!-- <h6>Vista</h6>
                         <div class="form-group">
                             <input type="radio" name="vista" value="Normal" formControlName="vista">Normal <input type="radio" name="vista" value="Anormal" formControlName="vista">Anormal
                             <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="vista"></textarea>
@@ -119,11 +117,11 @@
                         <div class="form-group">
                             <input type="radio" name="propiocepcion" value="Normal" formControlName="propiocepcion">Normal <input type="radio" name="propiocepcion" value="Anormal" formControlName="propiocepcion">Anormal
                             <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="propiocepcion"></textarea>
-                        </div>
+                        </div> -->
 
-                        <h4>Valoración Componentes Cognitivos</h4>
+                        <!-- <h4> - Valoración Componentes Cognitivos</h4> -->
 
-                        <h6>Nivel de conciencia</h6>
+                        <!--   <h6>Nivel de conciencia</h6>
                         <div class="form-group">
                             <input type="radio" name="conciencia" value="Normal" formControlName="conciencia">Normal <input type="radio" name="conciencia" value="Anormal" formControlName="conciencia">Anormal
                             <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="conciencia"></textarea>
@@ -168,11 +166,11 @@
                         <div class="form-group">
                             <input type="radio" name="funciones" value="Normal" formControlName="funciones">Normal <input type="radio" name="funciones" value="Anormal" formControlName="funciones">Anormal
                             <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="funciones"></textarea>
-                        </div>
+                        </div> -->
 
-                        <h4>Componentes Psicosociales</h4>
+                        <!--  <h4> - Componentes Psicosociales</h4> -->
 
-                        <h6>Intereses </h6>
+                        <!--  <h6>Intereses </h6>
                         <div class="form-group">
                             <input type="radio" name="interes" value="Normal" formControlName="interes">Normal <input type="radio" name="interes" value="Anormal" formControlName="interes">Anormal
                             <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="interes"></textarea>
@@ -197,18 +195,20 @@
                         <div class="form-group">
                             <input type="radio" name="estado" value="Normal" formControlName="estado">Normal <input type="radio" name="estado" value="Anormal" formControlName="estado">Anormal
                             <textarea class="form-control" placeholder="" style="width: 200%; height: 50px;" formControlName="estado"></textarea>
-                        </div>
+                        </div> -->
+
+                        <app-radiobuttons [DataComponent]="data1" (propagar)="procesaPropagar($event)"></app-radiobuttons>
 
 
                         <h4>Objetivos De Tratamiento</h4>
 
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Recuperación de Historia Personal" style="width: 200%; height: 150px;" formControlName="objetivos"></textarea>
+                            <textarea class="form-control" placeholder="Objetivos De Tratamiento" style="width: 200%; height: 150px;" formControlName="objetivos"></textarea>
                         </div>
 
                         <h4>Actividades</h4>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Observaciones" style="width: 200%; height: 150px;" formControlName="actividades"></textarea>
+                            <textarea class="form-control" placeholder="Actividades" style="width: 200%; height: 150px;" formControlName="actividades"></textarea>
                         </div>
 
                         <div class="form-group">

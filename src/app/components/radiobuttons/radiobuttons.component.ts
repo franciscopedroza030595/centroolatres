@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import {MatGridListModule} from '@angular/material/grid-list';
+
 
 
 
@@ -48,7 +48,7 @@ export class RadiobuttonsComponent implements OnInit {
   normalHandle(event:any){ 
 
     let target = event.currentTarget;
-    document.getElementById(target.name).className = this.classHide; 
+    document.getElementById(target.name).className = this.classHide;  
 
     
 
@@ -72,7 +72,7 @@ export class RadiobuttonsComponent implements OnInit {
 anormalHandle(event:any){
     let target = event.currentTarget;
    
-    document.getElementById(target.name).className = this.classTitular;
+    document.getElementById(target.name).className = this.classTitular; 
 
 
    

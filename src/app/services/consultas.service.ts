@@ -181,7 +181,7 @@ terapiaPID(id:any) {
 /* -----------obtener seguimientos por id del paciente------------------ */
 seguimientoID(id:any) {
 
-    
+  
 
   return this.http.get(`${ base_url }/todo/coleccion/seguimiento/${id}`, {
     headers: {

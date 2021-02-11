@@ -114,6 +114,7 @@ export class PsiquiatricaComponent implements OnInit {
       {
         titulo:'Síntomas Generales',
         name:'sintomas',
+        line:'Interrogatorio Por Aparatos Y Sistemas',
         value:'Normal'
       },
       {
@@ -181,6 +182,7 @@ export class PsiquiatricaComponent implements OnInit {
       {
         titulo:'Cráneo',
         name:'craneo',
+        line:'Exploración Física Y Neurológica',
         value:'Normal'
       },
       {

@@ -43,6 +43,8 @@ export class ConsultapacientesComponent implements OnInit {
           
           localStorage.setItem('nameObj', JSON.stringify(this.nameObj));
         });
+        
+        
 
   }
 
