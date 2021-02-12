@@ -17,7 +17,7 @@ export class PsiquiatraGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
-        console.log(resp);
+        
         if (resp.resultados[0].role === 'Psiquiatra') {
   
           console.log('Usuario No Autorizado');

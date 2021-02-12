@@ -207,8 +207,15 @@
 
                 <!-- ---- -->
 
-                <h5>Ultima sesion: SI <input type="radio" name="ultima" value="si" formControlName="ultima"> NO <input type="radio" name="ultima" value="no" formControlName="ultima"></h5>
+                <h5>Ultima sesion: SI <input type="radio" name="ultima" value="si" formControlName="ultima" (change)="ultimaSi($event)"> NO <input type="radio" name="ultima" value="no" formControlName="ultima" (change)="ultimaNo($event)"></h5>
 
+                <!-- fecha next -->
+
+                <h4 *ngIf="fechaProx">Fecha Proxima Sección </h4>
+                <div class="form-group" *ngIf="fechaProx">
+                    <input class="form-control" placeholder="Fecha" style="width: 50%; height: 50px;" formControlName="fechaS">
+
+                </div>
 
                 <div class="row">
                     <div class="col-md-6">
@@ -271,8 +278,8 @@
                 Seguimiento {{i + 1}}
             </div>
             <div class="card-body">
-                <!--  <h5 class="card-title" *ngIf="!pareja">{{info.nombreyapellido}}</h5>
-                <h5 class="card-title" *ngIf="pareja">{{info.nombreyapellido}} & {{info.nombreyapellido2}}</h5> -->
+                <h5 class="card-title" *ngIf="!pareja">{{info.paciente.nombreyapellido}}</h5>
+                <h5 class="card-title" *ngIf="pareja">{{info.paciente.nombreyapellido}} & {{info.paciente.nombreyapellido2}}</h5>
                 <p class="card-text">Hecho Por: {{info.usuario.profesion}} {{info.usuario.nombre}} {{info.usuario.apellido}}</p>
                 <a (click)="visualizarSeguim(info.uid)" class="btnContactSubmit">Ver Documento</a>
             </div>

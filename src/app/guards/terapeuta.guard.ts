@@ -9,16 +9,18 @@ import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
-export class PsicologoGuard implements CanActivate {
+export class TerapeutaGuard implements CanActivate {
+
   constructor(private usuarioService: UsuarioService, private router: Router) {
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      
     this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
-        
-        if (resp.resultados[0].role === 'Psicologo') {
+      
+        if (resp.resultados[0].role === 'Terapeuta') {
   
           console.log('Usuario No Autorizado');
           Swal.fire('', 'Usuario No Autorizado', 'error' );

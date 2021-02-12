@@ -1,1 +1,28 @@
-<p>versolicitudes works!</p>
+<div class="content" id="htmlData">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="segui">
+        <div class="card text-center" *ngFor="let info of infoSolicitudes; index as i">
+            <div class="card-header">
+                <!-- Solicitud {{i + 1}} -->
+                Solicitud de Historia Clinica:
+            </div>
+            <div class="card-body">
+                <h6 class="card-title"> Paciente: {{info.paciente.nombreyapellido}}</h6>
+                <h6 class="card-title"> Cedula: {{info.paciente.cedula}}</h6>
+
+                <p class="card-text">Hecha Por: {{info.nombre}} Cedula:{{info.identificacion}}</p>
+                <p class="card-text">Parentesco: {{info.parentesco}}</p>
+
+                <a (click)="imprimirSoli(info.uid)" class="btnContactSubmit">Imprimir Historia Clinica</a>
+
+            </div>
+            <div class="card-footer text-muted">
+                <p class="card-text"> {{info.usuario.profesion}} {{info.usuario.nombre}} {{info.usuario.apellido}}</p>
+                {{info.fecha | date: 'YYYY-MM-dd'}}
+            </div>
+        </div>
+    </div>
+
+</div>

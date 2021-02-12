@@ -72,7 +72,7 @@ export class RadiobuttonsComponent implements OnInit {
 anormalHandle(event:any){
     let target = event.currentTarget;
    
-    document.getElementById(target.name).className = this.classTitular; 
+    document.getElementById(target.name).className = this.classTitular;
 
 
    

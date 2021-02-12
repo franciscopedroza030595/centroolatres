@@ -32,6 +32,9 @@ export class SeguimientocasoComponent implements OnInit {
   seccionesA = 0;
   secccionN = 0;
 
+
+  fechaProx = false;
+
   secciones = false;
 
   infoPa: any;
@@ -56,6 +59,7 @@ export class SeguimientocasoComponent implements OnInit {
     ultima:['', Validators.required],
     paciente: [''],
     pareja: [''],
+    fechaS:[],
     fecha:[]
    
     
@@ -95,7 +99,7 @@ export class SeguimientocasoComponent implements OnInit {
     this.consultaService.seguimientoID(this.id).subscribe((res: any) => {
 
       this.infoSeguimientos = res.resultados;
-      console.log(this.infoSeguimientos);
+      
    
       this.seccionesA = this.infoSeguimientos.length;
       this.secccionN = this.seccionesA + 1;   
@@ -117,6 +121,15 @@ export class SeguimientocasoComponent implements OnInit {
 
 
      /* -------------------- */
+  }
+
+  ultimaNo() {
+
+    this.fechaProx = true;
+  }
+  ultimaSi() {
+
+    this.fechaProx = false;
   }
 
 
@@ -143,11 +156,11 @@ export class SeguimientocasoComponent implements OnInit {
     this.seguiForm.value.fecha = this.fecha;
 
 
-    console.log(this.seguiForm.value);
+    
 
     this.consultaService.seguimientoPa(this.seguiForm.value).subscribe((resp: any) => {
 
-      console.log(resp);
+      
         
     });
 

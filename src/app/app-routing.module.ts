@@ -27,6 +27,8 @@ import { VersolicitudesComponent } from './pages/versolicitudes/versolicitudes.c
 import { AuxiliarGuard } from './guards/auxiliar.guard';
 import { PsicologoGuard } from './guards/psicologo.guard';
 import { PsiquiatraGuard } from './guards/psiquiatra.guard';
+import { TerapeutaGuard } from './guards/terapeuta.guard';
+
 
 
 
@@ -39,8 +41,8 @@ const routes: Routes = [
 
   {path: 'home', component: HomeComponent},
   {path: 'datospersonales', component: DatospersonalesComponent},
-  {path: 'historiaA/:id', canActivate:[PsiquiatraGuard], component: HistoriaadultosComponent},
-  {path: 'historiaN/:id', canActivate:[PsiquiatraGuard], component: HistorianinosComponent},
+  {path: 'historiaA/:id', canActivate:[PsiquiatraGuard, TerapeutaGuard], component: HistoriaadultosComponent},
+  {path: 'historiaN/:id', canActivate:[PsiquiatraGuard, TerapeutaGuard], component: HistorianinosComponent},
   {path: 'terapiaP/:id', component: TerapiaparejasComponent},
   {path: 'registroP', canActivate:[PsicologoGuard, PsiquiatraGuard], component: RegistropacientesComponent},
   {path: 'datospareja', component: DatosparejaComponent},
@@ -51,9 +53,9 @@ const routes: Routes = [
   {path: 'visualziarS/:id/:tipo/:pareja', component: VisualizarseguiComponent},
   {path: 'grupos', component: GruposComponent},
   {path: 'terapiaO/:id', canActivate:[PsicologoGuard, PsiquiatraGuard], component: TerapiaocupaComponent},
-  {path: 'psiquiatrica/:id', canActivate:[PsicologoGuard], component: PsiquiatricaComponent},
+  {path: 'psiquiatrica/:id', canActivate:[PsicologoGuard, TerapeutaGuard], component: PsiquiatricaComponent},
   {path: 'solicitudhc', component: SolicitudhcComponent},
-  {path: 'versolicitudhc', canActivate:[PsicologoGuard, PsiquiatraGuard, AuxiliarGuard], component: VersolicitudesComponent},
+  {path: 'versolicitudhc', canActivate:[PsicologoGuard, PsiquiatraGuard, AuxiliarGuard, TerapeutaGuard], component: VersolicitudesComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

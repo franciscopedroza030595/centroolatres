@@ -36,7 +36,7 @@ export class ConsultapacientesComponent implements OnInit {
   ngOnInit(): void {
 
         this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
-          console.log(resp);
+         
           this.nameObj.nombreU = resp.resultados[0].nombre;
           this.nameObj.apellidoU = resp.resultados[0].apellido;
           this.nameObj.cargo = resp.resultados[0].profesion;
@@ -58,13 +58,13 @@ export class ConsultapacientesComponent implements OnInit {
 
       this.consultaService.obtenerPaciente(this.cedula).subscribe((resp: any) => {
       
-        console.log(resp);
+        
   
         if(resp.resultados !== null) {
   
           this.id = resp.resultados.uid;
   
-          console.log(this.id);
+          
 
           switch (this.tipoh) {
 
@@ -274,7 +274,7 @@ export class ConsultapacientesComponent implements OnInit {
   
           this.id = resp.resultados.uid;
   
-          console.log(this.id);
+          
 
 
           switch(this.tipoh) {

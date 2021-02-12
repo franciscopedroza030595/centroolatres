@@ -33,7 +33,7 @@ export class SolicitudhcComponent implements OnInit {
     this.solicitudForm = this.fb.group({
       motivo: ['', Validators.required ],
       nombre: ['', Validators.required ],
-      parestesco: ['', Validators.required ],
+      parentesco: ['', Validators.required ],
       identificacion: ['', Validators.required ],
       
       cedulaP: [''],
@@ -49,6 +49,7 @@ export class SolicitudhcComponent implements OnInit {
 
      /* creo la fecha actual con la cual el registro es guardado */
      this.fecha = formatDate(new Date(), 'YYYY-MM-dd, h:mm:ss a', 'en');
+     
   }
 
   /* metodo buscar paciente */

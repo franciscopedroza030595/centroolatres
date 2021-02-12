@@ -19,7 +19,7 @@ export class AuxiliarGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
     this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
-        console.log(resp);
+      
         if (resp.resultados[0].role === 'Auxiliar') {
   
           console.log('Usuario No Autorizado');

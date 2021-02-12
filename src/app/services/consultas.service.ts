@@ -235,6 +235,7 @@ remision(id:any) {
 
 
 }
+
 /* ----------------crear seguimientoPaciente------------------ */
 
 seguimientoPa(formData: any) {
@@ -318,6 +319,18 @@ solicitudhc(formData: any) {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }
+
+  });
+
+}
+/* ----------------traer solicitudhc------------------ */
+
+getsolicitudhc() {
+
+  return this.http.get(`${ base_url }/solicitudhc` , {
+    /* headers: {
+      'x-token': localStorage.getItem('token') || ''
+    } */
 
   });
 
