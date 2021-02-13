@@ -30,9 +30,10 @@ export class DatospersonalesComponent implements OnInit {
 
   datePickerConfig = {
     drops: 'up',
-    format: 'YYYY-MM-DD',
+    format: 'MMM, YYYY',
     multipleYearsNavigateBy: 10,
     showMultipleYearsNavigation: true,
+    locale:'es'
   }
 
   edadP = 0 ;

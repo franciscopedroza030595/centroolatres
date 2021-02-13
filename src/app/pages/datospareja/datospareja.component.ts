@@ -48,6 +48,7 @@ export class DatosparejaComponent implements OnInit {
     format: 'YYYY-MM-DD',
     multipleYearsNavigateBy: 10,
     showMultipleYearsNavigation: true,
+    locale:'es'
   }
 
   edadP1 = 0 ;
