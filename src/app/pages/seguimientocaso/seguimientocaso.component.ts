@@ -65,6 +65,14 @@ export class SeguimientocasoComponent implements OnInit {
     
   });
 
+  datePickerConfig = {
+    drops: 'up',
+    format: 'YYYY-MM-DD',
+    multipleYearsNavigateBy: 10,
+    showMultipleYearsNavigation: true,
+    locale:'es'
+  }
+
   constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

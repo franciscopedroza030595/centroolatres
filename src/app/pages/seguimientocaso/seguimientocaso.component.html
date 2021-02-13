@@ -213,7 +213,8 @@
 
                 <h4 *ngIf="fechaProx">Fecha Proxima Sesión </h4>
                 <div class="form-group" *ngIf="fechaProx">
-                    <input class="form-control" placeholder="Fecha" style="width: 50%; height: 50px;" formControlName="fechaS">
+                    <!-- <input class="form-control" placeholder="Fecha" style="width: 50%; height: 50px;" formControlName="fechaS"> -->
+                    <dp-date-picker theme="dp-material" class="form-control" [config]="datePickerConfig" placeholder="Fecha de nacimiento" formControlName="fechanacimiento2"></dp-date-picker>
 
                 </div>
 
