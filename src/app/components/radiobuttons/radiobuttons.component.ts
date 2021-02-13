@@ -50,7 +50,6 @@ export class RadiobuttonsComponent implements OnInit {
     let target = event.currentTarget;
     document.getElementById(target.name).className = this.classHide;  
 
-    
 
     for(let i = 0; i <  this.datosPrueba.length; i ++) {
 
@@ -72,7 +71,7 @@ export class RadiobuttonsComponent implements OnInit {
 anormalHandle(event:any){
     let target = event.currentTarget;
    
-    document.getElementById(target.name).className = this.classTitular; 
+    document.getElementById(target.name)!.className = this.classTitular; 
 
 
    
