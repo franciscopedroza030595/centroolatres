@@ -28,6 +28,7 @@ import { AuxiliarGuard } from './guards/auxiliar.guard';
 import { PsicologoGuard } from './guards/psicologo.guard';
 import { PsiquiatraGuard } from './guards/psiquiatra.guard';
 import { TerapeutaGuard } from './guards/terapeuta.guard';
+import { PdfProximaSesionComponent } from './components/pdf-proxima-sesion/pdf-proxima-sesion.component';
 
 
 
@@ -56,6 +57,7 @@ const routes: Routes = [
   {path: 'psiquiatrica/:id', canActivate:[PsicologoGuard, TerapeutaGuard], component: PsiquiatricaComponent},
   {path: 'solicitudhc', component: SolicitudhcComponent},
   {path: 'versolicitudhc', canActivate:[PsicologoGuard, PsiquiatraGuard, AuxiliarGuard, TerapeutaGuard], component: VersolicitudesComponent},
+  {path: 'pdfseguimiento', component: PdfProximaSesionComponent},
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},

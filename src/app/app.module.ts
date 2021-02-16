@@ -38,6 +38,7 @@ import { SignaturefildComponent } from './components/signaturefild/signaturefild
 import { WebcamimageComponent } from './components/webcamimage/webcamimage.component';
 import { RadiobuttonsComponent } from './components/radiobuttons/radiobuttons.component';
 import { VersolicitudesComponent } from './pages/versolicitudes/versolicitudes.component';
+import { PdfProximaSesionComponent } from './components/pdf-proxima-sesion/pdf-proxima-sesion.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { VersolicitudesComponent } from './pages/versolicitudes/versolicitudes.c
     SignaturefildComponent,
     WebcamimageComponent,
     RadiobuttonsComponent,
-    VersolicitudesComponent
+    VersolicitudesComponent,
+    PdfProximaSesionComponent
   ],
   imports: [
     BrowserModule,

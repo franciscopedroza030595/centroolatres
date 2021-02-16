@@ -10,10 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ConsultasService } from '../../services/consultas.service';
 
-/* import jsPDF from 'jspdf';
 
-import html2canvas from 'html2canvas';
- */
+
 
 @Component({
   selector: 'app-seguimientocaso',
@@ -66,13 +64,27 @@ export class SeguimientocasoComponent implements OnInit {
   });
 
   datePickerConfig = {
+    firstDayOfWeek: 'mo',
     drops: 'up',
-    format: 'YYYY-MM-DD',
+    format: 'YYYY-MM-DD HH:mm',
     multipleYearsNavigateBy: 10,
     showMultipleYearsNavigation: true,
-    locale:'es'
+    locale:'es',
+    hours12Format: 'hh',
+    hours24Format: 'HH',
+    meridiemFormat: 'A',
+    minutesFormat: 'mm',
+    minutesInterval: 1,
+    secondsFormat: 'ss',
+    secondsInterval: 1,
+    showSeconds: false,
+    showTwentyFourHours: true,
+    timeSeparator: ':',
+    showGoToCurrent: true
   }
 
+
+ 
   constructor(private consultaService: ConsultasService, private fb: FormBuilder, private actiRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -176,9 +188,19 @@ export class SeguimientocasoComponent implements OnInit {
 
     Swal.fire('' , 'Seguimiento De ' + texto +  ' registrado exitosamente', 'success').then((result) => {
       if (result.value) {
-    
-       
-        this.router.navigate(['/consultaP']);
+
+        let  object: any ={
+          fecha: this.fecha,
+          nombreP: this.infoPa.nombreyapellido,
+          cedulaP: this.infoPa.cedula,
+          edadP: this.infoPa.edad,
+          proximaS: this.seguiForm.value.fechaS,
+          progreso: this.seguiForm.value.progreso,
+          acuerdos:  this.seguiForm.value.acuerdos
+          }
+        // this.router.navigate(['/consultaP']);
+        localStorage.setItem('dataSeguimiento', JSON.stringify(object));
+        this.router.navigate(['/pdfseguimiento']);
       }
     });
 
@@ -216,64 +238,5 @@ export class SeguimientocasoComponent implements OnInit {
   }
 
 
-  /* para pdf y canvas html */
-
-/*   downloadPDF(){
-    // Extraemos el html desde el elemento div con su id 'htmlData'
-    const DATA = document.getElementById('htmlData');
-   
-   // los parametros son:
-   // portrait = vertical pt unidad de medida letra tamaño de hoja A4
-    const documento = new jsPDF('p', 'pt', 'a4');
-    const options = {
-      background: 'white',
-      scale: 3
-    };
-    html2canvas(DATA, options).then((canvas) => {
-   
-     const img = canvas.toDataURL('image/PNG');
-   
-     // Add image Canvas to PDF
-     const margenH = 15;
-     const margenV = 15; 
-     const propiedadesImg = (documento as any).getImageProperties(img);
-     console.log(propiedadesImg);
-   
-     // Calculamos los valores de ancho y alto del pdf ajustados con la img del html2canvas
-     const pdfWidth = documento.internal.pageSize.getWidth() - 2 * margenH;
-     const pdfHeight = (propiedadesImg.height * pdfWidth) / propiedadesImg.width;
-   
-     // Agregamos la imagen resultante a doc para ser introducida al pdf.
-     // documentacion los parametros son:
-     // 1 data de la imagen (string | HTMLImageElement | HTMLCanvasElement | Uint8Array)
-     // 2 formato (string)
-     // 3 coordenada x (number)
-     // 4 coordenada y (number)
-     // 5 ancho (number)
-     // 6 alto (number)
-     // 7 alias de la img (string)
-     // 8 compresion (string) tipo de compresion de jpeg 'NONE', 'FAST', 'MEDIUM' and 'SLOW'
-     // 9 rotacion (number) rotacion de 0 a 359 grados
-     documento.addImage(img, 'PNG', margenH, margenV, pdfWidth, pdfHeight, undefined, 'FAST');
-   
-     return documento;
-   }).then((docResult) => {
-     docResult.save(`${this.nombreP}.pdf`);
-   });
-   }
-   
-   ESTO VA EN SCRIPTS
-
-   
-                            "node_modules/html2canvas/dist/html2canvas.min.js",
-                            "node_modules/jspdf/dist/jspdf.min.js"
-   
-   */
-
-
-   
-
-
-  /* ---------------------- */
 
 }

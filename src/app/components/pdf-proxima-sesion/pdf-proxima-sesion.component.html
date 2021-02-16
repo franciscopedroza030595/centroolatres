@@ -1,0 +1,78 @@
+<div id="htmlData" class="container contact-form">
+    <div class="contact-image">
+        <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
+    </div>
+
+
+    <form (ngSubmit)="seguimiento()">
+
+        <h3>Seguimiento Del Caso</h3>
+        <h4>Fecha: {{fecha}}</h4>
+
+
+        <!-- paciente -->
+        <table style="width: 100%;">
+            <tr>
+                <th>Nombre y Apellido</th>
+                <th>Cedula</th>
+                <th>Edad</th>
+            </tr>
+            <tr>
+                <td>
+                    <h6>{{nombreP}}</h6>
+                </td>
+                <td>
+                    <h6>
+                        {{cedulaP}}
+                    </h6>
+                </td>
+                <td>
+                    <h6>
+                        {{edadP}}
+                    </h6>
+                </td>
+            </tr>
+        </table>
+        <h5>Fecha Proxima Sesión </h5>
+        <div class="form-group">
+            <h6>{{proximaS}}</h6>
+        </div>
+
+        <h6>Progreso</h6>
+        <div class="form-group">
+            <textarea class="form-control" [value]="progreso" style="width: 100%; height: 150px;"></textarea>
+        </div>
+        <h6>Acuerdos</h6>
+        <div class="form-group">
+            <textarea class="form-control" [value]="acuerdos" style="width: 100%; height: 150px;"></textarea>
+        </div>
+
+        <table>
+
+            <tr>
+                <td>
+                    <img [src]="firmaM" alt="firma">
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    {{nombreM}}{{apellidoM}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{profesionM}}
+                </td>
+            </tr>
+
+        </table>
+        <!-- <div class="form-group">
+            <input type="submit" name="btnSubmit" class="btnContact" value="Enviar" />
+        </div> -->
+    </form>
+</div>
+
+<div class="form-group">
+    <input type="button" class="btnContact" value="Download" (click)="downloadPDF()" />
+</div>
