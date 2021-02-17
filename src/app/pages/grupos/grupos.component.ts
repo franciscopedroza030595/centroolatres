@@ -103,8 +103,9 @@ export class GruposComponent implements OnInit {
 
   }
 
-  deleteP(index: any) {
-    this.asistentes.removeAt(index);
+  deleteP() {
+    // this.asistentes.removeAt(index);
+    this.asistentes.removeAt(this.asistentes.length - 1);
 
     this.numeroP--;
     this.nSearch--;

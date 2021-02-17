@@ -128,8 +128,9 @@ export class HistorianinosComponent implements OnInit {
     }));
   }
 
-  deleteF(index: any) {
-    this.caracteristicaf.removeAt(index);
+  deleteF() {
+    // this.caracteristicaf.removeAt(index);
+    this.caracteristicaf.removeAt(this.caracteristicaf.length -1);
   }
 
  historiamenor() {

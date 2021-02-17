@@ -44,7 +44,7 @@ export class DatosparejaComponent implements OnInit {
 
 
   datePickerConfig = {
-    drops: 'up',
+    // drops: 'up',
     format: 'YYYY-MM-DD',
     multipleYearsNavigateBy: 10,
     showMultipleYearsNavigation: true,

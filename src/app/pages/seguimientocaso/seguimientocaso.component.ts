@@ -59,13 +59,12 @@ export class SeguimientocasoComponent implements OnInit {
     pareja: [''],
     fechaS:[],
     fecha:[]
-   
+  
     
   });
 
   datePickerConfig = {
-    firstDayOfWeek: 'mo',
-    drops: 'up',
+    // drops: 'up',
     format: 'YYYY-MM-DD HH:mm',
     multipleYearsNavigateBy: 10,
     showMultipleYearsNavigation: true,

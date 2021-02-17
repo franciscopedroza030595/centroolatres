@@ -29,7 +29,7 @@ export class DatospersonalesComponent implements OnInit {
   /* ----------------------------------------------------------- */
 
   datePickerConfig = {
-    drops: 'up',
+    // drops: 'up',
     format: 'MMM, YYYY',
     multipleYearsNavigateBy: 10,
     showMultipleYearsNavigation: true,
