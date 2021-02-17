@@ -1,0 +1,32 @@
+.contact-image {
+    text-align: center;
+}
+
+.contact-image img {
+    border-radius: 6rem;
+    width: 25%;
+    margin-top: -3%;
+}
+
+.contact-form .btnContact {
+    width: 30%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #17499D;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.contact-form {
+    background: #fff;
+    margin-top: 50px;
+    margin-bottom: 5%;
+    width: 80%;
+}
+
+.contact-form .form-control {
+    border-radius: 1rem;
+}

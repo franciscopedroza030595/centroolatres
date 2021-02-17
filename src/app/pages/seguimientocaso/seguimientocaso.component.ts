@@ -163,14 +163,7 @@ export class SeguimientocasoComponent implements OnInit {
       return;
     }
 
-    if (this.pareja = true) {
-      texto = 'Pareja';
-      
-
-    } else {
-      texto = 'Paciente';
-      
-    }
+    
     this.seguiForm.value.pareja = this.id;
     this.seguiForm.value.paciente = this.id;
     this.seguiForm.value.fecha = this.fecha;
@@ -186,7 +179,7 @@ export class SeguimientocasoComponent implements OnInit {
 
     
 
-    Swal.fire('' , 'Seguimiento De ' + texto +  ' registrado exitosamente', 'success').then((result) => {
+    Swal.fire('' , 'Seguimiento registrado exitosamente', 'success').then((result) => {
       if (result.value) {
 
         let  object: any ={

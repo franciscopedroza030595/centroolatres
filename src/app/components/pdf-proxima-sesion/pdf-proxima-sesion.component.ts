@@ -15,29 +15,38 @@ import Swal from 'sweetalert2';
 })
 export class PdfProximaSesionComponent implements OnInit {
 
+
+
   @Input() dataInput: any;
+
+  infoUser: any;
+
+  DATA: any;
+
   constructor(private usuarioService: UsuarioService, private router: Router) { }
-  fecha: string ='2021-02-12';
-  nombreP: string ='John Cardona Perez'
-  cedulaP: string ='1112222'
-  edadP: string ='39'
-  proximaS: string = '2021-02-28';
-  progreso: string ='Progreso moderado'
-  acuerdos: string = 'Se establece que haran pruebas en intervalos de 8 dias'
+  fecha: string ='';
+  nombreP: string ='';
+  cedulaP: string ='';
+  edadP: string ='';
+  proximaS: string = '';
+  progreso: string ='';
+  acuerdos: string = '';
   nombreM: string = '';
-  apellidoM: string = ''
-  firmaM: string = ''
-  profesionM: string = ''
+  apellidoM: string = '';
+  firmaM: string = '';
+  profesionM: string = '';
 
 
   ngOnInit(): void {
     // console.log(this.usuarioService.obtenerInfoUsuario());
     this.usuarioService.obtenerInfoUsuario().subscribe(users =>{
+
+      this.infoUser = users;
       // console.log(users.resultados[0].nombre);
-      this.nombreM = users.resultados[0].nombre;
-      this.apellidoM = users.resultados[0].apellido;
-      this.firmaM = users.resultados[0].firma;
-      this.profesionM = users.resultados[0].profesion;
+      this.nombreM = this.infoUser.resultados[0].nombre;
+      this.apellidoM = this.infoUser.resultados[0].apellido;
+      this.firmaM = this.infoUser.resultados[0].firma;
+      this.profesionM = this.infoUser.resultados[0].profesion;
       
       
     })
@@ -86,7 +95,7 @@ export class PdfProximaSesionComponent implements OnInit {
       })
       
       // Extraemos el html desde el elemento div con su id 'htmlData'
-      const DATA = document.getElementById('htmlData');
+      this.DATA = document.getElementById('htmlData');
         
       // los parametros son:
       // portrait = vertical pt unidad de medida letra tamaño de hoja A4
@@ -96,7 +105,7 @@ export class PdfProximaSesionComponent implements OnInit {
          scale: 3,
          scrollY: -window.scrollY
        };
-       html2canvas(DATA, options).then((canvas) => {
+       html2canvas(this.DATA, options).then((canvas) => {
       
         const img = canvas.toDataURL('image/PNG');
       
@@ -128,7 +137,7 @@ export class PdfProximaSesionComponent implements OnInit {
        //  docResult.save(`${this.title}_tutorial.pdf`);
          console.log(docResult.output('dataurlnewwindow'));
         // window.open();
-        // this.seguimiento();
+        this.seguimiento();
       });
        }
 
