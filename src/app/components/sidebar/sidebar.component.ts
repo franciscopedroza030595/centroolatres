@@ -31,9 +31,7 @@ export class SidebarComponent implements OnInit {
 
   onToggle() {
     this.visible = !this.visible;
-    this.toggle.emit(this.visible);
-    /* console.log("from side-menu", this.visible); */
-    
+    this.toggle.emit(this.visible);   
   }
 
   showMenu() {

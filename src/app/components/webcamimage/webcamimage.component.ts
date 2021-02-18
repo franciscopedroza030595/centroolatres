@@ -45,6 +45,7 @@ export class WebcamimageComponent implements OnInit {
   /* for errors */
   public handleInitError(error: WebcamInitError): void {
     this.errors.push(error);
+    console.log(error);
   }
 
  

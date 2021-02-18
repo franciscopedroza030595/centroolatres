@@ -38,11 +38,9 @@ export class PdfProximaSesionComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // console.log(this.usuarioService.obtenerInfoUsuario());
     this.usuarioService.obtenerInfoUsuario().subscribe(users =>{
 
       this.infoUser = users;
-      // console.log(users.resultados[0].nombre);
       this.nombreM = this.infoUser.resultados[0].nombre;
       this.apellidoM = this.infoUser.resultados[0].apellido;
       this.firmaM = this.infoUser.resultados[0].firma;
@@ -58,11 +56,7 @@ export class PdfProximaSesionComponent implements OnInit {
     this.edadP = data.edadP;
     this.proximaS = formatDate(new Date(data.proximaS), 'YYYY-MM-dd HH:mm', 'en');
     this.progreso = data.progreso;
-    this.acuerdos = data.acuerdos;
-    // const test = this.datePipe.transform(data.proximaS,'yyyy-MM-dd');
-    // console.log(test);
-    
-     
+    this.acuerdos = data.acuerdos;  
   }
 
 
@@ -135,7 +129,8 @@ export class PdfProximaSesionComponent implements OnInit {
         return documento;
       }).then((docResult) => {
        //  docResult.save(`${this.title}_tutorial.pdf`);
-         console.log(docResult.output('dataurlnewwindow'));
+        //  console.log(docResult.output('dataurlnewwindow'));
+         docResult.output('dataurlnewwindow');
         // window.open();
         this.seguimiento();
       });

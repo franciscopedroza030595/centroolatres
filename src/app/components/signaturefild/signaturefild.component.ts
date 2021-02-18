@@ -46,25 +46,15 @@ export class SignaturefildComponent implements OnInit {
 
   drawStart() {
     // will be notified of szimek/signature_pad's onBegin event
-    console.log('begin drawing');
   }
 
 
   drawComplete() {
-
     this.signature = this.signaturePad.toDataURL();
-
-    console.log(this.signature);
-
     this.firmaClick.emit(this.signature);
-    
-
-   
-   
   } 
 
   clearSignature() {
     this.signaturePad.clear();
-    
   }
 }

@@ -29,13 +29,10 @@ export class VisualizarseguiComponent implements OnInit {
   async ngOnInit() {
 
     const id = this.actiRoute.snapshot.paramMap.get('id');
-    console.log(id);
 
     const tipo = this.actiRoute.snapshot.paramMap.get('tipo');
-    console.log(tipo);
 
     const pareja = this.actiRoute.snapshot.paramMap.get('pareja');
-    console.log(pareja);
 
     if(pareja ===  'pareja') {
       this.showpareja = true;
@@ -47,9 +44,7 @@ export class VisualizarseguiComponent implements OnInit {
 
       this.consultaService.seguimiento(id).subscribe((res: any) => {
   
-        this.infoSeguimiento = res.resultados;
-        console.log(this.infoSeguimiento);
-        
+        this.infoSeguimiento = res.resultados;        
       
       });
 
@@ -57,14 +52,11 @@ export class VisualizarseguiComponent implements OnInit {
   } else {
 
     this.remision = true
-    console.log(this.remision);
 
     this.consultaService.remision(id).subscribe((res: any) => {
 
       this.infoSeguimiento = res.resultados;
-      console.log(this.infoSeguimiento);
       
-    
     });
 
 

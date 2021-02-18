@@ -59,14 +59,12 @@ export class HistorianinosComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
 
       /* traer la informacion del paciente con el id obtenido por la cedula en la consulta anterior */
       this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
       
       
         this.infoPaciente = resp.resultados;
-        console.log(this.infoPaciente);
   
       });
       /* creo la fecha actual con la cual el registro es guardado */
@@ -110,13 +108,8 @@ export class HistorianinosComponent implements OnInit {
 
 
   addF() {
-    console.log('yeah');
-
+  
     this.formSubmitted = true;
-
-    console.log(this.hnForm.value);
-
-    console.log(this.caracteristicaf.value);
 
     this.caracteristicaf.push(this.fb.group({
       nombreyapellido: ['', Validators.required ],
@@ -147,13 +140,11 @@ export class HistorianinosComponent implements OnInit {
   this.hnForm.value.paciente = this.id;
   this.hnForm.value.fecha = this.fecha;
 
-  console.log(this.hnForm.value);
-
   /* llamo al servicio de registro de formularios */
 
   this.consultaService.historiaN(this.hnForm.value).subscribe((resp: any) => {
 
-    console.log(resp);
+    // console.log(resp);
       
   });
 

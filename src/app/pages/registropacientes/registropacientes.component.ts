@@ -25,7 +25,6 @@ export class RegistropacientesComponent implements OnInit {
   ngOnInit(): void {
 
         this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
-          console.log(resp);
           this.nameObj.nombreU = resp.resultados[0].nombre;
           this.nameObj.apellidoU = resp.resultados[0].apellido;
           this.nameObj.cargo = resp.resultados[0].profesion;

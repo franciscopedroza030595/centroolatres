@@ -94,7 +94,7 @@ export class GruposComponent implements OnInit {
   
       
   
-      console.log(this.asistentes.value);
+      // console.log(this.asistentes.value);
   
       this.asistentes.push(this.fb.group({
         paciente: ['', Validators.required ]
@@ -109,7 +109,6 @@ export class GruposComponent implements OnInit {
 
     this.numeroP--;
     this.nSearch--;
-    console.log(this.numeroP);
   }
 
   /* metodo buscar paciente */
@@ -118,7 +117,6 @@ export class GruposComponent implements OnInit {
 
     this.consultaService.obtenerPaciente(this.asistentes.value[this.nSearch].paciente).subscribe((resp: any) => {
       
-      console.log(resp.resultados);
 
       if(resp.resultados !== null) {
 
@@ -174,13 +172,13 @@ export class GruposComponent implements OnInit {
     /* numero de participantes(pacientes) */
     this.grupoForm.value.numeroP = this.numeroP;
 
-    console.log(this.grupoForm.value);
+    // console.log(this.grupoForm.value);
 
      /* llamo al servicio de registro de formularios */
 
   this.consultaService.grupo(this.grupoForm.value).subscribe((resp: any) => {
 
-    console.log(resp);
+    // console.log(resp);
       
   });
 

@@ -58,8 +58,6 @@ export class SolicitudhcComponent implements OnInit {
 
     this.consultaService.obtenerPaciente(this.solicitudForm.value.cedulaP).subscribe((resp: any) => {
       
-      console.log(resp.resultados);
-
       if(resp.resultados !== null) {
 
         this.nameP = resp.resultados.nombreyapellido;
@@ -95,12 +93,9 @@ export class SolicitudhcComponent implements OnInit {
 
     this.solicitudForm.value.fecha = this.fecha;
 
-    console.log(this.solicitudForm.value);
-
-
     this.consultaService.solicitudhc(this.solicitudForm.value).subscribe((resp: any) => {
 
-      console.log(resp);
+      // console.log(resp);
         
     });
   

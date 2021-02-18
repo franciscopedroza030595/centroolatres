@@ -58,9 +58,8 @@ export class RadiobuttonsComponent implements OnInit {
     let getname = document.getElementById(target.name);
 
 
-    if (getname === null) {
-      console.log('oops');
-    } else {
+    if (getname === null) {} 
+    else {
       // since you've done the nullable check
       // TS won't complain from this point on
       getname.className = this.classHide; // <- no error
@@ -92,9 +91,8 @@ anormalHandle(event:any){
     let getname = document.getElementById(target.name);
 
 
-    if (getname === null) {
-      console.log('oops');
-    } else {
+    if (getname === null) { } 
+    else {
       // since you've done the nullable check
       // TS won't complain from this point on
       getname.className = this.classTitular; // <- no error

@@ -243,7 +243,7 @@ export class ConsultapacientesComponent implements OnInit {
                  
 
               default:
-                console.log("No such data exists!");
+                // console.log("No such data exists!");
                 break;
 
 

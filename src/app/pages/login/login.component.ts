@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
 
           if (resp !== null) {
 
-          console.log(resp);
           this.nameObj.nombreU = resp.resultados[0].nombre;
           this.nameObj.apellidoU = resp.resultados[0].apellido;
           this.nameObj.cargo = resp.resultados[0].profesion;
@@ -82,7 +81,6 @@ export class LoginComponent implements OnInit {
       Swal.fire('Advertencia' , 'Por favor llene los campos', 'error');
       return;
     }
-    console.log(this.loginForm.value);
     this.usuarioService.login( this.loginForm.value )
       .subscribe( resp => {
 
@@ -92,7 +90,6 @@ export class LoginComponent implements OnInit {
           localStorage.removeItem('email');
         }
         this.usuarioService.obtenerInfoUsuario().subscribe( (resp: any) => {
-          console.log(resp);
           this.nameObj.nombreU = resp.resultados[0].nombre;
           this.nameObj.apellidoU = resp.resultados[0].apellido;
           this.nameObj.cargo = resp.resultados[0].profesion;

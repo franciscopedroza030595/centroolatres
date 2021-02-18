@@ -69,7 +69,6 @@ export class RemisioncasoComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
 
     this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
       if(resp !== null){
@@ -99,7 +98,7 @@ export class RemisioncasoComponent implements OnInit {
     this.consultaService.seguimientoID(this.id).subscribe((res: any) => {
 
       this.infoSeguimientos = res.resultados;
-      console.log(this.infoSeguimientos);
+      // console.log(this.infoSeguimientos);
       this.seccionesA = this.infoSeguimientos.length;
       
     
@@ -108,7 +107,7 @@ export class RemisioncasoComponent implements OnInit {
     this.consultaService.remisionID(this.id).subscribe((res: any) => {
 
       this.infoRemision = res.resultados;
-      console.log(this.infoRemision);
+      // console.log(this.infoRemision);
       this.remisionesA = this.infoRemision.length;
       this.remisionN = this.remisionesA + 1;
       
@@ -147,11 +146,11 @@ export class RemisioncasoComponent implements OnInit {
     this.remiForm.value.fecha = this.fecha;
     // Realizar el posteo mediante el servicio
     
-    console.log(this.remiForm.value);
+    // console.log(this.remiForm.value);
 
     this.consultaService.remisionPa(this.remiForm.value).subscribe((resp: any) => {
 
-      console.log(resp);
+      // console.log(resp);
         
     });
 

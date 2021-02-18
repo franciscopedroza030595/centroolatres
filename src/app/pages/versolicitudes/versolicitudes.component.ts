@@ -20,10 +20,7 @@ export class VersolicitudesComponent implements OnInit {
 
     this.consultaService.getsolicitudhc().subscribe((resp: any) => {
 
-      
       this.infoSolicitudes = resp.solicitudhc;
-      console.log(this.infoSolicitudes);
-      
       
     });
 

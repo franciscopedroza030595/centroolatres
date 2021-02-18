@@ -29,7 +29,6 @@ export class DatospersonalesComponent implements OnInit {
   /* ----------------------------------------------------------- */
 
   datePickerConfig = {
-    // drops: 'up',
     format: 'MMM, YYYY',
     multipleYearsNavigateBy: 10,
     showMultipleYearsNavigation: true,
@@ -78,17 +77,13 @@ export class DatospersonalesComponent implements OnInit {
  
   /* --------------------------camera--------------------------- */
   webimage(url:any){
-    console.log(url);
     this.webcam = url;
   }
 
   /*----------- methods for signature ---------------------*/
   drawStart(url:any) {
-    
-
-    console.log(url);
+  
     this.signature = url;
-   
   
   } 
 
@@ -103,9 +98,7 @@ export class DatospersonalesComponent implements OnInit {
 
     /* calcular la edad con la fechanan */
     this.edad(this.datospForm.value.fechanacimiento);
-
-    console.log(this.edadP);
-    
+   
     this.datospForm.value.edad = this.edadP;
     
     /* asigno la foto */
@@ -115,9 +108,6 @@ export class DatospersonalesComponent implements OnInit {
 
     // Realizar el posteo mediante el servicio
     
-    
-    console.log(this.datospForm.value);
-
     this.usuarioService.paciente(this.datospForm.value).subscribe((resp: any) => {
       
     });
@@ -138,15 +128,11 @@ export class DatospersonalesComponent implements OnInit {
 
 edad(edad: any){
 
-  console.log(edad);
-
   const convertAge = new Date(edad);
   const timeDiff = Math.abs(Date.now() - convertAge.getTime());
   const showAge = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
   
   this.edadP = showAge;
-  /* console.log(showAge); */
-
 
 }
   

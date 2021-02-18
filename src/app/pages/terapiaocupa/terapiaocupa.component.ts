@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import {  FormBuilder, Validators, FormGroup  } from '@angular/forms';
 
-
-
 import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
@@ -241,15 +239,12 @@ export class TerapiaocupaComponent implements OnInit {
     ];
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
-
     
   /* traer la informacion del paciente con el id obtenido por la cedula en la consulta anterior */
     this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
       
       
       this.infoPaciente = resp.resultados;
-      console.log(this.infoPaciente);
 
     });
     /* creo la fecha actual con la cual el registro es guardado */
@@ -351,13 +346,12 @@ export class TerapiaocupaComponent implements OnInit {
     this.terapiaForm.value.paciente = this.id;
     this.terapiaForm.value.fecha = this.fecha;
   
-    console.log(this.terapiaForm.value);
   
     /* llamo al servicio de registro de formularios */
   
     this.consultaService.terapiaO(this.terapiaForm.value).subscribe((resp: any) => {
   
-      console.log(resp);
+      // console.log(resp);
         
     });
   

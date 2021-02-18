@@ -60,15 +60,12 @@ export class HistoriaadultosComponent implements OnInit {
 
    
     this.id = this.actiRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
-
-    
+   
   /* traer la informacion del paciente con el id obtenido por la cedula en la consulta anterior */
     this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
       
       
       this.infoPaciente = resp.resultados;
-      console.log(this.infoPaciente);
 
     });
     /* creo la fecha actual con la cual el registro es guardado */
@@ -109,13 +106,8 @@ export class HistoriaadultosComponent implements OnInit {
 
 
   addF() {
-    console.log('yeah');
 
     this.formSubmitted = true;
-
-    console.log(this.haForm.value);
-
-    console.log(this.caracteristicaf.value);
 
     this.caracteristicaf.push(this.fb.group({
       nombreyapellido: ['', Validators.required ],
@@ -145,13 +137,12 @@ export class HistoriaadultosComponent implements OnInit {
   this.haForm.value.paciente = this.id;
   this.haForm.value.fecha = this.fecha;
 
-  console.log(this.haForm.value);
 
   /* llamo al servicio de registro de formularios */
 
   this.consultaService.historiaA(this.haForm.value).subscribe((resp: any) => {
 
-    console.log(resp);
+    // console.log(resp);
       
   });
 

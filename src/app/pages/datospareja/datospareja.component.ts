@@ -108,12 +108,10 @@ export class DatosparejaComponent implements OnInit {
     /*---------------- methods for camera ---------------------*/
 
     webimage(url:any){
-      console.log(url);
       this.webcam = url;
     }
 
     webimage2(url:any){
-      console.log(url);
       this.webcam2 = url;
     }
 
@@ -125,22 +123,13 @@ export class DatosparejaComponent implements OnInit {
 
   
   drawStart(url:any) {
-    
-
-    console.log(url);
-    this.signature = url;
-   
-
-  
+      this.signature = url;
   } 
   drawStart2(url:any) {
     
-
-    console.log(url);
     this.signature2 = url;
     this.datospForm.value.firma2 = this.signature2;
-
-  
+ 
   } 
 
   /* ------------------------------------------------------------------- */
@@ -168,7 +157,7 @@ export class DatosparejaComponent implements OnInit {
     this.datospForm.value.edad2 = this.edadP2;
 
     
-    console.log(this.datospForm.value);
+    // console.log(this.datospForm.value);
     
 
     this.usuarioService.pareja(this.datospForm.value).subscribe((resp: any) => {

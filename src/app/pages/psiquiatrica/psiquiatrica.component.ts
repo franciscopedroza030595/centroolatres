@@ -236,7 +236,6 @@ export class PsiquiatricaComponent implements OnInit {
 
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
 
     
   /* traer la informacion del paciente con el id obtenido por la cedula en la consulta anterior */
@@ -244,7 +243,6 @@ export class PsiquiatricaComponent implements OnInit {
       
       
       this.infoPaciente = resp.resultados;
-      console.log(this.infoPaciente);
 
     });
     /* creo la fecha actual con la cual el registro es guardado */
@@ -337,16 +335,12 @@ export class PsiquiatricaComponent implements OnInit {
      /* RECORDAR CALCULAR IMC PRIMERO */
 
      this.psiquiForm.value.imc = (this.psiquiForm.value.peso/(this.psiquiForm.value.talla)**2);
-  
-    console.log(this.psiquiForm.value);
- 
-
 
     /* llamo al servicio de registro de formularios */
   
     this.consultaService.psiqui(this.psiquiForm.value).subscribe((resp: any) => {
   
-      console.log(resp);
+      // console.log(resp);
         
     });
   
