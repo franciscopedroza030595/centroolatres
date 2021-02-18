@@ -58,15 +58,15 @@ const routes: Routes = [
   {path: 'solicitudhc', component: SolicitudhcComponent},
   {path: 'versolicitudhc', canActivate:[PsicologoGuard, PsiquiatraGuard, AuxiliarGuard, TerapeutaGuard], component: VersolicitudesComponent},
   {path: 'pdfseguimiento', component: PdfProximaSesionComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  
 
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: '**', redirectTo: 'home', pathMatch: 'full'},
+  //{path: '**', redirectTo: 'home', pathMatch: 'full'},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
