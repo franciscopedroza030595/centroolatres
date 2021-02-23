@@ -72,10 +72,14 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
                         "browserTarget": "centroolatres:build"
+
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "centroolatres:build:production"
+                            "browserTarget": "centroolatres:build:production",
+                            "ssl": true,
+                            "sslCert": "/etc/letsencrypt/live/centroolatres.com/fullchain.pem",
+                            "sslKey": "/etc/letsencrypt/live/centroolatres.com/privkey.pem"
                         }
                     }
                 },
