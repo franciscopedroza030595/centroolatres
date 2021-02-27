@@ -1,7 +1,7 @@
 {
-    "/api": {
-        "target": "https://31.220.56.189:3000/api",
-        "secure": true,
+    "/api/*": {
+        "target": "https://centroolatres.com",
+        "secure": false,
         "changeOrigin": true,
         "pathRewrite": {
             "^/api": ""
