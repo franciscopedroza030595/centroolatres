@@ -220,8 +220,9 @@ export class ConsultapacientesComponent implements OnInit {
                   Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
                     if (result.value) {
                       
-                      
-                      this.router.navigate(['/seguimientoC', this.id]);
+                      /* crear variable llamada paciente y enviarla tambien */
+                      const p = 'paciente';
+                      this.router.navigate(['/seguimientoC', this.id, p]);
                     
                     }
                   });
@@ -233,8 +234,8 @@ export class ConsultapacientesComponent implements OnInit {
                     Swal.fire('' , 'Paciente Existente', 'success').then((result) => {
                       if (result.value) {
                         
-                        
-                        this.router.navigate(['/remision', this.id]);
+                        const p = 'paciente';
+                        this.router.navigate(['/remision', this.id, p]);
                       
                       }
                     });
@@ -315,8 +316,9 @@ export class ConsultapacientesComponent implements OnInit {
               Swal.fire('' , 'Pareja Existente', 'success').then((result) => {
                 if (result.value) {
                   
-                  
-                  this.router.navigate(['/seguimientoC', this.id]);
+                  /* crear variable llamada pareja y enviarla tambien */
+                  const p = 'pareja';
+                  this.router.navigate(['/seguimientoC', this.id, p]);
                 
                 }
               });
@@ -328,8 +330,8 @@ export class ConsultapacientesComponent implements OnInit {
               Swal.fire('' , 'Pareja Existente', 'success').then((result) => {
                 if (result.value) {
                   
-                  
-                  this.router.navigate(['/remision', this.id]);
+                  const p = 'pareja';
+                  this.router.navigate(['/remision', this.id, p]);
                 
                 }
               });

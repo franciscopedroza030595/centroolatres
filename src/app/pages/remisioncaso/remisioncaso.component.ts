@@ -22,6 +22,7 @@ export class RemisioncasoComponent implements OnInit {
   fecha: any;
   fechaN: String[] = [];
   id: any;
+  p: any;
   remisionesA = 0;
   remisionN = 0;
 
@@ -69,30 +70,35 @@ export class RemisioncasoComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
+    this.p = this.actiRoute.snapshot.paramMap.get('p');
 
-    this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
-      if(resp !== null){
-      this.infoPa = resp.resultados;
-      this.pareja = false;
+    if(this.p === 'paciente') {
+      this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
 
-      this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
-
+        if(resp !== null){
+          this.infoPa = resp.resultados;
+          this.pareja = false;
+          this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+          
+        } 
       
-    } 
+      });
+
+    }
     
-    });
-    
-    this.consultaService.parejaporID(this.id).subscribe((resp: any) => {
-      if(resp !== null){
-      this.infoPa = resp.resultados;
-      
-      this.pareja = true;
+    if(this.p === 'pareja'){
+      this.consultaService.parejaporID(this.id).subscribe((resp: any) => {
+        if(resp !== null){
+          this.infoPa = resp.resultados;
+          this.pareja = true;
+          this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+          this.fechaN[1] = formatDate(new Date(this.infoPa.fechanacimiento2), 'YYYY-MM-dd', 'en');
+         
+  
+        }
+      });
 
-      this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
-      this.fechaN[1] = formatDate(new Date(this.infoPa.fechanacimiento2), 'YYYY-MM-dd', 'en');
-      
-      }
-    });
+    }
 
 
     this.consultaService.seguimientoID(this.id).subscribe((res: any) => {
@@ -131,30 +137,21 @@ export class RemisioncasoComponent implements OnInit {
       return;
     }
 
-    if (this.pareja = true) {
-      texto = 'Pareja';
-      
-
-    } else {
-      texto = 'Paciente';
-      
-    }
-
 
     this.remiForm.value.paciente = this.id;
     this.remiForm.value.pareja = this.id;
     this.remiForm.value.fecha = this.fecha;
     // Realizar el posteo mediante el servicio
     
-    // console.log(this.remiForm.value);
+    
 
     this.consultaService.remisionPa(this.remiForm.value).subscribe((resp: any) => {
 
-      // console.log(resp);
+      
         
     });
 
-    Swal.fire('' , 'Remision De ' + texto +  ' registrado exitosamente', 'success').then((result) => {
+    Swal.fire('' , 'Remision registrada exitosamente', 'success').then((result) => {
       if (result.value) {
     
        

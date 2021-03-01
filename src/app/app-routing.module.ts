@@ -47,11 +47,11 @@ const routes: Routes = [
   {path: 'terapiaP/:id', component: TerapiaparejasComponent},
   {path: 'registroP', canActivate:[PsicologoGuard, PsiquiatraGuard], component: RegistropacientesComponent},
   {path: 'datospareja', component: DatosparejaComponent},
-  {path: 'remision/:id', component: RemisioncasoComponent},
+  {path: 'remision/:id/:p', component: RemisioncasoComponent},
   {path: 'busquedaP', component: BusquedapaComponent},
   {path: 'consultaP', canActivate:[AuxiliarGuard], component: ConsultapacientesComponent},
-  {path: 'seguimientoC/:id', component: SeguimientocasoComponent},
-  {path: 'visualziarS/:id/:tipo/:pareja', component: VisualizarseguiComponent},
+  {path: 'seguimientoC/:id/:p', component: SeguimientocasoComponent},
+  {path: 'visualizarS/:id/:tipo/:pareja', component: VisualizarseguiComponent},
   {path: 'grupos', component: GruposComponent},
   {path: 'terapiaO/:id', canActivate:[PsicologoGuard, PsiquiatraGuard], component: TerapiaocupaComponent},
   {path: 'psiquiatrica/:id', canActivate:[PsicologoGuard, TerapeutaGuard], component: PsiquiatricaComponent},
@@ -66,7 +66,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes/* , {useHash: true} */)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

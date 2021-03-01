@@ -28,6 +28,8 @@ export class VisualizarseguiComponent implements OnInit {
 
   async ngOnInit() {
 
+    
+
     const id = this.actiRoute.snapshot.paramMap.get('id');
 
     const tipo = this.actiRoute.snapshot.paramMap.get('tipo');

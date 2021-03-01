@@ -39,6 +39,16 @@ export class InterceptorService implements HttpInterceptor {
           
           this.router.navigateByUrl('/home');
         }
+        if (err.status === 404) {
+          Swal.fire('', 'Error De Solicitud Con El Servidor', 'error' );
+          
+          this.router.navigateByUrl('/home');
+        }
+        if (err.status === 404) {
+          Swal.fire('', 'Error De Envio Al Servidor', 'error' );
+          
+          this.router.navigateByUrl('/home');
+        }
         if (err.status === 0) {
           Swal.fire('', 'Error De Conexion Con El Servidor', 'error' );
          

@@ -27,6 +27,7 @@ export class SeguimientocasoComponent implements OnInit {
   fechaN: String[] = [];
 
   id: any;
+  p: any;
   seccionesA = 0;
   secccionN = 0;
 
@@ -40,14 +41,11 @@ export class SeguimientocasoComponent implements OnInit {
   pareja = false;
 
   infoSeguimientos: any;
+  showinfo = false;
 
   segui = false;
 
   
-
-  nombreP = 'pacho'; // para pdf ver despues!!!
-  
-
   public seguiForm = this.fb.group({
     descripcion: ['', Validators.required ],
     situaciones: ['', Validators.required ],
@@ -89,35 +87,52 @@ export class SeguimientocasoComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = this.actiRoute.snapshot.paramMap.get('id');
+
+    this.p = this.actiRoute.snapshot.paramMap.get('p');
+    
+    if(this.p === 'paciente') {
+      this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
+
+        if(resp !== null){
+          this.infoPa = resp.resultados;
+          this.pareja = false;
+          this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+          this.getinfo(this.id);
+        } 
+      
+      });
+
+    }
+    
+    if(this.p === 'pareja'){
+      this.consultaService.parejaporID(this.id).subscribe((resp: any) => {
+        if(resp !== null){
+          this.infoPa = resp.resultados;
+          this.pareja = true;
+          this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+          this.fechaN[1] = formatDate(new Date(this.infoPa.fechanacimiento2), 'YYYY-MM-dd', 'en');
+          this.getinfo(this.id);
+  
+        }
+      });
+
+    }
    
+    /* creo la fecha actual con la cual el registro es guardado */
+    this.fecha = formatDate(new Date(), 'YYYY-MM-dd, h:mm:ss a', 'en');
+        
     
-    this.consultaService.pacienteporID(this.id).subscribe((resp: any) => {
-      if(resp !== null){
-      this.infoPa = resp.resultados;
-      this.pareja = false;
 
-      this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
+     /* -------------------- */
+  }
 
-      
-    } 
-    
-    });
-    
-    this.consultaService.parejaporID(this.id).subscribe((resp: any) => {
-      if(resp !== null){
-      this.infoPa = resp.resultados;
-      
-      this.pareja = true;
+  getinfo(id:any){
 
-      this.fechaN[0] = formatDate(new Date(this.infoPa.fechanacimiento), 'YYYY-MM-dd', 'en');
-      this.fechaN[1] = formatDate(new Date(this.infoPa.fechanacimiento2), 'YYYY-MM-dd', 'en');
-      
-      }
-    });
-
-    this.consultaService.seguimientoID(this.id).subscribe((res: any) => {
+    this.consultaService.seguimientoID(id).subscribe((res: any) => {
 
       this.infoSeguimientos = res.resultados;
+
+      this.showinfo = true
       
    
       this.seccionesA = this.infoSeguimientos.length;
@@ -125,21 +140,6 @@ export class SeguimientocasoComponent implements OnInit {
     
     });
 
-        /* creo la fecha actual con la cual el registro es guardado */
-        this.fecha = formatDate(new Date(), 'YYYY-MM-dd, h:mm:ss a', 'en');
-        
-        
-
-
-     /* prueba de pdf */
-    /* const documento = new jsPDF();
-    documento.text('Hola mundo!', 10, 10); // "Texto" , horizontal, vertical
-    documento.save('hello.pdf');
-     */
-
-
-
-     /* -------------------- */
   }
 
   ultimaNo() {
@@ -214,6 +214,8 @@ export class SeguimientocasoComponent implements OnInit {
 
   visualizarSeguim(id:any) {
 
+   
+
     const tipo = 'segui'
     let pareja = ''
     if(this.pareja === true) {
@@ -222,12 +224,14 @@ export class SeguimientocasoComponent implements OnInit {
        pareja = 'no';
     }
 
+    //this.router.navigate(['/visualizarS', id]);
+
     const url = this.router.serializeUrl(
-      this.router.createUrlTree([`/visualziarS/${id}/${tipo}/${pareja}`])
+      this.router.createUrlTree([`/visualizarS/${id}/${tipo}/${pareja}`])
     );
 
     this.router.navigate([]).then(result => {  window.open(url, '_blank') });
-  }
+  } 
 
 
 

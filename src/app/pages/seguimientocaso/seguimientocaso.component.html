@@ -2,7 +2,7 @@
 
     <app-sidebar></app-sidebar>
 
-    <div class="historia" *ngIf="!segui">
+    <div class="historia" *ngIf="!segui showinfo">
         <div class="container contact-form">
             <div class="contact-image">
                 <img src="../../../../assets/images/LOGO.jpg" alt="centroolatres" />
@@ -272,7 +272,7 @@
     </div>
 
     <!-- para ver los seguimientos con un ngfor a infoSeguimientos -->
-    <div class="segui" *ngIf="segui">
+    <div class="segui" *ngIf="segui showinfo">
 
         <button class="btnContactVolver" (click)="volver()">Volver</button>
 
