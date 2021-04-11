@@ -4,11 +4,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
 
-# Menu view
+## Menu view
 ![image](https://user-images.githubusercontent.com/47983522/114317379-6b0e3b00-9acd-11eb-9cc9-f5c6e0db3682.png)
 
 
-# Start
+## Start
    ```
    npm install
    ```
