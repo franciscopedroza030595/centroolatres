@@ -9,8 +9,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 # Start
+   ```
+   npm install
+   ```
 
-npm install
 
 ## Development server
 
